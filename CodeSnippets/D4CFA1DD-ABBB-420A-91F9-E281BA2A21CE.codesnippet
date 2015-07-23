@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>backgroundImage</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>"backgroundImage":{
+    &lt;#stateImages#&gt;
+        }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>D4CFA1DD-ABBB-420A-91F9-E281BA2A21CE</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.JSON</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>背景图片</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>backgroundImage</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

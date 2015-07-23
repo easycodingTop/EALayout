@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionPrefix</key>
+	<string>contentHeaderView</string>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>All</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>"contentHeaderView":{
+        "class":"&lt;#UIView#&gt;",
+        "layout":{"s":"l,r,h=&lt;#h#&gt;"},
+    "addSubview":[
+                  &lt;#views#&gt;
+                  ]
+    }</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>BC80ABBD-69C9-4B00-988A-1B05682E374D</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.JSON</string>
+	<key>IDECodeSnippetSummary</key>
+	<string>contentHeaderView template</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>contentHeaderView</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
