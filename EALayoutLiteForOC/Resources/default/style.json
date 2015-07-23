@@ -1,0 +1,16 @@
+{
+
+    "fontStyle":{
+        "font":18
+    },
+    
+    "greenStyle":{
+        "textColor":"greenColor",
+    },
+    "blueBackStyle":{
+        "backgroundColor":"blueColor"
+    },
+    "redBackStyle":{
+        "backgroundColor":"redColor"
+    }
+}

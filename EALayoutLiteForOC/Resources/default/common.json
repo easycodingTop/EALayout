@@ -1,0 +1,13 @@
+
+{
+    "tableView":
+    {
+        "class":"UITableView",
+        "layout":{"s":"l,r,b"},
+        "showsHorizontalScrollIndicator":0,
+        "showsVerticalScrollIndicator":0,
+        "backgroundColor":"clearColor",
+        "separatorStyle":"none"
+    }
+}
+

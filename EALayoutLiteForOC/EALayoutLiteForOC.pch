@@ -1,0 +1,20 @@
+//
+//  EALayoutLiteForOC.pch
+//  EALayoutLiteForOC
+//
+//  Created by splendourbell on 15/7/21.
+//  Copyright (c) 2015年 easycoding. All rights reserved.
+//
+
+#ifndef EALayoutLiteForOC_EALayoutLiteForOC_pch
+#define EALayoutLiteForOC_EALayoutLiteForOC_pch
+
+#ifdef __OBJC__
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <EALayout/EALayout.h>
+
+#endif
+
+#endif
