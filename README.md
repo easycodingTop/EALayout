@@ -1,3 +1,4 @@
+![image](https://github.com/easycodingTop/EALayoutLiteForOC/raw/master/README.gif)
 # EALayoutLiteForOC
 
 https://github.com/easycodingTop/EALayout    for Swift
