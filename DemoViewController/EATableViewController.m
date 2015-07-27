@@ -21,6 +21,7 @@ NSString* defaultCell = @"defaultCell";
 
 -(void)loadView{
     [super loadView];
+    self.cacheViews = [NSMutableDictionary dictionary];
     [self createTableView];
 }
 
@@ -79,9 +80,6 @@ NSString* defaultCell = @"defaultCell";
 
 -(UITableViewCell*)createCacheCell:(NSString*)identifier {
     
-    if(!self.cacheViews) {
-        self.cacheViews = [NSMutableDictionary dictionary];
-    }
     NSString* dentifier_cache = [identifier stringByAppendingString:@"_cache"];
     UITableViewCell* cacheView = (UITableViewCell*)self.cacheViews[dentifier_cache];
     
