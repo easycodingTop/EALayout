@@ -9,6 +9,7 @@
 #ifndef EALayoutLiteForOC_EADebugWindow_h
 #define EALayoutLiteForOC_EADebugWindow_h
 
+#import <UIKit/UIKit.h>
 
 @interface EADebugWindow : UIWindow
 

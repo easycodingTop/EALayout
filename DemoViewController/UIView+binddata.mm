@@ -4,6 +4,7 @@
 /********************** 绑定基本数据到对象 *********************************/
 
 //MARK: 绑定view最常用数据 UIView(bindData)
+#import <UIKit/UIKit.h>
 
 @interface UIView(bindData)
 

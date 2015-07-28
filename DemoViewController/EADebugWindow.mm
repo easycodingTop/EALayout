@@ -126,9 +126,9 @@
     if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"debugSkin"] ){
         UIViewController* rootVC = [[UIApplication sharedApplication].windows[0] rootViewController];
         if( [rootVC isKindOfClass:[UINavigationController class]]){
-            [(EAViewController*)[((UINavigationController*)rootVC) topViewController] freshSkin];
+            [[((UINavigationController*)rootVC) topViewController] performSelector:@selector(freshSkin)];
         } else {
-            [(EAViewController*)rootVC freshSkin];
+            [rootVC  performSelector:@selector(freshSkin)];
         }
     }
 }
