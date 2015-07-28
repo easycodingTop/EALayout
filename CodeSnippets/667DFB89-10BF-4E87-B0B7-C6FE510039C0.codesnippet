@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>numberOfLines</string>
+	<string>hidden</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>"numberOfLines":&lt;#line#&gt;</string>
+	<string>"hidden":true,</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>8555ED95-687B-474F-A8EA-4B2E75E3C4DB</string>
+	<string>667DFB89-10BF-4E87-B0B7-C6FE510039C0</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.JSON</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>numberOfLines   0 for auto</string>
+	<string>hidden the control</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>numberOfLines</string>
+	<string>hidden</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>

@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>IDECodeSnippetCompletionPrefix</key>
-	<string>numberOfLines</string>
+	<string>layerborderWidth</string>
 	<key>IDECodeSnippetCompletionScopes</key>
 	<array>
 		<string>All</string>
 	</array>
 	<key>IDECodeSnippetContents</key>
-	<string>"numberOfLines":&lt;#line#&gt;</string>
+	<string>"layer.borderWidth":&lt;#width#&gt;</string>
 	<key>IDECodeSnippetIdentifier</key>
-	<string>8555ED95-687B-474F-A8EA-4B2E75E3C4DB</string>
+	<string>4F0A6E1C-54EF-4FB9-A7B0-B9874163B8B4</string>
 	<key>IDECodeSnippetLanguage</key>
 	<string>Xcode.SourceCodeLanguage.JSON</string>
 	<key>IDECodeSnippetSummary</key>
-	<string>numberOfLines   0 for auto</string>
+	<string>layer.borderWidth</string>
 	<key>IDECodeSnippetTitle</key>
-	<string>numberOfLines</string>
+	<string>layer.borderWidth</string>
 	<key>IDECodeSnippetUserSnippet</key>
 	<true/>
 	<key>IDECodeSnippetVersion</key>
