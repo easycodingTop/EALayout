@@ -13,7 +13,7 @@
         "addSubview":[
                       {
                       "class":"UIImageView",
-                      "image":"image/1024x682.jpg",
+                      "image":"1024x682.jpg",
                       "userInteractionEnabled":true,
                       "layout":{"s":"l=10,t=10,r=10,h=mw*0.666","tag":1},
                       "backgroundColor":[170,255,29],
@@ -124,15 +124,7 @@
         "titleColor":{
             "normal":"whiteColor"
         },
-        "layout":{"s":"l,t=20,w=44,h=44","tag":12},
-        "addSubview":
-        [
-         {
-         "class":"UIImageView",
-         "image":"discusszone/ic_viewback.png",
-         "layout":{"s":"m,c,w=12,h=20"}
-         }
-         ]
+        "layout":{"s":"l,t=20,w=44,h=44","tag":12}
     },
     "titleRightView":{
         "class":"UIButton",
@@ -314,7 +306,8 @@
         "addSubview":[
                       {
                       "class":"UIImageView",
-                      "image":"image/testicon.jpg",
+                      "image":"testicon.jpg",
+                      "backgroundColor":"redColor",
                       "layout":{"s":"l=10,t=10,b=10,w=40,h=40,m","tag":1}
                       },
                       {

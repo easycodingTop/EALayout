@@ -55,7 +55,7 @@
     EADebugWindow* debugWin = [EADebugWindow createDebugWindow];
     debugWin.hidden = NO;
 #if TARGET_IPHONE_SIMULATOR
-    [debugWin setSkinPath:@"Resources/default" absolutePath:__FILE__];
+    [debugWin setSkinPath:@"Resources" absolutePath:__FILE__];
 #endif
 
 }

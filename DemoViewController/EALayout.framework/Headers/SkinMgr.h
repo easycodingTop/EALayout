@@ -13,7 +13,7 @@
 
 /* 
  @skinPath 布局文件所在目录
-    默认值:[[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:@"default"]
+    默认值:[NSBundle mainBundle].resourcePath
  */
 @property (nonatomic, strong) NSString* skinPath;
 
