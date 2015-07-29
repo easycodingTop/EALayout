@@ -14,4 +14,5 @@ https://github.com/easycodingTop/EALayoutLiteForOC   for Objective-C
 
 基础教程: http://blog.csdn.net/fatherhui
 
-QQ群:454686295 视频演示地址：高清视频，有些慢 http://easycoding.top:8080/videos/video_1.mp4 http://easycoding.top:8080/videos/video_2.mp4
+QQ群:454686295 
+视频演示地址：视频演示地址：http://pan.baidu.com/s/1kTEL1xP
