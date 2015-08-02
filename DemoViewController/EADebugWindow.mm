@@ -2,18 +2,13 @@
 #import "EADebugWindow.h"
 #import "EAViewController.h"
 
-@interface EADebugWindow()
-@property (copy) NSString* skinPath;
--(void)tick;
--(void)autoRefresh;
-@end
-
 @implementation EADebugWindow
 {
     NSTimer* timer;
 }
 
-+(instancetype)createDebugWindow {
++(instancetype)createDebugWindow
+{
     static dispatch_once_t pred = 0;
     static EADebugWindow *debugWindow = nil;
     dispatch_once(&pred, ^{
@@ -22,14 +17,17 @@
     return debugWindow;
 }
 
--(void)setSkinPath:(NSString*)relativePath absolutePath:(const char*)cAbsolutePath {
+-(void)setSkinPath:(NSString*)relativePath absolutePath:(const char*)cAbsolutePath
+{
     NSString*  absolutePath = [NSString stringWithUTF8String:cAbsolutePath];
-    _skinPath = [[[absolutePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:relativePath] copy];
-    [SkinMgr sharedInstance].skinPath = _skinPath;
+    NSString* skinPath = [[absolutePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:relativePath];
+    [SkinMgr sharedInstance].skinPath = skinPath;
 }
 
--(id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)]) {
+-(id)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)])
+    {
         UIButton* button = [[UIButton alloc] initWithFrame:self.bounds];
         [button addTarget:self action:@selector(switchSkinDebug:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -70,7 +68,8 @@
     return self;
 }
 
--(void)switchRefresh:(UIButton*)button {
+-(void)switchRefresh:(UIButton*)button
+{
     button.selected = !button.selected;
     if(button.selected) {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"debugSkin"];
@@ -83,7 +82,8 @@
     }
 }
 
--(void)refresh:(UIButton*)button {
+-(void)refresh:(UIButton*)button
+{
     button.selected = !button.selected;
     [[NSUserDefaults standardUserDefaults] setBool:button.selected forKey:@"debugSkin"];
     [self tick];
@@ -92,14 +92,18 @@
     label.text = @(value).stringValue;
 }
 
--(void)switchSkinDebug:(UIButton*)button {
+-(void)switchSkinDebug:(UIButton*)button
+{
     button.selected = !button.selected;
-    if(button.selected) {
+    if(button.selected)
+    {
         self.backgroundColor = [UIColor yellowColor];
         [button viewWithTag:81001].hidden = NO;
         [button viewWithTag:81002].hidden = NO;
         [self viewWithTag:7001].hidden = NO;
-    } else {
+    }
+    else
+    {
         self.backgroundColor = nil;
         [button viewWithTag:81001].hidden = YES;
         [button viewWithTag:81002].hidden = YES;
@@ -110,30 +114,36 @@
     [self autoRefresh];
 }
 
--(void)autoRefresh {
-    if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"debugSkin"] ){
-        if (nil == timer) {
+-(void)autoRefresh
+{
+    if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"debugSkin"] )
+    {
+        if (nil == timer)
+        {
             NSTimeInterval ds = 1;
             timer = [NSTimer scheduledTimerWithTimeInterval:ds target:self selector:@selector(tick) userInfo:nil repeats:YES];
         }
-    } else {
+    }
+    else
+    {
         [timer invalidate];
         timer = nil;
     }
 }
 
--(void)tick {
-    if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"debugSkin"] ){
+-(void)tick
+{
+    if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"debugSkin"] )
+    {
         UIViewController* rootVC = [[UIApplication sharedApplication].windows[0] rootViewController];
         if( [rootVC isKindOfClass:[UINavigationController class]]){
             [[((UINavigationController*)rootVC) topViewController] performSelector:@selector(freshSkin)];
-        } else {
+        }
+        else
+        {
             [rootVC  performSelector:@selector(freshSkin)];
         }
     }
 }
+
 @end
-
-
-
-

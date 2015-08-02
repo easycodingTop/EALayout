@@ -1,6 +1,8 @@
 ![image](https://github.com/easycodingTop/EALayoutLiteForOC/raw/master/README.gif)
 # EALayoutLiteForOC
 
+精简版DEMO :  https://github.com/easycodingTop/EAExtraLiteDemo
+
 https://github.com/easycodingTop/EALayout    for Swift
 https://github.com/easycodingTop/EALayoutLiteForOC   for Objective-C
 
