@@ -11,7 +11,8 @@
 
 @implementation EATableViewCell
 
--(void)layoutSubviews {
+-(void)layoutSubviews
+{
     [super layoutSubviews];
     [self spUpdateLayout];
 }

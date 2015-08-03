@@ -19,25 +19,30 @@
 
 NSString* defaultCell = @"defaultCell";
 
--(void)loadView{
+-(void)loadView
+{
     [super loadView];
     self.cacheViews = [NSMutableDictionary dictionary];
     [self createTableView];
 }
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     return [self createCell:defaultCell];
 }
     
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 10;
 }
     
--(UITableView*) createTableView {
+-(UITableView*) createTableView
+{
     _tableView = (UITableView*)[self.skinParser parse:EA_tableView];
     [self.contentLayoutView removeFromSuperview];
     self.contentLayoutView = _tableView;
-    if(_tableView) {
+    if(_tableView)
+    {
         [self.view addSubview:_tableView];
     }
     _tableView.delegate = self;
@@ -48,7 +53,8 @@ NSString* defaultCell = @"defaultCell";
     return _tableView;
 }
 
--(void)resetTableHeaderView:(UIView*)tableHeaderView  {
+-(void)resetTableHeaderView:(UIView*)tableHeaderView
+{
     CGRect rect = self.view.frame;
     tableHeaderView.frame = rect;
     [tableHeaderView spUpdateLayout];
@@ -57,35 +63,42 @@ NSString* defaultCell = @"defaultCell";
     _tableView.tableHeaderView = tableHeaderView;
 }
 
--(UITableViewCell*) createCell {
+-(UITableViewCell*) createCell
+{
     return [self createCell:defaultCell];
 }
     
--(UITableViewCell*)createCell:(NSString*)identifier {
+-(UITableViewCell*)createCell:(NSString*)identifier
+{
     return [self createCell:identifier created:nil];
 }
 
--(UITableViewCell*)createCell:(NSString*)identifier created:(void (^)(UITableViewCell* cell)) created {
+-(UITableViewCell*)createCell:(NSString*)identifier created:(void (^)(UITableViewCell* cell)) created
+{
     UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
+    if (!cell)
+    {
         cell = [[EATableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [self.skinParser parse:identifier view:cell];
-        if(created) {
+        if(created)
+        {
             created(cell);
         }
     }
     return cell;
 }
 
--(UITableViewCell*)createCacheCell:(NSString*)identifier {
-    
+-(UITableViewCell*)createCacheCell:(NSString*)identifier
+{
     NSString* dentifier_cache = [identifier stringByAppendingString:@"_cache"];
     UITableViewCell* cacheView = (UITableViewCell*)self.cacheViews[dentifier_cache];
     
-    if (!cacheView) {
+    if (!cacheView)
+    {
         cacheView = [_tableView dequeueReusableCellWithIdentifier:(NSString*)dentifier_cache];
-        if (!cacheView) {
+        if (!cacheView)
+        {
             cacheView = [[EATableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dentifier_cache];
             [self.skinParser parse:identifier view:cacheView];
         }
