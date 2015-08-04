@@ -6,6 +6,9 @@
 //  Copyright (c) 2015年 easycoding. All rights reserved.
 //
 
+#ifndef __UITABLEVIEWCELL_SKINPARSER_H__
+#define __UITABLEVIEWCELL_SKINPARSER_H__
+
 #import <Foundation/Foundation.h>
 #import "UIView+SkinParser.h"
 
@@ -36,3 +39,5 @@ DefineParseFun(addSubview);
 DefineParseFun(selectionStyle);
 
 @end
+
+#endif //__UITABLEVIEWCELL_SKINPARSER_H__

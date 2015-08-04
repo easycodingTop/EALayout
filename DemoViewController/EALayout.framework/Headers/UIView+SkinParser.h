@@ -6,17 +6,20 @@
 //  Copyright (c) 2015年 easycoding. All rights reserved.
 //
 
+#ifndef __UIVIEW_SKINPARSER_H__
+#define __UIVIEW_SKINPARSER_H__
+
 #import <Foundation/Foundation.h>
 #import "SkinParser.h"
 
-/**
- * @brief 手动设置 layout
- */
-
-
 @interface UIView(SkinParser)
 
-/*
+/**
+ @brief 可以给View设置一个 String类型的tag, 更具识别性。
+ */
+@property (nonatomic, strong) NSString* strTag;
+
+/**
  @key[String]:addSubview
  @value[Array]: subviews
  @brief 调用 view的 addSubview方法，添加子view
@@ -24,7 +27,7 @@
  */
 DefineParseFun(addSubview);
 
-/*
+/**
  @key[String]:zeroRectWhenHidden
  @value[Bool]:true / false
  @brief 目前主要针对 LinerLayout中， 隐藏过后的view,是否参与占位布局。 默认true,不参与布局
@@ -32,7 +35,7 @@ DefineParseFun(addSubview);
  */
 DefineParseFun(zeroRectWhenHidden);
 
-/*
+/**
  @key[String]:returnKeyType
  @value[String]: [default|go|google|join|next|route|search|send|yahoo|done|call]
  @brief 设置键盘右下角键 类型，详情见 UIReturnKeyType
@@ -40,7 +43,7 @@ DefineParseFun(zeroRectWhenHidden);
  */
 DefineParseFun(returnKeyType);
 
-/*
+/**
  @key[String]:strTag
  @value[String]:string
  @brief 控件的tag属性为一数字，通常可读性差
@@ -49,12 +52,12 @@ DefineParseFun(returnKeyType);
  */
 DefineParseFun(strTag);
 
-/*
+/**
  @strTag 一个可被hash的对象
  */
 -(UIView*)viewWithStrTag:(id)strTagHashable;
 
-/*
+/**
  @key[String]:layout
  @value[Dictionary]:ayout描述，仅最多支持两个Layout.
  @brief 对子view进行布局. Layout规则具体见Layout规范文档
@@ -63,7 +66,7 @@ DefineParseFun(strTag);
  OR     "layout":{"s":[{"s":"l=10,t"},
                         {"s":"r=10","asstag":1}]
                  }
- @detail 
+ @details
         layout支持的属性 {"s":"l,r,c,t,b,m,w,h","tag":0,"asstag":0,"align":true}
         l=0 ==> left
             可省略掉=0,即l,其它同理. w与h除外。 w=0与w不等价
@@ -141,5 +144,4 @@ DefineParseFun(layout);
 
 @end
 
-
-
+#endif //__UIVIEW_SKINPARSER_H__

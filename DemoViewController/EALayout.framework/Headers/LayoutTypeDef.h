@@ -1,13 +1,19 @@
+//
+//  LayoutTypeDef.h
+//  EALayout
+//
+//  Created by easycoding on 15/7/9.
+//  Copyright (c) 2015年 www.easycoding.com. All rights reserved.
+//
 
-
-#ifndef EALayoutTypeDef_h
-#define EALayoutTypeDef_h
+#ifndef __LAYOUTTYPEDEF_H__
+#define __LAYOUTTYPEDEF_H__
 
 #import <UIKit/UIKit.h>
 
 typedef struct LayoutStyle LayoutStyle;
 
-extern CGFloat NILV;
+#define NILV (MAXFLOAT)
 
 typedef enum LayoutType
 {
@@ -23,7 +29,7 @@ typedef enum LayoutType
     ELAYOUT_VER_FLAG = ~ELAYOUT_HOR_FLAG,
     
     ELayoutDefault = ELayoutMiddle
-}LayoutType;
+} LayoutType;
 
 typedef enum AlignType
 {
@@ -31,10 +37,10 @@ typedef enum AlignType
     EVertical,
     EHorizontal,
     EBothVerAndHor
-}AlignType;
+} AlignType;
 
-typedef enum ConstraintMask {
-    
+typedef enum ConstraintMask
+{
     EConstraintNone     = 0,
     EConstraintHeight   = 1 << 0,
     EConstraintWidth    = 1 << 1,
@@ -44,17 +50,19 @@ typedef enum ConstraintMask {
     EConstraintBottom   = 1 << 5,
     EConstraintCenter   = 1 << 6,
     EConstraintMiddle   = 1 << 7
-}constraintMask;
+} ConstraintMask;
 
-typedef enum RefView { // value must below 16
+typedef enum RefView
+{ // value must below 16
     ERefViewNone,
     ERefScreen,
     ERefParent,
     ERefFriend,
     ERefMyself
-}RefView;
+} RefView;
 
-typedef enum RefOri {
+typedef enum RefOri
+{
     ERefOriNone,
     ERefLeft,
     ERefCenter,
@@ -64,47 +72,48 @@ typedef enum RefOri {
     ERefBottom,
     ERefWidth,
     ERefHeight
-}RefOri;
+} RefOri;
 
-typedef enum RefOpt{ // value must below 16
+typedef enum RefOpt
+{ // value must below 16
     ERefOptNone,
     ERefAdd,
     ERefSub,
     ERefMul,
     ERefDiv
-}RefOpt;
+} RefOpt;
 
 typedef enum RefMutableOri
 {
-    ERefMutableNone,
-    ERefMutableWidth = 1,
-    ERefMutableHeight = 1<<1,
-    ERefFixedWidth = 1 << 5,
-    ERefFixedHeight = 1 << 6
-}RefMutableOri;
+    ERefMutableNone     = 0,
+    ERefMutableWidth    = 1,
+    ERefMutableHeight   = 1 << 1,
+    ERefFixedWidth      = 1 << 5,
+    ERefFixedHeight     = 1 << 6
+} RefMutableOri;
 
-typedef struct RefRule {
-    RefView refView:4;
-    RefOri refOri:4;
-    RefOpt refOpt:4;
-}RefRule;
-
-
+typedef struct RefRule
+{
+    RefView refView : 4;
+    RefOri  refOri  : 4;
+    RefOpt  refOpt  : 4;
+} RefRule;
 
 struct LayoutStyle
 {
     LayoutType  layoutType;
     AlignType   alignType;
-    struct {
+    struct
+    {
         RefRule
-        leftRef,
-        rightRef,
-        topRef,
-        bottomRef,
-        centerRef,
-        middleRef,
-        widthRef,
-        heightRef;
+            leftRef,
+            rightRef,
+            topRef,
+            bottomRef,
+            centerRef,
+            middleRef,
+            widthRef,
+            heightRef;
         
         CGFloat left;
         CGFloat top;
@@ -121,4 +130,4 @@ struct LayoutStyle
     BOOL align;
 };
 
-#endif
+#endif //__LAYOUTTYPEDEF_H__

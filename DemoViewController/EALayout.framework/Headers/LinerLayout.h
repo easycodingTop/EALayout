@@ -1,21 +1,22 @@
 //
 //  LinerLayout.h
+//  EALayout
 //
-//  Created by easycoding on 15-7-9.
+//  Created by easycoding on 15/7/9.
 //  Copyright (c) 2015年 www.easycoding.com. All rights reserved.
 //
 
-#ifndef __LinerLayout_h__
-#define __LinerLayout_h__
+#ifndef __LINERLAYOUT_H__
+#define __LINERLAYOUT_H__
 
 #import <UIKit/UIKit.h>
 #import "BaseLayouter.h"
 
-
-typedef enum {
-    ESizeFixed,
-    ESizeFillWidth = 1,
-    ESizeFillHeight = 2,
+typedef enum LayoutSizeMode
+{
+    ESizeFixed      = 0,
+    ESizeFillWidth  = 1 << 0,
+    ESizeFillHeight = 1 << 1,
     ESizeFillBoth = ESizeFillWidth | ESizeFillHeight
 } LayoutSizeMode;
 
@@ -30,6 +31,4 @@ typedef enum {
 
 @end
 
-#endif //__LinerLayout_h__
-
-
+#endif //__LINERLAYOUT_H__

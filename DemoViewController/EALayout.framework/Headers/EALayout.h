@@ -27,5 +27,3 @@ FOUNDATION_EXPORT double EALayoutVersionNumber;
 FOUNDATION_EXPORT const char* EALayoutVersionString;
 
 // In this header, you should import all the public headers of your framework using statements like #import <EALayout/PublicHeader.h>
-
-

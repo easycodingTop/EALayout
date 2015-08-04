@@ -6,6 +6,9 @@
 //  Copyright (c) 2015年 easycoding. All rights reserved.
 //
 
+#ifndef __UITABLEVIEW_SKINPARSER_H__
+#define __UITABLEVIEW_SKINPARSER_H__
+
 #import "SkinParser.h"
 
 @interface UITableView(SkinParser)
@@ -19,3 +22,5 @@
 DefineParseFun(separatorStyle);
 
 @end
+
+#endif //__UITABLEVIEW_SKINPARSER_H__

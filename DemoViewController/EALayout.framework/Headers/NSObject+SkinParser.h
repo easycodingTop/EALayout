@@ -5,12 +5,15 @@
 //  Copyright (c) 2015年 easycoding. All rights reserved.
 //
 
+#ifndef __NSOBJECT_SKINPARSER_H__
+#define __NSOBJECT_SKINPARSER_H__
+
 #import <Foundation/Foundation.h>
 #import "SkinParser.h"
 
 @interface NSObject(SkinParser)
 
-/*
+/**
  @key[String]:   class
  @value[String]: className
  @brief 需要创建对象的类名, 如果该类使用Swift编写，需要使用 @objc(类)来自动生成Objective-C头文件
@@ -18,7 +21,7 @@
  */
 DefineParseFun(class);
 
-/*
+/**
  @key[String]:  extend
  @value[Bool]:  true / false
  @brief 在解析控件   -(UIView*)parse:(NSString*)viewname view:(UIView*)view;
@@ -28,7 +31,7 @@ DefineParseFun(class);
  */
 DefineParseFun(extend);
 
-/*
+/**
  @key[String]:  linkStyle
  @value[String]:styleName
  @brief 该属性会从  style.json 里读取对应 styleName 样式的属性
@@ -36,7 +39,7 @@ DefineParseFun(extend);
  */
 DefineParseFun(linkStyle);
 
-/*
+/**
  @key[String]:      other
  @value[Dictionary]:自定字典类型 key-value
  @brief 解析控件时,不会解析该结点,在单独读取属性使用
@@ -53,7 +56,7 @@ DefineParseFun(linkStyle);
  */
 DefineParseFun(other);
 
-/*
+/**
  @key[String]:   textAlignment
  @value[String]: [left|center|right], default:left [String]
  @brief 通常为 UILabel文字对齐方式
@@ -63,3 +66,4 @@ DefineParseFun(textAlignment);
 
 @end
 
+#endif //__NSOBJECT_SKINPARSER_H__

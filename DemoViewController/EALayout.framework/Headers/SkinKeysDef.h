@@ -24,7 +24,6 @@ extern NSString* sp_w;
 extern NSString* sp_W;
 extern NSString* sp_h;
 extern NSString* sp_H;
-extern NSString* sp_is_group;
 extern NSString* sp_resizeCap;
 extern NSString* sp_mode;
 extern NSString* sp_asstag;

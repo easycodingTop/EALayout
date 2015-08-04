@@ -1,9 +1,13 @@
 //
 //  SkinParser.h
+//  EALayout
 //
-//  Created by easycoding on 15-7-9.
+//  Created by easycoding on 15/7/9.
 //  Copyright (c) 2015年 www.easycoding.com. All rights reserved.
 //
+
+#ifndef __SKNPARSER_H__
+#define __SKNPARSER_H__
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -24,7 +28,7 @@
 @interface SkinParser : NSObject
 
 /**
- * @brief 设置当前事件target, 如解析 button addTarget时
+ @brief 设置当前事件target, 如解析 button addTarget时
  */
 @property (nonatomic,weak) id eventTarget;
 
@@ -37,43 +41,46 @@
 -(instancetype)init:(NSDictionary*)dict;
 
 /**
- * @param key, 对应view的key
- * @param view, 需要解析属性的view, 如果为nil, 则创建.  并返回该view
- * @retval 返回传入的view,或者创建的view
- * @details 1:如果该结点key存在，并且 "extend":true,则会先解析common属性，再解析当前解析属性。
- *          2:如果该结点key不存在，则直接解析common属性
+ @param key, 对应view的key
+ @param view, 需要解析属性的view, 如果为nil, 则创建.  并返回该view
+ @retval 返回传入的view,或者创建的view
+ @details 1:如果该结点key存在，并且 "extend":true,则会先解析common属性，再解析当前解析属性。
+          2:如果该结点key不存在，则直接解析common属性
  */
 -(UIView*)parse:(NSString*)key view:(UIView* )view;
+
 /**
- * @brief 当于调用[parser parse:key view:nil]
+ @brief 当于调用[parser parse:key view:nil]
  */
 -(UIView*)parse:(NSString*)key;
 
+/**
+ @brief 通过字典解析view
+ */
 -(UIView*)parse:(UIView*)view attr:(NSDictionary*)dict;
 
 /**
- * @brief 获取key结点下对应name的图片
+ @brief 获取key结点下对应name的图片
  */
 -(UIImage*)imageWithName:(NSString*)name key:(NSString*)key;
 
 /**
- * @brief 通过文件相对路径获取图片
+ @brief 通过文件相对路径获取图片
  */
 -(UIImage*)imageWithPath:(NSString*)path;
 
 /**
- * @brief 获取key结点下对应name的颜色
+ @brief 获取key结点下对应name的颜色
  */
 -(UIColor*)colorWithName:(NSString*)name key:(NSString*)key;
 
 /**
- * @brief 获取key结点下对应name的结点
+ @brief 获取key结点下对应name的结点
  */
 -(id)valueWithName:(NSString*)name key:(NSString*)key;
 
 /**
- * @brief 字符串解析为UIColor对象
- *      "#aarrggbb" "0xaarrggbb" "blackColor"(UIColor方法)
+ @brief 字符串解析为UIColor对象 "#aarrggbb" "0xaarrggbb" "blackColor"(UIColor方法)
  */
 +(UIColor*)StringToColor:(NSString*)string;
 
@@ -128,7 +135,6 @@ UIView* toView(id value, SkinParser* parser);
  */
 UITextFieldViewMode toViewMode(id value, SkinParser* parser);
 
-
 #pragma mark ParseFunctions
 
 id MakeColorValue(id value, SkinParser* parser);
@@ -172,4 +178,4 @@ id MakeViewModeValue(id value, SkinParser* parser);
 //AddMatchPattern(@"View",    nil, MakeViewValue);    //UIView
 //AddMatchPattern(@"ViewMode",nil, MakeViewModeValue);//UITextFieldViewMode
 
-
+#endif //__SKNPARSER_H__

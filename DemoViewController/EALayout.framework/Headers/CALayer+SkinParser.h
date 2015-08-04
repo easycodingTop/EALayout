@@ -6,11 +6,14 @@
 //  Copyright (c) 2015年 easycoding. All rights reserved.
 //
 
+#ifndef __CALAYER_SKINPARSER_H__
+#define __CALAYER_SKINPARSER_H__
+
 #import "SkinParser.h"
 
 @interface CALayer(SkinParser)
 
-/*
+/**
  @key[String]:borderColor
  @value[Color]:颜色对象
  @brief 设置Layer borderColor。
@@ -22,7 +25,7 @@
  */
 DefineParseFun(borderColor);
 
-/*
+/**
  @key[String]:backgroundColor
  @value[Color]:颜色对象
  @brief 设置Layer backgroundColor。
@@ -35,7 +38,7 @@ DefineParseFun(borderColor);
  */
 DefineParseFun(backgroundColor);
 
-/*
+/**
  @key[String]:shadowColor
  @value[Color]:颜色对象
  @brief 设置Layer shadowColor。
@@ -49,3 +52,4 @@ DefineParseFun(shadowColor);
 
 @end
 
+#endif //__CALAYER_SKINPARSER_H__

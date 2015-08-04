@@ -6,15 +6,18 @@
 //  Copyright (c) 2015年 easycoding. All rights reserved.
 //
 
+#ifndef __UIBUTTON_SKINPARSER_H__
+#define __UIBUTTON_SKINPARSER_H__
+
 #import <Foundation/Foundation.h>
 #import "SkinParser.h"
 
-/*
+/**
  @brief 建议直接使用  EAButton, 在完整版里会有自定义控件EAButton,比UIButton更好用
  */
 @interface UIButton(SkinParser)
 
-/*
+/**
  @key[String]:image
  @value[Dictionary/String]:不同状态对应图片
  @brief Dictionary:状态包含["normal", "highlighted", "disabled", "selected"],
@@ -29,7 +32,7 @@
  */
 DefineParseFun(image);
 
-/*
+/**
  @key[String]:backgroundImage
  @value[Dictionary/String]:不同状态对应背景图片
  @brief Dictionary:状态包含["normal", "highlighted", "disabled", "selected"],
@@ -44,7 +47,7 @@ DefineParseFun(image);
  */
 DefineParseFun(backgroundImage);
 
-/*
+/**
  @key[String]:title
  @value[Dictionary/String]:不同状态对应文字
  @brief Dictionary:状态包含["normal", "highlighted", "disabled", "selected"],
@@ -59,7 +62,7 @@ DefineParseFun(backgroundImage);
  */
 DefineParseFun(title);
 
-/*
+/**
  @key[String]:titleColor
  @value[Dictionary/Color]:不同状态对应文字颜色
  @brief Dictionary:状态包含["normal", "highlighted", "disabled", "selected"],
@@ -74,7 +77,7 @@ DefineParseFun(title);
  */
 DefineParseFun(titleColor);
 
-/*
+/**
  @key[String]:titleShadowColor
  @value[Dictionary/Color]:不同状态对应文字阴影颜色
  @brief Dictionary:状态包含["normal", "highlighted", "disabled", "selected"],
@@ -89,7 +92,7 @@ DefineParseFun(titleColor);
  */
 DefineParseFun(titleShadowColor);
 
-/*
+/**
  @key[String]:text
  @value[String]: button normal状态对应文字
  @brief title的简写，为了兼容UILabel设置文字的使用习惯
@@ -97,7 +100,7 @@ DefineParseFun(titleShadowColor);
  */
 -(void)setText:(NSString*)str;
 
-/*
+/**
  @key[String]:textColor
  @value[Color]: button normal状态对应文字颜色
  @brief titleColor的简写，为了兼容UILabel设置文字颜色的使用习惯
@@ -107,3 +110,4 @@ DefineParseFun(titleShadowColor);
 
 @end
 
+#endif //__UIBUTTON_SKINPARSER_H__

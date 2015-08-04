@@ -6,6 +6,9 @@
 //  Copyright (c) 2015年 easycoding. All rights reserved.
 //
 
+#ifndef __UITEXTFIELD_SKINPARSER_H__
+#define __UITEXTFIELD_SKINPARSER_H__
+
 #import "SkinParser.h"
 
 @interface UITextField(SkinParser)
@@ -20,4 +23,4 @@ DefineParseFun(borderStyle);
 
 @end
 
-
+#endif //__UITEXTFIELD_SKINPARSER_H__

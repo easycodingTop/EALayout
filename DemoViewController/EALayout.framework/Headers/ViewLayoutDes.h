@@ -1,4 +1,13 @@
+//
+//  ViewLayoutDes.h
+//  EALayout
+//
+//  Created by easycoding on 15/7/9.
+//  Copyright (c) 2015年 www.easycoding.com. All rights reserved.
+//
 
+#ifndef __VIEWLAYOUTDES_H__
+#define __VIEWLAYOUTDES_H__
 
 #import <Foundation/Foundation.h>
 
@@ -100,7 +109,4 @@
 
 @end
 
-
-
-
-
+#endif //__VIEWLAYOUTDES_H__
