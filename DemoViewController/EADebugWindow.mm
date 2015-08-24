@@ -1,4 +1,8 @@
 
+//  此文件只是用于DEBUG，主要是用来控制实时刷新的开关操作。
+
+#if DEBUG
+
 #import "EADebugWindow.h"
 #import "EAViewController.h"
 
@@ -147,3 +151,6 @@
 }
 
 @end
+
+#endif //DEBUG
+

@@ -14,6 +14,9 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    //Tableview在计算完 cell的frame后，会调用此函数进行布局
+    //添加此行是为了 在系统调用了布局后，可以进行EALayout的布局功能
     [self spUpdateLayout];
 }
 
