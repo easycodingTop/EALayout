@@ -12,13 +12,13 @@
 		28019CAE1B5DEAD9009DBBB3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28019CAD1B5DEAD9009DBBB3 /* ViewController.mm */; };
 		28019CB31B5DEAD9009DBBB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28019CB21B5DEAD9009DBBB3 /* Images.xcassets */; };
 		282FF43B1B608AF700BE38D9 /* EADebugWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 282FF4311B608AF600BE38D9 /* EADebugWindow.mm */; };
-		282FF43C1B608AF700BE38D9 /* EALayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 282FF4321B608AF700BE38D9 /* EALayout.framework */; };
 		282FF43D1B608AF700BE38D9 /* EATableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 282FF4341B608AF700BE38D9 /* EATableViewCell.mm */; };
 		282FF43E1B608AF700BE38D9 /* EATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282FF4361B608AF700BE38D9 /* EATableViewController.m */; };
 		282FF43F1B608AF700BE38D9 /* EAViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 282FF4381B608AF700BE38D9 /* EAViewController.mm */; };
 		288E51D41B67920C001AB50F /* ViewController.json in Resources */ = {isa = PBXBuildFile; fileRef = 288E51CE1B67920C001AB50F /* ViewController.json */; };
 		288E51D51B67920C001AB50F /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 288E51CF1B67920C001AB50F /* style.json */; };
 		288E51D81B67920C001AB50F /* common.json in Resources */ = {isa = PBXBuildFile; fileRef = 288E51D31B67920C001AB50F /* common.json */; };
+		28D5B5441C51F48E00CB9817 /* EALayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D5B5431C51F48E00CB9817 /* EALayout.framework */; };
 		28DBBB641B67970200CEF1E3 /* testicon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 28DBBB621B67970200CEF1E3 /* testicon@2x.jpg */; };
 		28DBBB651B67970200CEF1E3 /* 1024x682@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 28DBBB631B67970200CEF1E3 /* 1024x682@2x.jpg */; };
 		28F1FED91B68C93B006059A9 /* UIView+binddata.mm in Sources */ = {isa = PBXBuildFile; fileRef = 282FF4391B608AF700BE38D9 /* UIView+binddata.mm */; };
@@ -36,7 +36,6 @@
 		28019CDE1B5DEE1D009DBBB3 /* EALayoutLiteForOC.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALayoutLiteForOC.pch; sourceTree = "<group>"; };
 		282FF4301B608AF600BE38D9 /* EADebugWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADebugWindow.h; sourceTree = "<group>"; };
 		282FF4311B608AF600BE38D9 /* EADebugWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EADebugWindow.mm; sourceTree = "<group>"; };
-		282FF4321B608AF700BE38D9 /* EALayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EALayout.framework; sourceTree = "<group>"; };
 		282FF4331B608AF700BE38D9 /* EATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATableViewCell.h; sourceTree = "<group>"; };
 		282FF4341B608AF700BE38D9 /* EATableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EATableViewCell.mm; sourceTree = "<group>"; };
 		282FF4351B608AF700BE38D9 /* EATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATableViewController.h; sourceTree = "<group>"; };
@@ -48,6 +47,7 @@
 		288E51CE1B67920C001AB50F /* ViewController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ViewController.json; path = EALayoutLiteForOC/Resources/ViewController.json; sourceTree = "<group>"; };
 		288E51CF1B67920C001AB50F /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = style.json; path = EALayoutLiteForOC/Resources/style.json; sourceTree = "<group>"; };
 		288E51D31B67920C001AB50F /* common.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = common.json; path = EALayoutLiteForOC/Resources/common.json; sourceTree = "<group>"; };
+		28D5B5431C51F48E00CB9817 /* EALayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EALayout.framework; path = "EALayout/build/Debug-iphoneos/EALayout.framework"; sourceTree = "<group>"; };
 		28DBBB621B67970200CEF1E3 /* testicon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "testicon@2x.jpg"; path = "../EALayoutLite/EALayoutLite/Resources/testicon@2x.jpg"; sourceTree = "<group>"; };
 		28DBBB631B67970200CEF1E3 /* 1024x682@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "1024x682@2x.jpg"; path = "../EALayoutLite/EALayoutLite/Resources/1024x682@2x.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				282FF43C1B608AF700BE38D9 /* EALayout.framework in Frameworks */,
+				28D5B5441C51F48E00CB9817 /* EALayout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +67,7 @@
 		28019C991B5DEAD9009DBBB3 = {
 			isa = PBXGroup;
 			children = (
+				28D5B5431C51F48E00CB9817 /* EALayout.framework */,
 				282FF42F1B608AF600BE38D9 /* DemoViewController */,
 				28019CE11B5DF6ED009DBBB3 /* Resrouces */,
 				28019CA41B5DEAD9009DBBB3 /* EALayoutLiteForOC */,
@@ -122,7 +123,6 @@
 			children = (
 				282FF4301B608AF600BE38D9 /* EADebugWindow.h */,
 				282FF4311B608AF600BE38D9 /* EADebugWindow.mm */,
-				282FF4321B608AF700BE38D9 /* EALayout.framework */,
 				282FF4331B608AF700BE38D9 /* EATableViewCell.h */,
 				282FF4341B608AF700BE38D9 /* EATableViewCell.mm */,
 				282FF4351B608AF700BE38D9 /* EATableViewController.h */,
@@ -310,6 +310,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DemoViewController",
+					"$(PROJECT_DIR)/EALayout/build/Debug-iphoneos",
 				);
 				GCC_PREFIX_HEADER = EALayoutLiteForOC/EALayoutLiteForOC.pch;
 				INFOPLIST_FILE = EALayoutLiteForOC/Info.plist;
@@ -329,6 +330,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DemoViewController",
+					"$(PROJECT_DIR)/EALayout/build/Debug-iphoneos",
 				);
 				GCC_PREFIX_HEADER = EALayoutLiteForOC/EALayoutLiteForOC.pch;
 				INFOPLIST_FILE = EALayoutLiteForOC/Info.plist;

@@ -11,30 +11,33 @@
     NSTimer* timer;
 }
 
-+(instancetype)createDebugWindow
++ (instancetype)createDebugWindow
 {
     static dispatch_once_t pred = 0;
     static EADebugWindow *debugWindow = nil;
     dispatch_once(&pred, ^{
-        debugWindow = [[EADebugWindow alloc] initWithFrame:CGRectZero];
+        debugWindow = [[EADebugWindow alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
     });
     return debugWindow;
 }
 
--(void)setSkinPath:(NSString*)relativePath absolutePath:(const char*)cAbsolutePath
+- (void)setSkinPath:(NSString*)relativePath absolutePath:(const char*)cAbsolutePath
 {
     NSString*  absolutePath = [NSString stringWithUTF8String:cAbsolutePath];
     NSString* skinPath = [[absolutePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:relativePath];
     [SkinMgr sharedInstance].skinPath = skinPath;
 }
 
--(id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)])
     {
+        UIViewController* vc = [UIViewController new];
+        self.rootViewController = vc;
+        
         UIButton* button = [[UIButton alloc] initWithFrame:self.bounds];
         [button addTarget:self action:@selector(switchSkinDebug:) forControlEvents:UIControlEventTouchUpInside];
-        [self addSubview:button];
+        [vc.view addSubview:button];
         button.tag = 8001;
         [button setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
         self.userInteractionEnabled = true;
@@ -60,19 +63,20 @@
         button2.tag = 81002;
         
         UILabel* label = [[UILabel alloc] initWithFrame:self.bounds];
-        [self addSubview:label];
+        [vc.view addSubview:label];
         label.textColor = [UIColor blackColor];
         label.text = @"1";
         label.tag = 7001;
         label.hidden = YES;
         label.textAlignment = NSTextAlignmentRight;
         timer = nil;
+        button.selected = YES;
         [self switchSkinDebug:button];
     }
     return self;
 }
 
--(void)switchRefresh:(UIButton*)button
+- (void)switchRefresh:(UIButton*)button
 {
     button.selected = !button.selected;
     if(button.selected) {
@@ -86,7 +90,7 @@
     }
 }
 
--(void)refresh:(UIButton*)button
+- (void)refresh:(UIButton*)button
 {
     button.selected = !button.selected;
     [[NSUserDefaults standardUserDefaults] setBool:button.selected forKey:@"debugSkin"];
@@ -96,7 +100,7 @@
     label.text = @(value).stringValue;
 }
 
--(void)switchSkinDebug:(UIButton*)button
+- (void)switchSkinDebug:(UIButton*)button
 {
     button.selected = !button.selected;
     if(button.selected)
@@ -118,7 +122,7 @@
     [self autoRefresh];
 }
 
--(void)autoRefresh
+- (void)autoRefresh
 {
     if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"debugSkin"] )
     {
@@ -135,7 +139,7 @@
     }
 }
 
--(void)tick
+- (void)tick
 {
     if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"debugSkin"] )
     {

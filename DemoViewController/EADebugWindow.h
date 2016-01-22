@@ -16,9 +16,9 @@
 
 @interface EADebugWindow : UIWindow
 
-+(instancetype)createDebugWindow;
++ (instancetype)createDebugWindow;
 
--(void)setSkinPath:(NSString*)relativePath absolutePath:(const char*)absolutePath;
+- (void)setSkinPath:(NSString*)relativePath absolutePath:(const char*)absolutePath;
 
 @end
 
