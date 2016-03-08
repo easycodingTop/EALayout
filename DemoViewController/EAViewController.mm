@@ -80,6 +80,37 @@ NSString* EA_titleRightView         = @"titleRightView";
     
 #else
     //真机上调试界面
+    NSString* ipfile = [[NSBundle mainBundle].resourcePath stringByAppendingString:@"/ip"];
+    NSString* ipstr = [NSString stringWithContentsOfFile:ipfile encoding:(NSUTF8StringEncoding) error:nil];
+    ipstr = [ipstr stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"\n "]];
+    NSString* filepath = [ipstr stringByAppendingFormat:@":8000/%@.json", NSStringFromClass([self class])];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", filepath]];
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:10];
+        NSData *received = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            SkinParser* skinParser = [SkinParser getParserByData:received];
+            if(skinParser)
+            {
+                self.skinParser = skinParser;
+                [self loadView];
+                [self viewDidLoad];
+            }
+            
+            for (EAViewController* childViewControler in self.childViewControllers)
+            {
+                if ([childViewControler isKindOfClass:[EAViewController class]])
+                {
+                    [childViewControler freshSkin];
+                }
+            }
+        });
+        
+    });
 #endif
     
 }

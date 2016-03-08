@@ -11,6 +11,7 @@
 		28019CAB1B5DEAD9009DBBB3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28019CAA1B5DEAD9009DBBB3 /* AppDelegate.m */; };
 		28019CAE1B5DEAD9009DBBB3 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28019CAD1B5DEAD9009DBBB3 /* ViewController.mm */; };
 		28019CB31B5DEAD9009DBBB3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28019CB21B5DEAD9009DBBB3 /* Images.xcassets */; };
+		2817DAEA1C8EE2D0002234F7 /* ip in Resources */ = {isa = PBXBuildFile; fileRef = 2817DAE91C8EE2D0002234F7 /* ip */; };
 		282FF43B1B608AF700BE38D9 /* EADebugWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 282FF4311B608AF600BE38D9 /* EADebugWindow.mm */; };
 		282FF43D1B608AF700BE38D9 /* EATableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 282FF4341B608AF700BE38D9 /* EATableViewCell.mm */; };
 		282FF43E1B608AF700BE38D9 /* EATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 282FF4361B608AF700BE38D9 /* EATableViewController.m */; };
@@ -34,6 +35,7 @@
 		28019CAD1B5DEAD9009DBBB3 /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		28019CB21B5DEAD9009DBBB3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		28019CDE1B5DEE1D009DBBB3 /* EALayoutLiteForOC.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALayoutLiteForOC.pch; sourceTree = "<group>"; };
+		2817DAE91C8EE2D0002234F7 /* ip */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ip; path = EALayoutLiteForOC/Resources/ip; sourceTree = "<group>"; };
 		282FF4301B608AF600BE38D9 /* EADebugWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADebugWindow.h; sourceTree = "<group>"; };
 		282FF4311B608AF600BE38D9 /* EADebugWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EADebugWindow.mm; sourceTree = "<group>"; };
 		282FF4331B608AF700BE38D9 /* EATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATableViewCell.h; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		28019CE11B5DF6ED009DBBB3 /* Resrouces */ = {
 			isa = PBXGroup;
 			children = (
+				2817DAE91C8EE2D0002234F7 /* ip */,
 				28DBBB621B67970200CEF1E3 /* testicon@2x.jpg */,
 				28DBBB631B67970200CEF1E3 /* 1024x682@2x.jpg */,
 				288E51CE1B67920C001AB50F /* ViewController.json */,
@@ -142,6 +145,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 28019CC51B5DEAD9009DBBB3 /* Build configuration list for PBXNativeTarget "EALayoutLiteForOC" */;
 			buildPhases = (
+				2817DAE81C8EE279002234F7 /* ShellScript */,
 				28019C9E1B5DEAD9009DBBB3 /* Sources */,
 				28019C9F1B5DEAD9009DBBB3 /* Frameworks */,
 				28019CA01B5DEAD9009DBBB3 /* Resources */,
@@ -197,11 +201,28 @@
 				28019CB31B5DEAD9009DBBB3 /* Images.xcassets in Resources */,
 				288E51D81B67920C001AB50F /* common.json in Resources */,
 				28DBBB641B67970200CEF1E3 /* testicon@2x.jpg in Resources */,
+				2817DAEA1C8EE2D0002234F7 /* ip in Resources */,
 				28DBBB651B67970200CEF1E3 /* 1024x682@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2817DAE81C8EE279002234F7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ifconfig -a|awk '/(cast)/ {print $2}' | cut -d ':' -f2 | head -1 > $PROJECT_DIR/EALayoutLiteForOC/Resources/ip";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		28019C9E1B5DEAD9009DBBB3 /* Sources */ = {
