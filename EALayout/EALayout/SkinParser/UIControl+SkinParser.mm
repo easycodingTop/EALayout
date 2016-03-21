@@ -11,7 +11,7 @@
 
 @implementation UIControl(SkinParser)
 
--(UIControlState)valueOfUIControlState:(NSString*)stateStr
+- (UIControlState)valueOfUIControlState:(NSString*)stateStr
 {
     NSArray* stateStrArray = @[@"normal", @"highlighted", @"disabled", @"selected"];
     UIControlState stateValueArray[] = {
@@ -31,7 +31,7 @@
     return UIControlStateNormal;
 }
 
--(UIControlEvents)valueOfUIControlEvents:(NSString*)eventsStr
+- (UIControlEvents)valueOfUIControlEvents:(NSString*)eventsStr
 {
     NSArray* stateStrArray = @[@"Down",@"DownRepeat",@"DragInside",@"DragOutside",@"DragEnter",
                                @"DragExit",@"UpInside",@"UpOutside",@"Cancel",

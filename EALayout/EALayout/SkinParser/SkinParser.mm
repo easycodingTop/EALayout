@@ -16,7 +16,7 @@ FOUNDATION_EXPORT const char* EALayoutVersionString = "0.0";
 
 @interface NSObject()
 
--(void)parseValue:(id)value forKey:(NSString*)key parser:(SkinParser*)parser;
+- (void)parseValue:(id)value forKey:(NSString*)key parser:(SkinParser*)parser;
 
 @end
 
@@ -25,17 +25,17 @@ FOUNDATION_EXPORT const char* EALayoutVersionString = "0.0";
     NSDictionary* _dict;
 }
 
-+(instancetype)getParserByName:(NSString*)filename
++ (instancetype)getParserByName:(NSString*)filename
 {
     return [[SkinMgr sharedInstance] getParserByName:filename];
 }
 
-+(instancetype)getParserByData:(NSData*)data
++ (instancetype)getParserByData:(NSData*)data
 {
     return [[SkinMgr sharedInstance] getParserByData:data];
 }
 
--(instancetype)init:(NSDictionary*)dict
+- (instancetype)init:(NSDictionary*)dict
 {
     if(self = [super init])
     {
@@ -44,7 +44,7 @@ FOUNDATION_EXPORT const char* EALayoutVersionString = "0.0";
     return self;
 }
 
--(UIView*)parse:(NSString*)viewname view:(UIView*)view
+- (UIView*)parse:(NSString*)viewname view:(UIView*)view
 {
     NSDictionary* dict = _dict[viewname];
     if(!_isRootParser && (!dict || [dict[sp_extend] integerValue]))
@@ -56,12 +56,12 @@ FOUNDATION_EXPORT const char* EALayoutVersionString = "0.0";
     return [self parse:view attr:_dict[viewname]];
 }
 
--(UIView*)parse:(NSString*)key
+- (UIView*)parse:(NSString*)key
 {
     return [self parse:key view:nil];
 }
 
--(UIView*)parse:(UIView*)view attr:(NSDictionary*)dict
+- (UIView*)parse:(UIView*)view attr:(NSDictionary*)dict
 {
     if isNSDictionary(dict)
     {
@@ -89,22 +89,22 @@ FOUNDATION_EXPORT const char* EALayoutVersionString = "0.0";
 
 #pragma mark basevalue read
 
--(UIImage*)imageWithName:(NSString*)name key:(NSString*)key
+- (UIImage*)imageWithName:(NSString*)name key:(NSString*)key
 {
     return toImage([self valueWithName:name key:key]);
 }
 
--(UIImage*)imageWithPath:(NSString*)path
+- (UIImage*)imageWithPath:(NSString*)path
 {
     return toImage(path);
 }
 
--(UIColor*)colorWithName:(NSString*)name key:(NSString*)key
+- (UIColor*)colorWithName:(NSString*)name key:(NSString*)key
 {
     return toColor([self valueWithName:name key:key]);
 }
 
--(id)valueWithName:(NSString*)name key:(NSString*)key
+- (id)valueWithName:(NSString*)name key:(NSString*)key
 {
     NSDictionary* dict = _dict[name];
     id value = dict[key];
@@ -169,7 +169,7 @@ UIColor* StringToColor(NSString* string)
     return color;
 }
 
-+(UIColor*)StringToColor:(NSString*)string
++ (UIColor*)StringToColor:(NSString*)string
 {
     return StringToColor(string);
 }
@@ -358,7 +358,7 @@ id MakeViewModeValue(id value, SkinParser* parser)
     return @(toViewMode(value, parser));
 }
 
-+(void)initialize
++ (void)initialize
 {
     AddMatchPattern(@"color",   nil, MakeColorValue);   //UIColor
     AddMatchPattern(@"image",   nil, MakeImageValue);   //UIImage

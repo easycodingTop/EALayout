@@ -12,7 +12,7 @@
 
 @implementation LinerLayout
 
--(id)init
+- (id)init
 {
     if(self = [super init])
     {
@@ -33,7 +33,7 @@
     return self;
 }
 
--(NSArray*)needLayoutViews
+- (NSArray*)needLayoutViews
 {
     NSMutableArray* retArray = nil;
     for(NSInteger i=0; i < self.layoutViews.count; ++i)
@@ -67,7 +67,7 @@
     }
 }
 
--(void)willLayoutView:(UIView*)view
+- (void)willLayoutView:(UIView*)view
 {
     if(EVertical == style[0].alignType)
     {
@@ -89,7 +89,7 @@
     }
 }
 
--(void)layout
+- (void)layout
 {
     if(self.needLayoutViews.count)
     {
@@ -104,7 +104,7 @@
     }
 }
 
--(void)VLLayout
+- (void)VLLayout
 {
     if( ESizeFixed == sizeMode || ESizeFillWidth == sizeMode )
     {
@@ -141,7 +141,7 @@ do\
     }\
 } while(0)
 
--(void)layoutForFillHeight
+- (void)layoutForFillHeight
 {
     NSInteger count = self.needLayoutViews.count;
     CGRect bound = self.frame;
@@ -165,7 +165,14 @@ do\
             totalHeight += [des bottom:0];
         }
         
-        if (des && [des middle:0] < NILV)
+        if(des && [des height:0] < NILV)
+        {
+            CGRect rect = view.frame;
+            rect.size.height = [des height:0];
+            setRectAndLayout;
+            totalHeight += rect.size.height;
+        }
+        else if (des && [des middle:0] < NILV)
         {
             CGRect rect = view.frame;
             rect.size.height = [des middle:0] * CGRectGetHeight(bound);
@@ -212,7 +219,7 @@ do\
     }
 }
 
--(void)layoutForTop
+- (void)layoutForTop
 {
     CGRect bound = self.frame;
     NSInteger count = self.needLayoutViews.count;
@@ -244,7 +251,7 @@ do\
     }
 }
 
--(void)layoutForMiddle
+- (void)layoutForMiddle
 {
     CGRect bound = self.frame;
     NSInteger count = self.needLayoutViews.count;
@@ -295,7 +302,7 @@ do\
     }
 }
 
--(void)layoutForBottom
+- (void)layoutForBottom
 {
     CGRect bound = self.frame;
     NSInteger count = self.needLayoutViews.count;
@@ -328,7 +335,7 @@ do\
     }
 }
 
--(void)layoutForHor:(CGRect&)bound rect:(CGRect&)rect
+- (void)layoutForHor:(CGRect&)bound rect:(CGRect&)rect
 {
     if(ESizeFillWidth & sizeMode)
     {
@@ -358,7 +365,7 @@ do\
 
 #pragma mark HLLayout
 
--(void)HLLayout
+- (void)HLLayout
 {
     if( ESizeFixed == sizeMode || ESizeFillHeight == sizeMode)
     {
@@ -381,7 +388,7 @@ do\
     }
 }
 
--(void)layoutForFillWidth
+- (void)layoutForFillWidth
 {
     NSInteger count = self.needLayoutViews.count;
     CGRect bound = self.frame;
@@ -450,7 +457,7 @@ do\
     }
 }
 
--(void)layoutForLeft
+- (void)layoutForLeft
 {
     CGRect bound = self.frame;
     NSInteger count = self.needLayoutViews.count;
@@ -482,7 +489,7 @@ do\
     }
 }
 
--(void)layoutForCenter
+- (void)layoutForCenter
 {
     CGRect bound = self.frame;
     NSInteger count = self.needLayoutViews.count;
@@ -535,7 +542,7 @@ do\
     }
 }
 
--(void)layoutForRight {
+- (void)layoutForRight {
     CGRect bound = self.frame;
     NSInteger count = self.needLayoutViews.count;
     CGFloat offset = CGRectGetMaxX(bound);
@@ -566,7 +573,7 @@ do\
     }
 }
 
--(void)layoutForVer:(CGRect&)bound rect:(CGRect&)rect
+- (void)layoutForVer:(CGRect&)bound rect:(CGRect&)rect
 {
     if(ESizeFillHeight & sizeMode)
     {

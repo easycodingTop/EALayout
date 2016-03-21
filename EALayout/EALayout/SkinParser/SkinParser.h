@@ -24,7 +24,7 @@
 #define isNSNumber(x) ( [(x) isKindOfClass:[NSNumber class]] )
 
 #define DefineParseFun(_property) \
--(void)_property:(id)value parser:(SkinParser*)parser
+- (void)_property:(id)value parser:(SkinParser*)parser
 
 @interface SkinParser : NSObject
 
@@ -35,11 +35,11 @@
 
 @property (nonatomic, assign) BOOL isRootParser;
 
-+(instancetype)getParserByData:(NSData*)data;
++ (instancetype)getParserByData:(NSData*)data;
 
-+(instancetype)getParserByName:(NSString*)filename;
++ (instancetype)getParserByName:(NSString*)filename;
 
--(instancetype)init:(NSDictionary*)dict;
+- (instancetype)init:(NSDictionary*)dict;
 
 /**
  @param key, 对应view的key
@@ -48,42 +48,42 @@
  @details 1:如果该结点key存在，并且 "extend":true,则会先解析common属性，再解析当前解析属性。
           2:如果该结点key不存在，则直接解析common属性
  */
--(UIView*)parse:(NSString*)key view:(UIView* )view;
+- (UIView*)parse:(NSString*)key view:(UIView* )view;
 
 /**
  @brief 当于调用[parser parse:key view:nil]
  */
--(UIView*)parse:(NSString*)key;
+- (UIView*)parse:(NSString*)key;
 
 /**
  @brief 通过字典解析view
  */
--(UIView*)parse:(UIView*)view attr:(NSDictionary*)dict;
+- (UIView*)parse:(UIView*)view attr:(NSDictionary*)dict;
 
 /**
  @brief 获取key结点下对应name的图片
  */
--(UIImage*)imageWithName:(NSString*)name key:(NSString*)key;
+- (UIImage*)imageWithName:(NSString*)name key:(NSString*)key;
 
 /**
  @brief 通过文件相对路径获取图片
  */
--(UIImage*)imageWithPath:(NSString*)path;
+- (UIImage*)imageWithPath:(NSString*)path;
 
 /**
  @brief 获取key结点下对应name的颜色
  */
--(UIColor*)colorWithName:(NSString*)name key:(NSString*)key;
+- (UIColor*)colorWithName:(NSString*)name key:(NSString*)key;
 
 /**
  @brief 获取key结点下对应name的结点
  */
--(id)valueWithName:(NSString*)name key:(NSString*)key;
+- (id)valueWithName:(NSString*)name key:(NSString*)key;
 
 /**
  @brief 字符串解析为UIColor对象 "#aarrggbb" "0xaarrggbb" "blackColor"(UIColor方法)
  */
-+(UIColor*)StringToColor:(NSString*)string;
++ (UIColor*)StringToColor:(NSString*)string;
 
 @end
 

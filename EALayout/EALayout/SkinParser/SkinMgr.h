@@ -21,11 +21,11 @@
  */
 @property (nonatomic, strong) NSString* skinPath;
 
-+(instancetype)sharedInstance;
++ (instancetype)sharedInstance;
 
--(SkinParser*)getParserByName:(NSString*)filename;
+- (SkinParser*)getParserByName:(NSString*)filename;
 
--(SkinParser*)getParserByData:(NSData *)data;
+- (SkinParser*)getParserByData:(NSData *)data;
 
 @end
 

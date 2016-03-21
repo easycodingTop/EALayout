@@ -10,13 +10,13 @@
 
 @implementation ViewLayoutDes
 
--(void)setStyleType:(NSInteger)index type:(LayoutType)type
+- (void)setStyleType:(NSInteger)index type:(LayoutType)type
 {
 
 }
 
 
--(void)setStyleAlign:(NSInteger)index type:(AlignType)type
+- (void)setStyleAlign:(NSInteger)index type:(AlignType)type
 {
 
 }
@@ -55,12 +55,12 @@ for(NSInteger index=0; index<2; ++index)\
 }
 
 #define SetValueByIndex(__ori, __orikey)\
--(void)set##__ori:(NSInteger)index value:(CGFloat)value\
+- (void)set##__ori:(NSInteger)index value:(CGFloat)value\
 {\
 }
 
 #define SetValueByTag(__ori, __oriKey)\
--(void)set##__ori:(CGFloat)value forTag:(NSInteger)asstag\
+- (void)set##__ori:(CGFloat)value forTag:(NSInteger)asstag\
 {\
 }
 
@@ -89,134 +89,154 @@ for(NSInteger index=0; index<2; ++index)\
     }\
 }
 
--(void)setStyleType:(LayoutType)type forTag:(NSInteger)asstag
+- (void)setStyleType:(LayoutType)type forTag:(NSInteger)asstag
 {
     
 }
 
--(void)setStyleAlign:(AlignType)type forTag:(NSInteger)asstag
+- (void)setStyleAlign:(AlignType)type forTag:(NSInteger)asstag
 {
     
 }
 
 #undef SETV
 
--(void)setTag:(NSInteger)aTag
+- (void)setTag:(NSInteger)aTag
 {
     
 }
 
--(void)setMaxSize:(CGSize)size
+- (void)setMaxSize:(CGSize)size
 {
     
 }
 
--(void)setMinSize:(CGSize)size
+- (void)setMinSize:(CGSize)size
 {
     
 }
 
--(void)setConstraintMask:(NSInteger)mask
+- (void)setConstraintMask:(NSInteger)mask
 {
     
 }
 
--(LayoutType)styleType:(NSInteger)index
+- (LayoutType)styleType:(NSInteger)index
 {
     return ELayoutNone;
 }
 
--(AlignType)styleAlign:(NSInteger)index
+- (AlignType)styleAlign:(NSInteger)index
 {
     return EAlignNone;
 }
 
--(CGFloat)left:(NSInteger)index
+- (CGFloat)left:(NSInteger)index
 {
     return 0;
 }
 
--(CGFloat)center:(NSInteger)index
+- (CGFloat)center:(NSInteger)index
 {
     return 0;
 }
 
--(CGFloat)right:(NSInteger)index
+- (CGFloat)right:(NSInteger)index
 {
     return 0;
 }
 
--(CGFloat)top:(NSInteger)index
+- (CGFloat)top:(NSInteger)index
 {
     return 0;
 }
 
--(CGFloat)middle:(NSInteger)index
+- (CGFloat)middle:(NSInteger)index
 {
     return 0;
 }
 
--(CGFloat)bottom:(NSInteger)index
+- (CGFloat)bottom:(NSInteger)index
 {
     return 0;
 }
 
--(LayoutType)styleTypeByTag:(NSInteger)aTag
+- (CGFloat)width:(NSInteger)index
+{
+    return 0;
+}
+
+- (CGFloat)height:(NSInteger)index
+{
+    return 0;
+}
+
+- (LayoutType)styleTypeByTag:(NSInteger)aTag
 {
     return ELayoutNone;
 }
 
--(AlignType)styleAlignByTag:(NSInteger)aTag
+- (AlignType)styleAlignByTag:(NSInteger)aTag
 {
     return EAlignNone;
 }
 
--(CGFloat)leftByTag:(NSInteger)aTag
+- (CGFloat)leftByTag:(NSInteger)aTag
 {
     return NILV;
 }
 
--(CGFloat)centerByTag:(NSInteger)aTag
+- (CGFloat)centerByTag:(NSInteger)aTag
 {
     return NILV;
 }
 
--(CGFloat)rightByTag:(NSInteger)aTag
+- (CGFloat)rightByTag:(NSInteger)aTag
 {
     return NILV;
 }
 
--(CGFloat)topByTag:(NSInteger)aTag
+- (CGFloat)topByTag:(NSInteger)aTag
 {
     return NILV;
 }
 
--(CGFloat)middleByTag:(NSInteger)aTag
+- (CGFloat)middleByTag:(NSInteger)aTag
 {
     return NILV;
 }
 
--(CGFloat)bottomByTag:(NSInteger)aTag
+- (CGFloat)bottomByTag:(NSInteger)aTag
 {
     return NILV;
 }
 
--(NSInteger)tag
+- (CGFloat)widthByTag:(NSInteger)aTag
+{
+    return NILV;
+}
+
+- (CGFloat)heightByTag:(NSInteger)aTag
+{
+    return NILV;
+}
+
+- (NSInteger)tag
 {
     return 0;
 }
 
--(CGSize)maxSize
+- (CGSize)maxSize
 {
     return CGSizeZero;
 }
 
--(CGSize)minSize
+- (CGSize)minSize
 {
     return CGSizeZero;
 }
 
--(NSInteger)constraintMask
+- (NSInteger)constraintMask
 {
     return 0;
 }

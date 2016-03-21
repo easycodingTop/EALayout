@@ -10,7 +10,7 @@
 
 @implementation UITextField(SkinParser)
 
--(UITextBorderStyle)valueOfUITextBorderStyle:(NSString*)style
+- (UITextBorderStyle)valueOfUITextBorderStyle:(NSString*)style
 {
     NSArray* styleStrArray = @[@"none", @"line", @"bezel", @"roundedRect"];
     for(NSInteger i=0; i<styleStrArray.count; i++)
@@ -28,7 +28,7 @@ DefineParseFun(borderStyle)
     [self setValue:@([self valueOfUITextBorderStyle:value]) forKey:@"borderStyle"];
 }
 
--(UIKeyboardType)valueOfUIKeyboardType:(NSString*)style
+- (UIKeyboardType)valueOfUIKeyboardType:(NSString*)style
 {
     NSArray* keyboardTypeStrArray = @[@"Default", @"ASCIICapable", @"NumbersAndPunctuation", @"URL", @"NumberPad", @"PhonePad", @"NamePhonePad", @"EmailAddress", @"DecimalPad", @"Twitter", @"WebSearch"];
     

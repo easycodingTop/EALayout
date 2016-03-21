@@ -18,7 +18,7 @@
 
 @implementation BaseLayouter
 
--(id)init
+- (id)init
 {
     if( self = [super init] )
     {
@@ -27,7 +27,7 @@
     return self;
 }
 
--(void)addSubview:(UIView*)view
+- (void)addSubview:(UIView*)view
 {
     if(self.hostView)
     {
@@ -43,13 +43,13 @@
     [_layoutViews addObject:view];
 }
 
--(void)remove:(UIView*)view
+- (void)remove:(UIView*)view
 {
     [_layoutViews removeObject:view];
     [view removeFromSuperview];
 }
 
--(BOOL)didLayoutView:(UIView*)view
+- (BOOL)didLayoutView:(UIView*)view
 {
     if(_layoutViews.lastObject == view)
     {
@@ -59,17 +59,17 @@
     return YES;
 }
 
--(void)willLayoutView:(UIView*)view
+- (void)willLayoutView:(UIView*)view
 {
     
 }
 
--(void)layout
+- (void)layout
 {
     
 }
 
--(void)didMoveToSuperview
+- (void)didMoveToSuperview
 {
     UIView* superView = self.superview;
     if(superView)
@@ -88,7 +88,7 @@
     }
 }
 
--(void)removeAllViews
+- (void)removeAllViews
 {
     for(UIView* view in _layoutViews)
     {

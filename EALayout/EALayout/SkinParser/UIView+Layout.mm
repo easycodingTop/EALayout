@@ -21,17 +21,17 @@
 
 static char UIViewLayouteDescripterKey;
 
--(void)setViewLayoutDes:(ViewLayoutDes*)viewLayoutDes
+- (void)setViewLayoutDes:(ViewLayoutDes*)viewLayoutDes
 {
     objc_setAssociatedObject(self, &UIViewLayouteDescripterKey, viewLayoutDes, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(ViewLayoutDes*)getViewLayoutDes
+- (ViewLayoutDes*)getViewLayoutDes
 {
     return (ViewLayoutDes*)objc_getAssociatedObject(self,&UIViewLayouteDescripterKey);
 }
 
--(BaseLayouter*)getLayouter
+- (BaseLayouter*)getLayouter
 {
     BaseLayouter* layouter = [self getViewLayoutDes].layouter;
     if(!layouter)
@@ -47,7 +47,7 @@ static char UIViewLayouteDescripterKey;
     return layouter;
 }
 
--(ViewLayoutDes*)createViewLayoutDesIfNil
+- (ViewLayoutDes*)createViewLayoutDesIfNil
 {
     ViewLayoutDes* des = [self getViewLayoutDes];
     if(!des)
@@ -108,22 +108,22 @@ do\
 
 @implementation UIView(SPAutoLayout)
 
--(NSArray*)getWillLayoutSubviews
+- (NSArray*)getWillLayoutSubviews
 {
     return self.subviews;
 }
 
--(UIView*)getWillLayoutSuperview
+- (UIView*)getWillLayoutSuperview
 {
     return self;
 }
 
--(void)spUpdateLayout
+- (void)spUpdateLayout
 {
     [self spUpdateLayout:INT_MAX];
 }
 
--(void)spUpdateLayout:(NSInteger)level
+- (void)spUpdateLayout:(NSInteger)level
 {
     NSMutableArray* subviews = [self.getWillLayoutSubviews mutableCopy];
     NSUInteger count = subviews.count;
@@ -398,7 +398,7 @@ do\
     }
 }
 
--(void)calcWidth : (CGFloat (^)())getMaxWidth
+- (void)calcWidth : (CGFloat (^)())getMaxWidth
 {
     ViewLayoutDesImp* selfDes = [self getViewLayoutDesImp];
     
@@ -727,7 +727,7 @@ do\
     self.frame = selfRect;
 }
 
--(void)adjustRect:(ViewLayoutDesImp*)des rect:(CGRect&)rect
+- (void)adjustRect:(ViewLayoutDesImp*)des rect:(CGRect&)rect
 {
     if(des)
     {
@@ -759,7 +759,7 @@ do\
 /**
  @brief 简单高度计算，不通过子view计算，如果完成高度计算返回 YES
  */
--(BOOL)calcHeightBase
+- (BOOL)calcHeightBase
 {
     ViewLayoutDesImp* selfDes = [self getViewLayoutDesImp];
     
@@ -805,7 +805,7 @@ do\
     return NO;
 }
 
--(void)calcHeight
+- (void)calcHeight
 {
     if(![self calcHeightBase])
     {
@@ -813,7 +813,7 @@ do\
     }
 }
 
--(void)calcHeightInView
+- (void)calcHeightInView
 {
     CGRect selfRect = self.frame;
     NSMutableArray* subviews = [self.getWillLayoutSubviews mutableCopy];
@@ -1125,7 +1125,7 @@ do\
 
 #undef TheV
 
--(void)adjustRect:(CGRect&)rect layoutDes:(ViewLayoutDesImp*)subLayoutDes mask:(NSInteger)constraintMask
+- (void)adjustRect:(CGRect&)rect layoutDes:(ViewLayoutDesImp*)subLayoutDes mask:(NSInteger)constraintMask
 {
     CGRect oRect = rect;
     
@@ -1181,7 +1181,7 @@ CGFloat TheV_##__ori = [ViewLayoutDesImp calc_##__ori:layoutStyle fetchRect:^CGR
 #define HASV(__ori) TheV(__ori) if( TheV_##__ori < NILV )
 #define HASMASK(__M) (subLayoutDes->constraintMask & EConstraint##__M)
 
--(NSInteger)layoutInRect:(CGRect&)rect
+- (NSInteger)layoutInRect:(CGRect&)rect
                   target:(CGRect&)targetRect
                     type:(LayoutStyle&)layoutStyle
                      des:(ViewLayoutDesImp*)subLayoutDes
@@ -1265,7 +1265,7 @@ CGFloat TheV_##__ori = [ViewLayoutDesImp calc_##__ori:layoutStyle fetchRect:^CGR
     return constraintMask;
 }
 
--(NSInteger)layoutBesideRect:(CGRect&)rect
+- (NSInteger)layoutBesideRect:(CGRect&)rect
                       target:(CGRect&)targetRect
                         type:(LayoutStyle&)layoutStyle
                          des:(ViewLayoutDesImp*)subLayoutDes

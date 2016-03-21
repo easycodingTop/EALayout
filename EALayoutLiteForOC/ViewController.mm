@@ -15,19 +15,12 @@
 
 @implementation ViewController
 
--(void)loadView {
-    [super loadView];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 10;
 }
 
 -(NSString*)getText:(NSInteger)row {
+    
     switch (row % 5) {
         case 0:
             return @"这是一行文字";
@@ -46,11 +39,13 @@
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (0 == indexPath.row) {
         UITableViewCell* cell = [self createCell:defaultCell];
         [cell bindByStrTag:@"titleLabel" data:[NSString stringWithFormat:@"我是第%zd行Title", indexPath.row]];
         [cell bindByTag:7002 data:[NSString stringWithFormat:@"我是第%zd行DetailText", indexPath.row]];
         return cell;
+        
     } else {
         UITableViewCell* cell = [self createCell:@"customCell"];
         [cell bindByStrTag:@"multLineText" data:[self getText:indexPath.row]];
@@ -59,9 +54,26 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if( 0 == indexPath.row ){
-        return [[self.skinParser valueWithName:defaultCell key:@"height"] floatValue];
+        NSNumber* number = [self.skinParser valueWithName:defaultCell key:@"height"];
+        if(number){
+            return [number floatValue];
+        }
+        else {
+            
+            UITableViewCell* cell = [self createCacheCell:defaultCell];
+            [cell bindByStrTag:@"titleLabel" data:[NSString stringWithFormat:@"我是第%zd行Title", indexPath.row]];
+            [cell bindByTag:7002 data:[NSString stringWithFormat:@"我是第%zd行DetailText", indexPath.row]];
+            CGRect frame = cell.frame;
+            frame.size.width = tableView.frame.size.width;
+            cell.frame = frame;
+            [cell spUpdateLayout];
+            [cell calcHeight];
+            return cell.frame.size.height;
+        }
     } else {
+        
         UITableViewCell* cell = [self createCacheCell:@"customCell"];
         [cell bindByStrTag:@"multLineText" data:[self getText:indexPath.row]];
         CGRect frame = cell.frame;
@@ -74,6 +86,7 @@
 }
 
 -(void)TabButtonAction:(UIButton*)button {
+    
     for(int i=0;i<4;i++) {
         UIButton* otherButton = (UIButton*)[button.superview viewWithTag:8001+i];
         otherButton.selected = false;
@@ -84,6 +97,7 @@
 }
 
 -(void)AlterLabelText:(UIButton*)button {
+    
     button.selected = !button.selected;
     UILabel* label = (UILabel*)[self.tableView.tableHeaderView viewWithStrTag:@"contentText"];
     if(button.selected) {
@@ -95,3 +109,6 @@
 }
 
 @end
+
+
+

@@ -19,22 +19,22 @@
 /**
  @brief 设置布局描述
  */
--(void)setViewLayoutDes:(ViewLayoutDes*)viewLayoutDes;
+- (void)setViewLayoutDes:(ViewLayoutDes*)viewLayoutDes;
 
 /**
  @brief 获取布局描述对象
  */
--(ViewLayoutDes*)getViewLayoutDes;
+- (ViewLayoutDes*)getViewLayoutDes;
 
 /**
  @brief 获取布局器
  */
--(BaseLayouter*)getLayouter;
+- (BaseLayouter*)getLayouter;
 
 /**
  @brief 获取布局描述对象, 没有就创建
  */
--(ViewLayoutDes*)createViewLayoutDesIfNil;
+- (ViewLayoutDes*)createViewLayoutDesIfNil;
 
 @end
 
@@ -45,7 +45,7 @@
         在修改了控件某属性后，需要调用该控件，
         对于cell, 则通过重写 layoutSubviews来自动调用该方法
  */
--(void)spUpdateLayout;
+- (void)spUpdateLayout;
 
 /**
  @param 布局深度
@@ -53,22 +53,22 @@
  在修改了控件某属性后，需要调用该控件，
  对于cell, 则通过重写 layoutSubviews来自动调用该方法
  */
--(void)spUpdateLayout:(NSInteger)level;
+- (void)spUpdateLayout:(NSInteger)level;
 
 /**
  @brief 自动计算宽度，需要提供最大宽度，会自动计算一个合理的宽度
  */
--(void)calcWidth : (CGFloat (^)())getMaxWidth;
+- (void)calcWidth : (CGFloat (^)())getMaxWidth;
 
 /**
  @brief 自动计算高度
  */
--(void)calcHeight;
+- (void)calcHeight;
 
 /**
  @brief 自动计算高度, 此函数仅能被继承，不能主动调用
  */
--(void)calcHeightInView;
+- (void)calcHeightInView;
 
 @end
 

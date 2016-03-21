@@ -24,8 +24,8 @@ DefineParseFun(class);
 /**
  @key[String]:  extend
  @value[Bool]:  true / false
- @brief 在解析控件   -(UIView*)parse:(NSString*)viewname view:(UIView*)view;
-        读取属性    -(id)valueWithName:(NSString*)name key:(NSString*)key;
+ @brief 在解析控件   - (UIView*)parse:(NSString*)viewname view:(UIView*)view;
+        读取属性    - (id)valueWithName:(NSString*)name key:(NSString*)key;
         extend为true, 则优先解析 common.json里,再解析自身结点, 当自身结点不存在时，直接解析common.json
  @example {"extend":true}
  */

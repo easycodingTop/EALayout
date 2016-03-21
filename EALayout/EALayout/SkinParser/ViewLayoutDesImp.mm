@@ -10,7 +10,7 @@
 
 @implementation UIView(getViewLayoutDesImp)
 
--(ViewLayoutDesImp*)getViewLayoutDesImp
+- (ViewLayoutDesImp*)getViewLayoutDesImp
 {
     return (ViewLayoutDesImp*)[self getViewLayoutDes];
 }
@@ -18,7 +18,7 @@
 
 @implementation ViewLayoutDesImp
 
--(id)init
+- (id)init
 {
     if(self = [super init])
     {
@@ -46,12 +46,12 @@
     return self;
 }
 
--(void)setStyleType:(NSInteger)index type:(LayoutType)type
+- (void)setStyleType:(NSInteger)index type:(LayoutType)type
 {
     style[index].layoutType = type;
 }
 
--(void)setStyleAlign:(NSInteger)index type:(AlignType)type
+- (void)setStyleAlign:(NSInteger)index type:(AlignType)type
 {
     style[index].alignType = type;
 }
@@ -90,14 +90,14 @@ for(NSInteger index=0; index<2; ++index)\
 }
 
 #define SetValueByIndex(__ori, __orikey) \
--(void)set##__ori:(NSInteger)index value:(CGFloat)value\
+- (void)set##__ori:(NSInteger)index value:(CGFloat)value\
 {\
     style[index].__orikey = value;\
     SetConstraint(__ori, __orikey);\
 }
 
 #define SetValueByTag(__ori, __oriKey) \
--(void)set##__ori:(CGFloat)value forTag:(NSInteger)asstag\
+- (void)set##__ori:(CGFloat)value forTag:(NSInteger)asstag\
 {\
     SETV(__ori);\
 }
@@ -126,79 +126,89 @@ for(NSInteger index=0; index<2; ++index)\
     }\
 }
 
--(void)setStyleType:(LayoutType)type forTag:(NSInteger)asstag
+- (void)setStyleType:(LayoutType)type forTag:(NSInteger)asstag
 {
     SETV(style[index].layoutType = type)
 }
 
--(void)setStyleAlign:(AlignType)type forTag:(NSInteger)asstag
+- (void)setStyleAlign:(AlignType)type forTag:(NSInteger)asstag
 {
     SETV(style[index].alignType = type)
 }
 
 #undef SETV
 
--(void)setTag:(NSInteger)aTag
+- (void)setTag:(NSInteger)aTag
 {
     self->tag = aTag;
 }
 
--(void)setMaxSize:(CGSize)size
+- (void)setMaxSize:(CGSize)size
 {
     maxSize = size;
 }
 
--(void)setMinSize:(CGSize)size
+- (void)setMinSize:(CGSize)size
 {
     minSize = size;
 }
 
--(void)setConstraintMask:(NSInteger)mask
+- (void)setConstraintMask:(NSInteger)mask
 {
     constraintMask = mask;
 }
 
--(LayoutType)styleType:(NSInteger)index
+- (LayoutType)styleType:(NSInteger)index
 {
     return style[index].layoutType;
 }
 
--(AlignType)styleAlign:(NSInteger)index
+- (AlignType)styleAlign:(NSInteger)index
 {
     return style[index].alignType;
 }
 
--(CGFloat)left:(NSInteger)index
+- (CGFloat)left:(NSInteger)index
 {
     return style[index].left;
 }
 
--(CGFloat)center:(NSInteger)index
+- (CGFloat)center:(NSInteger)index
 {
     return style[index].center;
 }
 
--(CGFloat)right:(NSInteger)index
+- (CGFloat)right:(NSInteger)index
 {
     return style[index].right;
 }
 
--(CGFloat)top:(NSInteger)index
+- (CGFloat)top:(NSInteger)index
 {
     return style[index].top;
 }
 
--(CGFloat)middle:(NSInteger)index
+- (CGFloat)middle:(NSInteger)index
 {
     return style[index].middle;
 }
 
--(CGFloat)bottom:(NSInteger)index
+- (CGFloat)bottom:(NSInteger)index
 {
     return style[index].bottom;
 }
 
--(LayoutType)styleTypeByTag:(NSInteger)aTag
+- (CGFloat)width:(NSInteger)index
+{
+    return style[index].width;
+}
+
+- (CGFloat)height:(NSInteger)index
+{
+    return style[index].height;
+}
+
+- (LayoutType)styleTypeByTag:(NSInteger)aTag
 {
     for(NSInteger index=0; index<2; ++index)
     {
@@ -210,7 +220,7 @@ for(NSInteger index=0; index<2; ++index)\
     return ELayoutNone;
 }
 
--(AlignType)styleAlignByTag:(NSInteger)aTag
+- (AlignType)styleAlignByTag:(NSInteger)aTag
 {
     for(NSInteger index=0; index<2; ++index)
     {
@@ -222,7 +232,7 @@ for(NSInteger index=0; index<2; ++index)\
     return EAlignNone;
 }
 
--(CGFloat)leftByTag:(NSInteger)aTag
+- (CGFloat)leftByTag:(NSInteger)aTag
 {
     for(NSInteger index=0; index<2; ++index)
     {
@@ -234,7 +244,7 @@ for(NSInteger index=0; index<2; ++index)\
     return NILV;
 }
 
--(CGFloat)centerByTag:(NSInteger)aTag
+- (CGFloat)centerByTag:(NSInteger)aTag
 {
     for(NSInteger index=0; index<2; ++index)
     {
@@ -246,7 +256,7 @@ for(NSInteger index=0; index<2; ++index)\
     return NILV;
 }
 
--(CGFloat)rightByTag:(NSInteger)aTag
+- (CGFloat)rightByTag:(NSInteger)aTag
 {
     for(NSInteger index=0; index<2; ++index)
     {
@@ -258,7 +268,7 @@ for(NSInteger index=0; index<2; ++index)\
     return NILV;
 }
 
--(CGFloat)topByTag:(NSInteger)aTag
+- (CGFloat)topByTag:(NSInteger)aTag
 {
     for(NSInteger index=0; index<2; ++index)
     {
@@ -270,7 +280,7 @@ for(NSInteger index=0; index<2; ++index)\
     return NILV;
 }
 
--(CGFloat)middleByTag:(NSInteger)aTag
+- (CGFloat)middleByTag:(NSInteger)aTag
 {
     for(NSInteger index=0; index<2; ++index)
     {
@@ -282,7 +292,7 @@ for(NSInteger index=0; index<2; ++index)\
     return NILV;
 }
 
--(CGFloat)bottomByTag:(NSInteger)aTag
+- (CGFloat)bottomByTag:(NSInteger)aTag
 {
     for(NSInteger index=0; index<2; ++index)
     {
@@ -294,22 +304,46 @@ for(NSInteger index=0; index<2; ++index)\
     return NILV;
 }
 
--(NSInteger)tag
+- (CGFloat)widthByTag:(NSInteger)aTag
+{
+    for(NSInteger index=0; index<2; ++index)
+    {
+        if( aTag == style[index].asstag )
+        {
+            return style[index].width;
+        }
+    }
+    return NILV;
+}
+
+- (CGFloat)heightByTag:(NSInteger)aTag
+{
+    for(NSInteger index=0; index<2; ++index)
+    {
+        if( aTag == style[index].asstag )
+        {
+            return style[index].height;
+        }
+    }
+    return NILV;
+}
+
+- (NSInteger)tag
 {
     return self->tag;
 }
 
--(CGSize)maxSize
+- (CGSize)maxSize
 {
     return self->maxSize;
 }
 
--(CGSize)minSize
+- (CGSize)minSize
 {
     return self->minSize;
 }
 
--(NSInteger)constraintMask
+- (NSInteger)constraintMask
 {
     return self->constraintMask;
 }
@@ -369,7 +403,7 @@ switch ( __style.__ori##Ref.refOpt )\
 })
 
 #define calcByOri(__ori) \
-+(CGFloat) calc_##__ori:(LayoutStyle&)__style fetchRect:( CGRect* (^)(RefView) ) fetchViewRect\
++ (CGFloat) calc_##__ori:(LayoutStyle&)__style fetchRect:( CGRect* (^)(RefView) ) fetchViewRect\
 {\
     CGFloat result = NILV;\
     switch (__style.__ori##Ref.refView)\
@@ -411,12 +445,12 @@ calcByOri(bottom)
 calcByOri(width)
 calcByOri(height)
 
-+(CGFloat) calc_center:(LayoutStyle&)__style fetchRect:( CGRect* (^)(RefView) ) fetchViewRect
++ (CGFloat) calc_center:(LayoutStyle&)__style fetchRect:( CGRect* (^)(RefView) ) fetchViewRect
 {
     return __style.center;
 }
 
-+(CGFloat) calc_middle:(LayoutStyle&)__style fetchRect:( CGRect* (^)(RefView) ) fetchViewRect
++ (CGFloat) calc_middle:(LayoutStyle&)__style fetchRect:( CGRect* (^)(RefView) ) fetchViewRect
 {
     return __style.middle;
 }

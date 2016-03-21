@@ -1,0 +1,35 @@
+
+{
+    "testView":{
+        "class":"UIView",
+        "tag":100,
+        "backgroundColor":"redColor"
+    },
+    "selfView":
+    {
+        "backgroundColor":"grayColor",
+        "addSubview":[
+                      {
+                      "class":"LinerLayout",
+                      "layout":{"s":"l=10,t=100,r=20,b=20"},
+                      "subviewsLayout":{"s":"r,m"},
+                      "spacing":2,
+                      "sizeMode":"w,h",
+                      "addSubview":[
+                                    {
+                                    "class":"UIView",
+                                    "layout":{"s":"c=0.2"},
+                                    "backgroundColor":"redColor"
+                                    },
+                                    {
+                                    "class":"UIView",
+                                    "layout":{"s":"c=0.3"},
+                                    "backgroundColor":"greenColor"
+                                    },
+                                    "testView=10"
+                                    ]
+                      }
+                      
+                      ]
+    }
+}

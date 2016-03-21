@@ -17,7 +17,7 @@
     BOOL needCalcHeight;
 }
 
--(id)init
+- (id)init
 {
     if(self = [super init])
     {
@@ -38,7 +38,7 @@
     return self;
 }
 
--(void)layout
+- (void)layout
 {
     NSArray* layoutViews = self.layoutViews;
     NSArray* viewLines = [self posOfGroupViews:layoutViews];
@@ -54,7 +54,7 @@
          [3]是当前行中，最高控件的高度
  @brief 将layoutViews 分组，同时适配宽度和高度，并返回分组结果
  */
--(NSMutableArray*)posOfGroupViews:(NSArray*)layoutViews
+- (NSMutableArray*)posOfGroupViews:(NSArray*)layoutViews
 {
     if(!layoutViews.count) return nil;
     
@@ -135,7 +135,7 @@
  @brief 适配行中view的宽度。平均分配当前行中控件的宽度
  @todo 后面看是否需要添加 按比例或者其它什么规则进行宽度分配
  */
--(void)layoutFillWidth:(NSArray*)layoutViews countInLine:(NSInteger)countInLine startPos:(NSInteger)startPos lineInfo:(NSMutableArray*)lineInfo
+- (void)layoutFillWidth:(NSArray*)layoutViews countInLine:(NSInteger)countInLine startPos:(NSInteger)startPos lineInfo:(NSMutableArray*)lineInfo
 {
     CGFloat lineHeight = [lineInfo[3] floatValue];
     if(sizeMode & ESizeFillWidth)
@@ -192,7 +192,7 @@ void calcWidthAndHeightDep(UIView* view, CGRect& rect)
     }
 }
 
--(void)layout:(NSArray*)layoutViews lines:(NSArray*)viewLines
+- (void)layout:(NSArray*)layoutViews lines:(NSArray*)viewLines
 {
     NSUInteger numberOfLines = viewLines.count;
     
@@ -283,7 +283,7 @@ void calcWidthAndHeightDep(UIView* view, CGRect& rect)
     }
 }
 
--(void)calcHeightInView
+- (void)calcHeightInView
 {
     needCalcHeight = YES;
 }

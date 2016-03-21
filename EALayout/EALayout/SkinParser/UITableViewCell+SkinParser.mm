@@ -10,7 +10,7 @@
 
 @implementation UITableViewCell(SkinParser)
 
--(UITableViewCellAccessoryType)valueOfUITableViewCellSeparatorStyle:(NSString*)type
+- (UITableViewCellAccessoryType)valueOfUITableViewCellSeparatorStyle:(NSString*)type
 {
     NSArray* typeStrArray = @[@"none", @"disclosureIndicator", @"detailDisclosureButton",@"checkmark", @"DetailButton"];
     for(NSInteger i=0; i<typeStrArray.count; i++)
@@ -28,7 +28,7 @@ DefineParseFun(accessoryType)
     [self setValue:@([self valueOfUITableViewCellSeparatorStyle:value]) forKey:@"accessoryType"];
 }
 
--(UITableViewCellSelectionStyle)valueOfUITableViewCellSelectionStyle:(NSString*)style
+- (UITableViewCellSelectionStyle)valueOfUITableViewCellSelectionStyle:(NSString*)style
 {
     NSArray* styleStrArray = @[@"none", @"blue", @"gray",@"default"];
     for(NSInteger i=0; i<styleStrArray.count; i++)
@@ -51,17 +51,17 @@ DefineParseFun(addSubview)
     [self.contentView addSubview:value parser:parser];
 }
 
--(NSArray*)getWillLayoutSubviews
+- (NSArray*)getWillLayoutSubviews
 {
     return self.contentView.subviews;
 }
 
--(UIView*)getWillLayoutSuperview
+- (UIView*)getWillLayoutSuperview
 {
     return self.contentView;
 }
 
--(BaseLayouter*)getLayouter
+- (BaseLayouter*)getLayouter
 {
     BaseLayouter* layouter = [[self getWillLayoutSuperview] getLayouter];
     if(!layouter)

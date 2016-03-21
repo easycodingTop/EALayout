@@ -25,7 +25,7 @@
 
 #ifdef __cplusplus
 #define calcByOri(__ori) \
-+(CGFloat) calc_##__ori:(LayoutStyle&)__style fetchRect:( CGRect* (^)(RefView) ) fetchViewRect;
++ (CGFloat) calc_##__ori:(LayoutStyle&)__style fetchRect:( CGRect* (^)(RefView) ) fetchViewRect;
 
 calcByOri(left)
 calcByOri(top)
@@ -44,7 +44,7 @@ calcByOri(middle)
 
 @interface UIView(getViewLayoutDesImp)
 
--(ViewLayoutDesImp*)getViewLayoutDesImp;
+- (ViewLayoutDesImp*)getViewLayoutDesImp;
 
 @end
 

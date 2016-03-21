@@ -22,7 +22,7 @@
                                     {
                                     "class":"UILabel",
                                     "textColor":"blackColor",
-                                    "font":8,
+                                    "font":10,
                                     "text":"点击顶部状态栏，开启调试皮肤",
                                     "layout":{"s":"c,t"}
                                     },
@@ -266,7 +266,7 @@
                       {
                       "class":"UIView",
                       "backgroundColor":[170,255,29],
-                      "layout":{"s":"l=5,t=5,b=5,w=pw/2","tag":1}
+                      "layout":{"s":"l=5,t=5,b=5,w=pw/2,h=100","tag":1}
                       },
                       {
                       "class":"UILabel",
@@ -281,7 +281,7 @@
                       },
                       {
                       "class":"UILabel",
-                      "textColor":"blackClolr",
+                      "textColor":"blackColor",
                       "font":14,
                       "tag":7002,
                       "strTag":"detailLabel",
@@ -296,10 +296,7 @@
                       "layout":{"s":"l,r,b,h=0.5"},
                       "backgroundColor":[190,190,190,0.6]
                       }
-                      ],
-        "other":{
-            "height":50
-        }
+                      ]
     },
     "customCell":{
         "layout":{"s":"h"},

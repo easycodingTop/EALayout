@@ -55,7 +55,7 @@ DefineParseFun(strTag);
 /**
  @strTag 一个可被hash的对象
  */
--(UIView*)viewWithStrTag:(id)strTagHashable;
+- (UIView*)viewWithStrTag:(id)strTagHashable;
 
 /**
  @key[String]:layout

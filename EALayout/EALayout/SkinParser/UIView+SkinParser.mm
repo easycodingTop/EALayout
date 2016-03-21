@@ -284,7 +284,7 @@ DefineParseFun(zeroRectWhenHidden)
     des->zeroRectWhenHidden = [value boolValue];
 }
 
--(UIReturnKeyType)valueOfUIReturnKeyType:(NSString*)keyType
+- (UIReturnKeyType)valueOfUIReturnKeyType:(NSString*)keyType
 {
     NSArray* stateStrArray = @[@"default", @"go", @"google", @"join", @"next", @"route", @"search", @"send", @"yahoo", @"done", @"call"];
     
@@ -310,12 +310,12 @@ DefineParseFun(strTag)
     [self setStrTag:value];
 }
 
--(void)setStrTag:(id)strTagHashable
+- (void)setStrTag:(id)strTagHashable
 {
     objc_setAssociatedObject(self, &KStrTag, strTagHashable, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
--(id)strTag
+- (id)strTag
 {
     return objc_getAssociatedObject(self,&KStrTag);
 }
@@ -323,12 +323,12 @@ DefineParseFun(strTag)
 /*
  @strTag 一个可被hash的对象
  */
--(UIView*)viewWithStrTag:(id)strTagHashable
+- (UIView*)viewWithStrTag:(id)strTagHashable
 {
     return [self viewWithStrTagHash:[strTagHashable hash]];
 }
 
--(UIView*)viewWithStrTagHash:(NSUInteger)strTagHash
+- (UIView*)viewWithStrTagHash:(NSUInteger)strTagHash
 {
     if ([self.strTag hash] == strTagHash)
     {

@@ -10,7 +10,7 @@
 #import "UIControl+SkinParser.h"
 
 @interface UIControl()
--(UIControlState)valueOfUIControlState:(NSString*)stateStr;
+- (UIControlState)valueOfUIControlState:(NSString*)stateStr;
 @end
 
 @implementation UIButton(SkinParser)
@@ -44,12 +44,12 @@ DefineUIControlStateFun(titleColor, setTitleColor, toColor)
 
 DefineUIControlStateFun(titleShadowColor, setTitleShadowColor, toColor)
 
--(void)setText:(NSString*)str
+- (void)setText:(NSString*)str
 {
     [self setTitle:str forState:(UIControlStateNormal)];
 }
 
--(void)setTextColor:(UIColor*)color
+- (void)setTextColor:(UIColor*)color
 {
     [self setTitleColor:color forState:(UIControlStateNormal)];
 }

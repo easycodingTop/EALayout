@@ -98,7 +98,7 @@ DefineParseFun(titleShadowColor);
  @brief title的简写，为了兼容UILabel设置文字的使用习惯
  @example "text":"I am normal title"
  */
--(void)setText:(NSString*)str;
+- (void)setText:(NSString*)str;
 
 /**
  @key[String]:textColor
@@ -106,7 +106,7 @@ DefineParseFun(titleShadowColor);
  @brief titleColor的简写，为了兼容UILabel设置文字颜色的使用习惯
  @example "titleColor":"#FFFF0000"
  */
--(void)setTextColor:(UIColor*)color;
+- (void)setTextColor:(UIColor*)color;
 
 @end
 

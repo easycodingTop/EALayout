@@ -10,7 +10,7 @@
 
 @implementation UITableView(SkinParser)
 
--(UITableViewCellSeparatorStyle)valueOfUITableViewCellSeparatorStyle:(NSString*)style
+- (UITableViewCellSeparatorStyle)valueOfUITableViewCellSeparatorStyle:(NSString*)style
 {
     NSArray* styleStrArray = @[@"none", @"line", @"lineEtched"];
     for(NSInteger i=0; i<styleStrArray.count; i++)

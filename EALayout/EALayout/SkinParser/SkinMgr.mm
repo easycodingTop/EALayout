@@ -11,7 +11,7 @@
 
 @implementation SkinMgr
 
--(SkinParser*)getParserByName:(NSString*)filename
+- (SkinParser*)getParserByName:(NSString*)filename
 {
     if(!filename)
     {
@@ -30,7 +30,7 @@
     return [self getParserByData:[NSData dataWithContentsOfFile:filepath]];
 }
 
--(SkinParser*)getParserByData:(NSData *)data
+- (SkinParser*)getParserByData:(NSData *)data
 {
     if(data)
     {
@@ -47,7 +47,7 @@
     return nil;
 }
 
--(NSString*)skinPath
+- (NSString*)skinPath
 {
     if(!_skinPath)
     {
@@ -57,7 +57,7 @@
 }
 
 extern CGRect S_rect;
-+(instancetype)sharedInstance
++ (instancetype)sharedInstance
 {
     static dispatch_once_t pred = 0;
     static SkinMgr* gSkinMgr = nil;

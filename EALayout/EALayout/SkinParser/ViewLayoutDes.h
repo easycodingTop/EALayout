@@ -19,93 +19,97 @@
 
 @property (nonatomic, strong) BaseLayouter* __nullable layouter;
 
--(void)setStyleType:(NSInteger)index type:(LayoutType)type;
+- (void)setStyleType:(NSInteger)index type:(LayoutType)type;
 
--(void)setStyleAlign:(NSInteger)index type:(AlignType)type;
+- (void)setStyleAlign:(NSInteger)index type:(AlignType)type;
 
--(void)setLeft:(NSInteger)index value:(CGFloat)value;
+- (void)setLeft:(NSInteger)index value:(CGFloat)value;
 
--(void)setCenter:(NSInteger)index value:(CGFloat)value;
+- (void)setCenter:(NSInteger)index value:(CGFloat)value;
 
--(void)setRight:(NSInteger)index value:(CGFloat)value;
+- (void)setRight:(NSInteger)index value:(CGFloat)value;
 
--(void)setTop:(NSInteger)index value:(CGFloat)value;
+- (void)setTop:(NSInteger)index value:(CGFloat)value;
 
--(void)setMiddle:(NSInteger)index value:(CGFloat)value;
+- (void)setMiddle:(NSInteger)index value:(CGFloat)value;
 
--(void)setBottom:(NSInteger)index value:(CGFloat)value;
+- (void)setBottom:(NSInteger)index value:(CGFloat)value;
 
--(void)setWidth:(NSInteger)index value:(CGFloat)value;
+- (void)setWidth:(NSInteger)index value:(CGFloat)value;
 
--(void)setHeight:(NSInteger)index value:(CGFloat)value;
+- (void)setHeight:(NSInteger)index value:(CGFloat)value;
 
--(void)setStyleType:(LayoutType)type forTag:(NSInteger)tag;
+- (void)setStyleType:(LayoutType)type forTag:(NSInteger)tag;
 
--(void)setStyleAlign:(AlignType)type forTag:(NSInteger)tag;
+- (void)setStyleAlign:(AlignType)type forTag:(NSInteger)tag;
 
--(void)setLeft:(CGFloat)value forTag:(NSInteger)tag;
+- (void)setLeft:(CGFloat)value forTag:(NSInteger)tag;
 
--(void)setCenter:(CGFloat)value forTag:(NSInteger)tag;
+- (void)setCenter:(CGFloat)value forTag:(NSInteger)tag;
 
--(void)setRight:(CGFloat)value forTag:(NSInteger)tag;
+- (void)setRight:(CGFloat)value forTag:(NSInteger)tag;
 
--(void)setTop:(CGFloat)value forTag:(NSInteger)tag;
+- (void)setTop:(CGFloat)value forTag:(NSInteger)tag;
 
--(void)setMiddle:(CGFloat)value forTag:(NSInteger)tag;
+- (void)setMiddle:(CGFloat)value forTag:(NSInteger)tag;
 
--(void)setBottom:(CGFloat)value forTag:(NSInteger)tag;
+- (void)setBottom:(CGFloat)value forTag:(NSInteger)tag;
 
--(void)setWidth:(CGFloat)value forTag:(NSInteger)tag;
+- (void)setWidth:(CGFloat)value forTag:(NSInteger)tag;
 
--(void)setHeight:(CGFloat)value forTag:(NSInteger)tag;
+- (void)setHeight:(CGFloat)value forTag:(NSInteger)tag;
 
--(void)setTag:(NSInteger)tag;
+- (void)setTag:(NSInteger)tag;
 
--(void)setMaxSize:(CGSize)size;
+- (void)setMaxSize:(CGSize)size;
 
--(void)setMinSize:(CGSize)size;
+- (void)setMinSize:(CGSize)size;
 
--(void)setConstraintMask:(NSInteger)constraintMask;
+- (void)setConstraintMask:(NSInteger)constraintMask;
 
--(LayoutType)styleType:(NSInteger)index;
+- (LayoutType)styleType:(NSInteger)index;
 
--(AlignType)styleAlign:(NSInteger)index;
+- (AlignType)styleAlign:(NSInteger)index;
 
--(CGFloat)left:(NSInteger)index;
+- (CGFloat)left:(NSInteger)index;
 
--(CGFloat)center:(NSInteger)index;
+- (CGFloat)center:(NSInteger)index;
 
--(CGFloat)right:(NSInteger)index;
+- (CGFloat)right:(NSInteger)index;
 
--(CGFloat)top:(NSInteger)index;
+- (CGFloat)top:(NSInteger)index;
 
--(CGFloat)middle:(NSInteger)index;
+- (CGFloat)middle:(NSInteger)index;
 
--(CGFloat)bottom:(NSInteger)index;
+- (CGFloat)bottom:(NSInteger)index;
 
--(LayoutType)styleTypeByTag:(NSInteger)aTag;
+- (CGFloat)width:(NSInteger)index;
 
--(AlignType)styleAlignByTag:(NSInteger)aTag;
+- (CGFloat)height:(NSInteger)index;
 
--(CGFloat)leftByTag:(NSInteger)aTag;
+- (LayoutType)styleTypeByTag:(NSInteger)aTag;
 
--(CGFloat)centerByTag:(NSInteger)aTag;
+- (AlignType)styleAlignByTag:(NSInteger)aTag;
 
--(CGFloat)rightByTag:(NSInteger)aTag;
+- (CGFloat)leftByTag:(NSInteger)aTag;
 
--(CGFloat)topByTag:(NSInteger)aTag;
+- (CGFloat)centerByTag:(NSInteger)aTag;
 
--(CGFloat)middleByTag:(NSInteger)aTag;
+- (CGFloat)rightByTag:(NSInteger)aTag;
 
--(CGFloat)bottomByTag:(NSInteger)aTag;
+- (CGFloat)topByTag:(NSInteger)aTag;
 
--(NSInteger)tag;
+- (CGFloat)middleByTag:(NSInteger)aTag;
 
--(CGSize)maxSize;
+- (CGFloat)bottomByTag:(NSInteger)aTag;
 
--(CGSize)minSize;
+- (NSInteger)tag;
 
--(NSInteger)constraintMask;
+- (CGSize)maxSize;
+
+- (CGSize)minSize;
+
+- (NSInteger)constraintMask;
 
 @end
 

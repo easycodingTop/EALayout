@@ -11,7 +11,7 @@
 
 @implementation NSObject(SkinParser)
 
--(id)matchValue:(id)value forKey:(NSString*)key parser:(SkinParser*)parser
+- (id)matchValue:(id)value forKey:(NSString*)key parser:(SkinParser*)parser
 {
     ParseFunction parseFun = GetMatchPatternFunciton(key, [self class]);
     if(parseFun)
@@ -21,7 +21,7 @@
     return value;
 }
 
--(void)parseValue:(id)value forKey:(NSString*)key parser:(SkinParser*)parser
+- (void)parseValue:(id)value forKey:(NSString*)key parser:(SkinParser*)parser
 {
     NSRange range = [key rangeOfString:@"."];
     if( range.length == 0 )

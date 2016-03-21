@@ -9,7 +9,7 @@
 #import "UISegmentedControl+SkinParser.h"
 
 @interface UIControl()
--(UIControlState)valueOfUIControlState:(NSString*)stateStr;
+- (UIControlState)valueOfUIControlState:(NSString*)stateStr;
 @end
 
 @implementation UISegmentedControl(SkinParser)
