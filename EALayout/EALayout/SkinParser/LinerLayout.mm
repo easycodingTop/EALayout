@@ -411,7 +411,14 @@ do\
             totalWidth += [des right:0];
         }
         
-        if (des && [des center:0] < NILV)
+        if(des && [des width:0] < NILV)
+        {
+            CGRect rect = view.frame;
+            rect.size.width = [des width:0];
+            setRectAndLayout;
+            totalWidth += rect.size.width;
+        }
+        else if (des && [des center:0] < NILV)
         {
             CGRect rect = view.frame;
             rect.size.width = [des center:0] * CGRectGetWidth(bound);

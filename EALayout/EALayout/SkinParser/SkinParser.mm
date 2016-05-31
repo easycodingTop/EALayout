@@ -25,6 +25,8 @@ FOUNDATION_EXPORT const char* EALayoutVersionString = "0.0";
     NSDictionary* _dict;
 }
 
+static NSString* (^gToLocalString)(NSString* key);
+
 + (instancetype)getParserByName:(NSString*)filename
 {
     return [[SkinMgr sharedInstance] getParserByName:filename];
@@ -33,6 +35,20 @@ FOUNDATION_EXPORT const char* EALayoutVersionString = "0.0";
 + (instancetype)getParserByData:(NSData*)data
 {
     return [[SkinMgr sharedInstance] getParserByData:data];
+}
+
++ (void)setLocalString:(NSString*(^)(NSString* key))toLocalString
+{
+    gToLocalString = toLocalString;
+}
+
++ (NSString*)ToLocalString:(NSString*)string
+{
+    if(gToLocalString)
+    {
+        return gToLocalString(string);
+    }
+    return string;
 }
 
 - (instancetype)init:(NSDictionary*)dict

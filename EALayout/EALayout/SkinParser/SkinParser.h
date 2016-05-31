@@ -39,6 +39,10 @@
 
 + (instancetype)getParserByName:(NSString*)filename;
 
++ (void)setLocalString:(NSString*(^)(NSString* key))toLocalString;
+
++ (NSString*)ToLocalString:(NSString*)string;
+
 - (instancetype)init:(NSDictionary*)dict;
 
 /**

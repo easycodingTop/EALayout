@@ -37,6 +37,8 @@ DefineParseFun(keyboardType);
  */
 DefineParseFun(enablesReturnKeyAutomatically);
 
+DefineParseFun(placeholder);
+
 @end
 
 #endif //__UITEXTFIELD_SKINPARSER_H__

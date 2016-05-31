@@ -6,6 +6,11 @@
 //  Copyright (c) 2015年 www.easycoding.top. All rights reserved.
 //
 
+/*
+**********************************************************************
+** EALayout http://blog.csdn.net/fatherhui/article/details/47011237 **
+**********************************************************************
+*/
 #import <UIKit/UIKit.h>
 
 #import "SkinParser.h"

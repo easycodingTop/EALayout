@@ -20,7 +20,7 @@ DefineParseFun(titles)
     NSUInteger count = titleArray.count;
     for(NSUInteger i=0; i<count; i++)
     {
-        [self insertSegmentWithTitle:titleArray[i] atIndex:i animated:NO];
+        [self insertSegmentWithTitle: [SkinParser ToLocalString:titleArray[i]]  atIndex:i animated:NO];
     }
 }
 

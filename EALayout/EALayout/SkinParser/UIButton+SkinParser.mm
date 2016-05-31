@@ -34,11 +34,16 @@ DefineParseFun(_key)\
     }\
 }
 
+NSString* toLocalString(NSString* str)
+{
+    return [SkinParser ToLocalString:str];
+}
+
 DefineUIControlStateFun(image, setImage, toImage)
 
 DefineUIControlStateFun(backgroundImage, setBackgroundImage, toImage)
 
-DefineUIControlStateFun(title, setTitle, toString)
+DefineUIControlStateFun(title, setTitle, toLocalString)
 
 DefineUIControlStateFun(titleColor, setTitleColor, toColor)
 
@@ -46,7 +51,7 @@ DefineUIControlStateFun(titleShadowColor, setTitleShadowColor, toColor)
 
 - (void)setText:(NSString*)str
 {
-    [self setTitle:str forState:(UIControlStateNormal)];
+    [self setTitle: [SkinParser ToLocalString:str] forState:(UIControlStateNormal)];
 }
 
 - (void)setTextColor:(UIColor*)color

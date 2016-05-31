@@ -23,6 +23,11 @@
     return UITextBorderStyleNone;
 }
 
+DefineParseFun(placeholder)
+{
+    self.placeholder = [SkinParser ToLocalString:value];
+}
+
 DefineParseFun(borderStyle)
 {
     [self setValue:@([self valueOfUITextBorderStyle:value]) forKey:@"borderStyle"];
