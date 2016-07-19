@@ -18,4 +18,27 @@ https://github.com/easycodingTop/EALayoutLiteForOC   for Objective-C
 基础教程: http://blog.csdn.net/fatherhui
 
 QQ群:454686295 
-视频演示地址：视频演示地址：http://pan.baidu.com/s/1kTEL1xP
+视频演示地址：http://pan.baidu.com/s/1kTEL1xP
+
+===========================================================================================
+
+Lite version DEMO: https://github.com/easycodingTop/EAExtraLiteDemo
+
+https://github.com/easycodingTop/EALayout   for Swift
+https://github.com/easycodingTop/EALayoutLiteForOC  for Objective 
+
+Use this framework, you can preview UI, don't need to compile again and again.     
+Support for Swift Objective - C 
+
+The introduction of framework, remember to add "-ObjC" to other linker Flags settings.
+
+Please use the xcode 6.4 above
+
+CodeSnippets content in ~/Library/Developer/Xcode/UserData/CodeSnippets directory, restart Xcode
+
+this is in a json file, there can be automatically prompt, write json quickly 
+You can also use. / installSnippets.sh automatically copied to the directory
+
+Basic tutorial: http://blog.csdn.net/fatherhui
+QQ group: 454686295 
+video demo address: http://pan.baidu.com/s/1kTEL1xP
