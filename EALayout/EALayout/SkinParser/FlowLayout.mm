@@ -41,8 +41,16 @@
 - (void)layout
 {
     NSArray* layoutViews = self.layoutViews;
-    NSArray* viewLines = [self posOfGroupViews:layoutViews];
-    [self layout:layoutViews lines:viewLines];
+    NSMutableArray* visibleArray = [NSMutableArray array];
+    for(UIView* view in layoutViews)
+    {
+        if(!view.hidden)
+        {
+            [visibleArray addObject:view];
+        }
+    }
+    NSArray* viewLines = [self posOfGroupViews:visibleArray];
+    [self layout:visibleArray lines:viewLines];
 }
 
 /**

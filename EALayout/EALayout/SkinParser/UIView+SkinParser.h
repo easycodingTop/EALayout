@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SkinParser.h"
+#import "AutoDataBind.h"
 
 @interface UIView(SkinParser)
 
@@ -18,6 +19,11 @@
  @brief 可以给View设置一个 String类型的tag, 更具识别性。
  */
 @property (nonatomic, strong) NSString* strTag;
+
+/**
+@breif 可以给View设置一个数据绑定规则. AutoDataBind
+*/
+@property (nonatomic, strong) AutoDataBind* autoDataBind;
 
 /**
  @key[String]:addSubview
@@ -56,6 +62,22 @@ DefineParseFun(strTag);
  @strTag 一个可被hash的对象
  */
 - (UIView*)viewWithStrTag:(id)strTagHashable;
+
+/**
+ @key[String]:autoDataBind
+ @value[String]:string
+ @brief 可以给View以绑定一个数据key.
+        这样可以自动对数据进行绑定，不需要手动书写
+ @example "autoDataBind":"user.imageUrl" [view autoDataBind:@{@"user":@{@"imageUrl":@"http://...png"}}];
+ */
+DefineParseFun(autoDataBind);
+
+/**
+ @data 需要绑定数据
+ @check 当为了自动计算高时，有的数据不需要绑定，此时只会绑定必须的值
+ @parser 当前界面的parser 如果明确不需要的地方，可以传空(大部分时间可以传空)
+ */
+- (void)autoDataBind:(id)data checkMust:(BOOL)check parser:(SkinParser*)parser;
 
 /**
  @key[String]:layout
@@ -141,6 +163,14 @@ DefineParseFun(strTag);
  
  */
 DefineParseFun(layout);
+
+@end
+
+@interface UIView(ForTag)
+
+- (__kindof UIView *)objectForKeyedSubscript:(NSString*)key;
+
+- (__kindof UIView *)objectAtIndexedSubscript:(NSUInteger)idx;
 
 @end
 

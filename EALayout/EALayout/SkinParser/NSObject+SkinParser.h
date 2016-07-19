@@ -33,9 +33,10 @@ DefineParseFun(extend);
 
 /**
  @key[String]:  linkStyle
- @value[String]:styleName
+ @value1[String]:styleName
+ @value2[Array<String>]:[styleName]
  @brief 该属性会从  style.json 里读取对应 styleName 样式的属性
- @example {"linkStyle":"greenStyle"}
+ @example {"linkStyle":"greenStyle"}  {"linkStyle":["greenStyle","MyStyle"]}
  */
 DefineParseFun(linkStyle);
 

@@ -21,11 +21,10 @@
     return debugWindow;
 }
 
-- (void)setSkinPath:(NSString*)relativePath absolutePath:(const char*)cAbsolutePath
+- (void)setSkinPath:(NSString*)relativePath absolutePath:(NSString*)absolutePath
 {
-    NSString*  absolutePath = [NSString stringWithUTF8String:cAbsolutePath];
-    NSString* skinPath = [[absolutePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:relativePath];
-    [SkinMgr sharedInstance].skinPath = skinPath;
+    NSString* skinPath = [absolutePath stringByAppendingPathComponent:relativePath];
+    [SkinMgr sharedInstance].rootPath = skinPath;
 }
 
 - (id)initWithFrame:(CGRect)frame

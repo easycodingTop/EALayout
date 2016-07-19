@@ -25,8 +25,9 @@ typedef enum UpdateTitleMask {
     
 } UpdateTitleMask;
 
-@interface EAViewController : UIViewController
+@interface EAViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
+@property (nonatomic, copy) NSString* skinFileName;
 @property (nonatomic, strong) SkinParser* skinParser;
 
 @property (nonatomic, strong) UIView* titleBgView;
@@ -39,7 +40,18 @@ typedef enum UpdateTitleMask {
 @property (nonatomic, strong) UIView* contentLayoutView;
 @property (nonatomic, strong) UIView* bottomLayoutView;
 
--(void) freshSkin;
+- (void) freshSkin;
+
+
+@property (nonatomic, strong)UITableView* tableView;
+
+- (void)resetTableHeaderView:(UIView*)tableHeaderView;
+
+- (UITableViewCell*)createCell:(NSString*)identifier;
+
+- (UITableViewCell*)createCell:(NSString*)identifier created:(void (^)(UITableViewCell* cell)) created;
+
+- (UITableViewCell*)createCacheCell:(NSString*)identifier;
 
 @end 
 

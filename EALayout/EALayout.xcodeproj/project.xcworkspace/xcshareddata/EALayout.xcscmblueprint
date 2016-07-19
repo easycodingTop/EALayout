@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CF537F12E2ED817262BC15C17773113879CC15D6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CF537F12E2ED817262BC15C17773113879CC15D6" : 0,
+    "CA203BDDC0BB2BF2A8FB34B80F73876CF2DB2B5C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "392CD148-FC19-496D-AD26-B82D21D3AAFC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CF537F12E2ED817262BC15C17773113879CC15D6" : "Talk-IOS\/",
+    "CA203BDDC0BB2BF2A8FB34B80F73876CF2DB2B5C" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "EALayout",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "EALayout\/EALayout.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.100.173\/guoqingming\/ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CA203BDDC0BB2BF2A8FB34B80F73876CF2DB2B5C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.100.173\/zhonghui\/Talk-IOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CF537F12E2ED817262BC15C17773113879CC15D6"
+    }
+  ]
+}

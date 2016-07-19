@@ -3,7 +3,7 @@
 //  EALayout
 //
 //  Created by easylayout on 15/8/15.
-//  Copyright (c) 2015年 easylayout. All rights reserved.
+//  Copyright (c) 2015年 www.easycoding.top. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EATableViewController.h"
+#import "EAViewController.h"
 
-@interface ViewController : EATableViewController
+@interface ViewController : EAViewController
 
 
 @end

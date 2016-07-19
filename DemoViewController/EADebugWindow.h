@@ -18,7 +18,7 @@
 
 + (instancetype)createDebugWindow;
 
-- (void)setSkinPath:(NSString*)relativePath absolutePath:(const char*)absolutePath;
+- (void)setSkinPath:(NSString*)relativePath absolutePath:(NSString*)absolutePath;
 
 @end
 

@@ -1,6 +1,7 @@
 
 
 #import "EAViewController.h"
+#import "EATableViewCell.h"
 
 NSString* EA_selfView               = @"selfView";
 NSString* EA_tableView              = @"tableView";
@@ -13,40 +14,59 @@ NSString* EA_titleLeftView          = @"titleLeftView";
 NSString* EA_titleMiddleView        = @"titleMiddleView";
 NSString* EA_titleRightView         = @"titleRightView";
 
+@interface EAViewController()
+
+@property (nonatomic, strong) NSMutableDictionary* cacheViews;
+
+@end
+
 
 @implementation EAViewController
 
--(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     if ( self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil] )
     {
-        _skinParser = [SkinParser getParserByName:NSStringFromClass([self class])];
-        _skinParser.eventTarget = self;
         self.automaticallyAdjustsScrollViewInsets = false;
     }
     return self;
 }
 
--(void)loadView
+- (SkinParser*)skinParser
+{
+    if(!_skinParser)
+    {
+        if(!_skinFileName.length)
+        {
+            _skinFileName = NSStringFromClass([self class]);
+        }
+        SkinParser* skinParser = [SkinParser getParserByName:_skinFileName];
+        skinParser.eventTarget = self;
+        _skinParser = skinParser;
+    }
+    return _skinParser;
+}
+
+- (void)loadView
 {
     [super loadView];
-    [_skinParser parse:EA_selfView view:self.view];
+    [self.skinParser parse:EA_selfView view:self.view];
     
-    UIView* contentHeaderView = [_skinParser parse:EA_contentHeaderView];
+    UIView* contentHeaderView = [self.skinParser parse:EA_contentHeaderView];
     if(contentHeaderView)
     {
         [self.view addSubview:contentHeaderView];
     }
     self.contentHeaderLayoutView = contentHeaderView;
     
-    UIView* contentView = [_skinParser parse:EA_contentView];
+    UIView* contentView = [self.skinParser parse:EA_contentView];
     if(contentView)
     {
         [self.view addSubview:contentView];
     }
     self.contentLayoutView = contentView;
     
-    UIView* bottomView = [_skinParser parse:EA_bottomView];
+    UIView* bottomView = [self.skinParser parse:EA_bottomView];
     if(bottomView)
     {
         [self.view addSubview:bottomView];
@@ -54,9 +74,11 @@ NSString* EA_titleRightView         = @"titleRightView";
     self.bottomLayoutView = bottomView;
     
     [self updateTitleView:EUpdateAll];
+    
+    [self createTableView];
 }
 
--(void)viewDidLoad
+- (void)viewDidLoad
 {
     [self.view spUpdateLayout];
     [self layoutSelfView];
@@ -68,13 +90,12 @@ NSString* EA_titleRightView         = @"titleRightView";
 }
 
 #if DEBUG
--(void)freshSkin
+- (void)freshSkin
 {
 #if TARGET_IPHONE_SIMULATOR
     
     self.view = [[UIView alloc] init];
-    _skinParser = [SkinParser getParserByName:NSStringFromClass([self class])];
-    _skinParser.eventTarget = self;
+    self.skinParser = nil;
     [self loadView];
     [self viewDidLoad];
     
@@ -116,12 +137,12 @@ NSString* EA_titleRightView         = @"titleRightView";
 }
 #endif
 
--(void)updateTitleView
+- (void)updateTitleView
 {
     [self updateTitleView:EUpdateTitle];
 }
 
--(void)updateTitleView:(NSInteger) mask
+- (void)updateTitleView:(NSInteger) mask
 {
     UIView* newTitleBgView = _titleBgView;
     
@@ -204,33 +225,33 @@ NSString* EA_titleRightView         = @"titleRightView";
     }
 }
 
--(NSString*)getTitle
+- (NSString*)getTitle
 {
     return self.title;
 }
 
--(UIView*)createTitleBgView
+- (UIView*)createTitleBgView
 {
-    return [_skinParser parse:EA_titleBgView];
+    return [self.skinParser parse:EA_titleBgView];
 }
 
--(UIView*)createTitleLeftView
+- (UIView*)createTitleLeftView
 {
-    return [_skinParser parse:EA_titleLeftView];
+    return [self.skinParser parse:EA_titleLeftView];
 }
 
--(UIView*)createTitleMiddleView
+- (UIView*)createTitleMiddleView
 {
-    return [_skinParser parse:EA_titleMiddleView];
+    return [self.skinParser parse:EA_titleMiddleView];
 }
 
--(UIView*)createTitleRightView
+- (UIView*)createTitleRightView
 {
-    return [_skinParser parse:EA_titleRightView];
+    return [self.skinParser parse:EA_titleRightView];
 }
 
 //MARK:Layout controller views
--(void)setTopLayoutView:(UIView *)topLayoutView
+- (void)setTopLayoutView:(UIView *)topLayoutView
 {
     if(topLayoutView != _topLayoutView)
     {
@@ -239,7 +260,7 @@ NSString* EA_titleRightView         = @"titleRightView";
     }
 }
 
--(void)setContentHeaderLayoutView:(UIView *)contentHeaderLayoutView
+- (void)setContentHeaderLayoutView:(UIView *)contentHeaderLayoutView
 {
     if(contentHeaderLayoutView != _contentHeaderLayoutView)
     {
@@ -248,7 +269,7 @@ NSString* EA_titleRightView         = @"titleRightView";
     }
 }
 
--(void)setContentLayoutView:(UIView *)contentLayoutView
+- (void)setContentLayoutView:(UIView *)contentLayoutView
 {
     if(contentLayoutView != _contentLayoutView)
     {
@@ -257,7 +278,7 @@ NSString* EA_titleRightView         = @"titleRightView";
     }
 }
 
--(void)setBottomLayoutView:(UIView *)bottomLayoutView
+- (void)setBottomLayoutView:(UIView *)bottomLayoutView
 {
     if(bottomLayoutView != _bottomLayoutView)
     {
@@ -267,7 +288,7 @@ NSString* EA_titleRightView         = @"titleRightView";
 }
 
 
--(void)layoutSelfView
+- (void)layoutSelfView
 {
     CGRect bound = self.view.bounds;
     CGRect topFrame = CGRectZero;
@@ -343,6 +364,93 @@ NSString* EA_titleRightView         = @"titleRightView";
             [childViewControler layoutSelfView];
         }
     }
+}
+
+- (NSMutableDictionary*)cacheViews
+{
+    if(!_cacheViews)
+    {
+        _cacheViews = [NSMutableDictionary dictionary];
+    }
+    return _cacheViews;
+}
+
+- (UITableView*) createTableView
+{
+    _tableView = (UITableView*)[self.skinParser parse:EA_tableView];
+    [self.contentLayoutView removeFromSuperview];
+    self.contentLayoutView = _tableView;
+    if(_tableView)
+    {
+        [self.view addSubview:_tableView];
+    }
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    
+    UIView* headerView = [self.skinParser parse:EA_tableHeaderView];
+    [self resetTableHeaderView:headerView];
+    return _tableView;
+}
+
+- (void)resetTableHeaderView:(UIView*)tableHeaderView
+{
+    CGRect rect = self.view.frame;
+    tableHeaderView.frame = rect;
+    [tableHeaderView spUpdateLayout];
+    [tableHeaderView calcHeight];
+    [tableHeaderView spUpdateLayout];
+    _tableView.tableHeaderView = nil;
+    _tableView.tableHeaderView = tableHeaderView;
+}
+
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self createCell:@"cell"];
+}
+    
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (UITableViewCell*)createCell:(NSString*)identifier
+{
+    return [self createCell:identifier created:nil];
+}
+
+- (UITableViewCell*)createCell:(NSString*)identifier created:(void (^)(UITableViewCell* cell)) created
+{
+    UITableViewCell* cell = [_tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell)
+    {
+        cell = [[EATableViewCell alloc] initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:identifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [self.skinParser parse:identifier view:cell];
+        if(created)
+        {
+            created(cell);
+        }
+    }
+    return cell;
+}
+
+- (UITableViewCell*)createCacheCell:(NSString*)identifier
+{
+    NSString* dentifier_cache = [identifier stringByAppendingString:@"_cache"];
+    UITableViewCell* cacheView = (UITableViewCell*)self.cacheViews[dentifier_cache];
+    
+    if (!cacheView)
+    {
+        cacheView = [_tableView dequeueReusableCellWithIdentifier:(NSString*)dentifier_cache];
+        if (!cacheView)
+        {
+            cacheView = [[EATableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:dentifier_cache];
+            [self.skinParser parse:identifier view:cacheView];
+        }
+        cacheView.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.cacheViews[dentifier_cache] = cacheView;
+    }
+    return cacheView;
 }
 
 @end

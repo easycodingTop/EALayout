@@ -11,7 +11,7 @@
 @implementation UIView(bindData)
 
 
--(void)bindData:(id)data
+- (void)bindData:(id)data
 {
     if( [self isKindOfClass:[UILabel class]] )
     {
@@ -27,7 +27,7 @@
     }
 }
 
--(void)bindForUILabel:(id)data
+- (void)bindForUILabel:(id)data
 {
     data = data ?: @"";
     if ( [data isKindOfClass:[NSString class]] )
@@ -36,7 +36,7 @@
     }
 }
 
--(void)bindForUIImageView:(id)data
+- (void)bindForUIImageView:(id)data
 {
     if (!data || [data isKindOfClass:[UIImage class]] )
     {
@@ -44,7 +44,7 @@
     }
 }
 
--(void)bindForUIButton:(id)data
+- (void)bindForUIButton:(id)data
 {
     if( [data isKindOfClass:[NSString class]] )
     {
@@ -56,14 +56,14 @@
     }
 }
 
--(UIView*)bindByTag:(NSInteger)tag data:(id)data
+- (UIView*)bindByTag:(NSInteger)tag data:(id)data
 {
     UIView* subView = [self viewWithTag:tag];
     [subView bindData:data];
     return subView;
 }
 
--(UIView*)bindByStrTag:(NSString*)tag data:(id)data
+- (UIView*)bindByStrTag:(NSString*)tag data:(id)data
 {
     UIView* subView = [self viewWithStrTag:tag];
     [subView bindData:data];

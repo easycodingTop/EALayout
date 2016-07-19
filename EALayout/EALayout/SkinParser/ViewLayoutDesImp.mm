@@ -2,8 +2,8 @@
 //  ViewLayoutDesImp.mm
 //  EALayout
 //
-//  Created by splendourbell on 15/7/18.
-//  Copyright (c) 2015年 easylayout. All rights reserved.
+//  Created by easycoding on 15/7/18.
+//  Copyright (c) 2015年 www.easycoding.top. All rights reserved.
 //
 
 #import "ViewLayoutDesImp.h"
@@ -82,7 +82,7 @@ do\
 #define SETV(__ori) \
 for(NSInteger index=0; index<2; ++index)\
 {\
-    if( tag == style[index].asstag )\
+    if( asstag == style[index].asstag )\
     {\
         [self set##__ori:index value:value];\
         break;\

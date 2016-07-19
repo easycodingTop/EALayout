@@ -24,8 +24,11 @@
 #import "LinerLayout+SkinParser.h"
 #import "FlowLayout+SkinParser.h"
 #import "UIView+SkinParser.h"
+#import "UIImageView+SkinParser.h"
 #import "CALayer+SkinParser.h"
 #import "MatchPattern.h"
+#import "CacheLayout.h"
+
 
 //! Project version number for EALayout.
 FOUNDATION_EXPORT double EALayoutVersionNumber;

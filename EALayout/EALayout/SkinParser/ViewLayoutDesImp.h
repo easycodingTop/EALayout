@@ -2,8 +2,8 @@
 //  ViewLayoutDesImp.h
 //  EALayout
 //
-//  Created by splendourbell on 15/7/18.
-//  Copyright (c) 2015年 easylayout. All rights reserved.
+//  Created by easycoding on 15/7/18.
+//  Copyright (c) 2015年 www.easycoding.top. All rights reserved.
 //
 
 #ifndef __VIEWLAYOUTDESIMP_H__

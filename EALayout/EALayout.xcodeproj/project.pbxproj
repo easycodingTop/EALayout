@@ -24,6 +24,8 @@
 		284E23CB1B501D4900D5C65D /* SkinKeysDef.mm in Sources */ = {isa = PBXBuildFile; fileRef = 284E23CA1B501D4900D5C65D /* SkinKeysDef.mm */; };
 		284E23CD1B50211000D5C65D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284E23CC1B50211000D5C65D /* CoreGraphics.framework */; };
 		284E23CF1B50212E00D5C65D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 284E23CE1B50212E00D5C65D /* UIKit.framework */; };
+		28776B8E1D34E9C200FE11B2 /* AutoDataBind.h in Headers */ = {isa = PBXBuildFile; fileRef = 28776B8C1D34E9C200FE11B2 /* AutoDataBind.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		28776B8F1D34E9C200FE11B2 /* AutoDataBind.m in Sources */ = {isa = PBXBuildFile; fileRef = 28776B8D1D34E9C200FE11B2 /* AutoDataBind.m */; };
 		287D6B5D1B5A391B00ACEEDD /* ViewLayoutDesImp.h in Headers */ = {isa = PBXBuildFile; fileRef = 287D6B5B1B5A391B00ACEEDD /* ViewLayoutDesImp.h */; };
 		287D6B5E1B5A391B00ACEEDD /* ViewLayoutDesImp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 287D6B5C1B5A391B00ACEEDD /* ViewLayoutDesImp.mm */; };
 		28A331E01B58196E00308122 /* NSObject+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A331DE1B58196E00308122 /* NSObject+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -44,15 +46,25 @@
 		28A331FD1B581D4F00308122 /* UIView+SkinParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28A331FB1B581D4F00308122 /* UIView+SkinParser.mm */; };
 		28A332001B581D8800308122 /* CALayer+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A331FE1B581D8800308122 /* CALayer+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28A332011B581D8800308122 /* CALayer+SkinParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28A331FF1B581D8800308122 /* CALayer+SkinParser.mm */; };
+		28A41D0C1CA19E420084BE7A /* UISearchBar+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A41D0A1CA19E420084BE7A /* UISearchBar+SkinParser.h */; };
+		28A41D0D1CA19E420084BE7A /* UISearchBar+SkinParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28A41D0B1CA19E420084BE7A /* UISearchBar+SkinParser.mm */; };
+		28A41D101CA19F330084BE7A /* UILabel+SkinParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A41D0E1CA19F330084BE7A /* UILabel+SkinParser.m */; };
+		28A41D111CA19F330084BE7A /* UILabel+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A41D0F1CA19F330084BE7A /* UILabel+SkinParser.h */; };
 		28C41BC71B7F48C4001782FD /* FlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 28C41BC31B7F48C4001782FD /* FlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28C41BC81B7F48C4001782FD /* FlowLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28C41BC41B7F48C4001782FD /* FlowLayout.mm */; };
 		28C41BC91B7F48C4001782FD /* UISegmentedControl+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28C41BC51B7F48C4001782FD /* UISegmentedControl+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28C41BCA1B7F48C4001782FD /* UISegmentedControl+SkinParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28C41BC61B7F48C4001782FD /* UISegmentedControl+SkinParser.mm */; };
 		28C41BCD1B7F49F6001782FD /* FlowLayout+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28C41BCB1B7F49F6001782FD /* FlowLayout+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28C41BCE1B7F49F6001782FD /* FlowLayout+SkinParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28C41BCC1B7F49F6001782FD /* FlowLayout+SkinParser.mm */; };
+		28CB76651D3CB1B800A33D00 /* CacheLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 28CB76631D3CB1B800A33D00 /* CacheLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		28CB76661D3CB1B800A33D00 /* CacheLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CB76641D3CB1B800A33D00 /* CacheLayout.m */; };
+		28CB76691D3CCB2900A33D00 /* EasyDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 28CB76671D3CCB2900A33D00 /* EasyDefine.h */; };
+		28CB766A1D3CCB2900A33D00 /* EasyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CB76681D3CCB2900A33D00 /* EasyDefine.m */; };
 		28D5FA6B1B56748E00F4DE15 /* MatchPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 28D5FA691B56748E00F4DE15 /* MatchPattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28D5FA6C1B56748E00F4DE15 /* MatchPattern.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28D5FA6A1B56748E00F4DE15 /* MatchPattern.mm */; };
 		28FAE0F71B4E61B200A84404 /* EALayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 28FAE0F61B4E61B200A84404 /* EALayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A5F87C61D1F4E7D0008E14A /* UIImageView+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A5F87C41D1F4E7D0008E14A /* UIImageView+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9A5F87C71D1F4E7D0008E14A /* UIImageView+SkinParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F87C51D1F4E7D0008E14A /* UIImageView+SkinParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +85,8 @@
 		284E23CA1B501D4900D5C65D /* SkinKeysDef.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SkinKeysDef.mm; sourceTree = "<group>"; };
 		284E23CC1B50211000D5C65D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		284E23CE1B50212E00D5C65D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28776B8C1D34E9C200FE11B2 /* AutoDataBind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDataBind.h; sourceTree = "<group>"; };
+		28776B8D1D34E9C200FE11B2 /* AutoDataBind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDataBind.m; sourceTree = "<group>"; };
 		287D6B5B1B5A391B00ACEEDD /* ViewLayoutDesImp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewLayoutDesImp.h; sourceTree = "<group>"; };
 		287D6B5C1B5A391B00ACEEDD /* ViewLayoutDesImp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewLayoutDesImp.mm; sourceTree = "<group>"; };
 		28A331DE1B58196E00308122 /* NSObject+SkinParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SkinParser.h"; sourceTree = "<group>"; };
@@ -93,6 +107,10 @@
 		28A331FB1B581D4F00308122 /* UIView+SkinParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIView+SkinParser.mm"; sourceTree = "<group>"; };
 		28A331FE1B581D8800308122 /* CALayer+SkinParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+SkinParser.h"; sourceTree = "<group>"; };
 		28A331FF1B581D8800308122 /* CALayer+SkinParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "CALayer+SkinParser.mm"; sourceTree = "<group>"; };
+		28A41D0A1CA19E420084BE7A /* UISearchBar+SkinParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISearchBar+SkinParser.h"; sourceTree = "<group>"; };
+		28A41D0B1CA19E420084BE7A /* UISearchBar+SkinParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UISearchBar+SkinParser.mm"; sourceTree = "<group>"; };
+		28A41D0E1CA19F330084BE7A /* UILabel+SkinParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+SkinParser.m"; sourceTree = "<group>"; };
+		28A41D0F1CA19F330084BE7A /* UILabel+SkinParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+SkinParser.h"; sourceTree = "<group>"; };
 		28C41BC31B7F48C4001782FD /* FlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowLayout.h; sourceTree = "<group>"; };
 		28C41BC41B7F48C4001782FD /* FlowLayout.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FlowLayout.mm; sourceTree = "<group>"; };
 		28C41BC51B7F48C4001782FD /* UISegmentedControl+SkinParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+SkinParser.h"; sourceTree = "<group>"; };
@@ -100,10 +118,16 @@
 		28C41BCB1B7F49F6001782FD /* FlowLayout+SkinParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FlowLayout+SkinParser.h"; sourceTree = "<group>"; };
 		28C41BCC1B7F49F6001782FD /* FlowLayout+SkinParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "FlowLayout+SkinParser.mm"; sourceTree = "<group>"; };
 		28C6F18B1B54EE1B003DF688 /* EALayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EALayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28CB76631D3CB1B800A33D00 /* CacheLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheLayout.h; sourceTree = "<group>"; };
+		28CB76641D3CB1B800A33D00 /* CacheLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CacheLayout.m; sourceTree = "<group>"; };
+		28CB76671D3CCB2900A33D00 /* EasyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasyDefine.h; sourceTree = "<group>"; };
+		28CB76681D3CCB2900A33D00 /* EasyDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasyDefine.m; sourceTree = "<group>"; };
 		28D5FA691B56748E00F4DE15 /* MatchPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchPattern.h; sourceTree = "<group>"; };
 		28D5FA6A1B56748E00F4DE15 /* MatchPattern.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MatchPattern.mm; sourceTree = "<group>"; };
 		28FAE0F51B4E61B200A84404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28FAE0F61B4E61B200A84404 /* EALayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EALayout.h; sourceTree = "<group>"; };
+		9A5F87C41D1F4E7D0008E14A /* UIImageView+SkinParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SkinParser.h"; sourceTree = "<group>"; };
+		9A5F87C51D1F4E7D0008E14A /* UIImageView+SkinParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SkinParser.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +146,8 @@
 		284E20401B4E652200D5C65D /* SkinParser */ = {
 			isa = PBXGroup;
 			children = (
+				28A41D0E1CA19F330084BE7A /* UILabel+SkinParser.m */,
+				28A41D0F1CA19F330084BE7A /* UILabel+SkinParser.h */,
 				28C41BC31B7F48C4001782FD /* FlowLayout.h */,
 				28C41BC41B7F48C4001782FD /* FlowLayout.mm */,
 				28C41BC51B7F48C4001782FD /* UISegmentedControl+SkinParser.h */,
@@ -165,6 +191,16 @@
 				28A331FF1B581D8800308122 /* CALayer+SkinParser.mm */,
 				28C41BCB1B7F49F6001782FD /* FlowLayout+SkinParser.h */,
 				28C41BCC1B7F49F6001782FD /* FlowLayout+SkinParser.mm */,
+				28A41D0A1CA19E420084BE7A /* UISearchBar+SkinParser.h */,
+				28A41D0B1CA19E420084BE7A /* UISearchBar+SkinParser.mm */,
+				9A5F87C41D1F4E7D0008E14A /* UIImageView+SkinParser.h */,
+				9A5F87C51D1F4E7D0008E14A /* UIImageView+SkinParser.m */,
+				28776B8C1D34E9C200FE11B2 /* AutoDataBind.h */,
+				28776B8D1D34E9C200FE11B2 /* AutoDataBind.m */,
+				28CB76631D3CB1B800A33D00 /* CacheLayout.h */,
+				28CB76641D3CB1B800A33D00 /* CacheLayout.m */,
+				28CB76671D3CCB2900A33D00 /* EasyDefine.h */,
+				28CB76681D3CCB2900A33D00 /* EasyDefine.m */,
 			);
 			path = SkinParser;
 			sourceTree = "<group>";
@@ -209,20 +245,26 @@
 				28A331E01B58196E00308122 /* NSObject+SkinParser.h in Headers */,
 				287D6B5D1B5A391B00ACEEDD /* ViewLayoutDesImp.h in Headers */,
 				284E20E91B4E652300D5C65D /* SkinParser.h in Headers */,
+				28776B8E1D34E9C200FE11B2 /* AutoDataBind.h in Headers */,
+				28A41D111CA19F330084BE7A /* UILabel+SkinParser.h in Headers */,
 				28C41BC91B7F48C4001782FD /* UISegmentedControl+SkinParser.h in Headers */,
 				28A331F81B581D0100308122 /* LinerLayout+SkinParser.h in Headers */,
 				284E20E71B4E652300D5C65D /* SkinMgr.h in Headers */,
+				28CB76691D3CCB2900A33D00 /* EasyDefine.h in Headers */,
 				28A331EC1B581C6E00308122 /* UITableView+SkinParser.h in Headers */,
 				28A331F01B581CAA00308122 /* UITextField+SkinParser.h in Headers */,
 				28C41BC71B7F48C4001782FD /* FlowLayout.h in Headers */,
+				28A41D0C1CA19E420084BE7A /* UISearchBar+SkinParser.h in Headers */,
 				284E20ED1B4E652300D5C65D /* ViewLayoutDes.h in Headers */,
 				284E20E31B4E652300D5C65D /* LinerLayout.h in Headers */,
 				28A331F41B581CDD00308122 /* UIControl+SkinParser.h in Headers */,
+				28CB76651D3CB1B800A33D00 /* CacheLayout.h in Headers */,
 				28C41BCD1B7F49F6001782FD /* FlowLayout+SkinParser.h in Headers */,
 				284E20E01B4E652300D5C65D /* BaseLayouter.h in Headers */,
 				28A331FC1B581D4F00308122 /* UIView+SkinParser.h in Headers */,
 				28FAE0F71B4E61B200A84404 /* EALayout.h in Headers */,
 				28D5FA6B1B56748E00F4DE15 /* MatchPattern.h in Headers */,
+				9A5F87C61D1F4E7D0008E14A /* UIImageView+SkinParser.h in Headers */,
 				284E23C91B501CFB00D5C65D /* SkinKeysDef.h in Headers */,
 				28A331E41B581B2500308122 /* UIButton+SkinParser.h in Headers */,
 				284E20EB1B4E652300D5C65D /* UIView+Layout.h in Headers */,
@@ -258,7 +300,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = easylayout;
 				TargetAttributes = {
 					28FAE0F01B4E61B200A84404 = {
@@ -272,6 +314,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = 28FAE0E71B4E61B200A84404;
 			productRefGroup = 28FAE0E71B4E61B200A84404;
@@ -302,21 +345,27 @@
 				28A331ED1B581C6E00308122 /* UITableView+SkinParser.mm in Sources */,
 				28C41BC81B7F48C4001782FD /* FlowLayout.mm in Sources */,
 				284E23CB1B501D4900D5C65D /* SkinKeysDef.mm in Sources */,
+				9A5F87C71D1F4E7D0008E14A /* UIImageView+SkinParser.m in Sources */,
 				28C41BCA1B7F48C4001782FD /* UISegmentedControl+SkinParser.mm in Sources */,
 				28A331F51B581CDD00308122 /* UIControl+SkinParser.mm in Sources */,
 				287D6B5E1B5A391B00ACEEDD /* ViewLayoutDesImp.mm in Sources */,
 				28A331FD1B581D4F00308122 /* UIView+SkinParser.mm in Sources */,
 				284E20EA1B4E652300D5C65D /* SkinParser.mm in Sources */,
 				28A331F11B581CAA00308122 /* UITextField+SkinParser.mm in Sources */,
+				28A41D0D1CA19E420084BE7A /* UISearchBar+SkinParser.mm in Sources */,
+				28CB76661D3CB1B800A33D00 /* CacheLayout.m in Sources */,
 				284E20E41B4E652300D5C65D /* LinerLayout.mm in Sources */,
 				28A332011B581D8800308122 /* CALayer+SkinParser.mm in Sources */,
 				284E20E81B4E652300D5C65D /* SkinMgr.mm in Sources */,
 				28A331E51B581B2500308122 /* UIButton+SkinParser.mm in Sources */,
 				28A331F91B581D0100308122 /* LinerLayout+SkinParser.mm in Sources */,
 				28C41BCE1B7F49F6001782FD /* FlowLayout+SkinParser.mm in Sources */,
+				28776B8F1D34E9C200FE11B2 /* AutoDataBind.m in Sources */,
 				28D5FA6C1B56748E00F4DE15 /* MatchPattern.mm in Sources */,
 				284E20EE1B4E652300D5C65D /* ViewLayoutDes.mm in Sources */,
+				28A41D101CA19F330084BE7A /* UILabel+SkinParser.m in Sources */,
 				284E20E11B4E652300D5C65D /* BaseLayouter.mm in Sources */,
+				28CB766A1D3CCB2900A33D00 /* EasyDefine.m in Sources */,
 				28A331E91B581C3C00308122 /* UITableViewCell+SkinParser.mm in Sources */,
 				284E20EC1B4E652300D5C65D /* UIView+Layout.mm in Sources */,
 			);
@@ -347,6 +396,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -362,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -404,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -432,6 +482,7 @@
 					"$(PROJECT_DIR)/EALayout/Utils/RSA_OPENSSL/openssl/lib",
 				);
 				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easycoding.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -457,6 +508,7 @@
 					"$(PROJECT_DIR)/EALayout/Utils/RSA_OPENSSL/openssl/lib",
 				);
 				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.easycoding.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";

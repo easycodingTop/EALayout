@@ -65,7 +65,8 @@ static NSString* (^gToLocalString)(NSString* key);
     NSDictionary* dict = _dict[viewname];
     if(!_isRootParser && (!dict || [dict[sp_extend] integerValue]))
     {
-        SkinParser* parser = [[SkinMgr sharedInstance] getParserByName:sp_common];
+        SkinParser* parser = [[SkinMgr sharedInstance] getCommonParser];
+        parser.eventTarget = self.eventTarget;
         parser.isRootParser = YES;
         view = [parser parse:viewname view:view];
     }
@@ -131,13 +132,19 @@ static NSString* (^gToLocalString)(NSString* key);
         {
             if(!_isRootParser && (!dict || [dict[sp_extend] integerValue]))
             {
-                SkinParser* parser = [[SkinMgr sharedInstance] getParserByName:sp_common];
+                SkinParser* parser = [[SkinMgr sharedInstance] getCommonParser];
+                parser.eventTarget = self.eventTarget;
                 parser.isRootParser = YES;
                 value = [parser valueWithName:name key:key];
             }
         }
     }
     return value;
+}
+
+- (id)objectForKeyedSubscript:(NSString*)key
+{
+    return [_dict valueForKeyPath:key];
 }
 
 UIView* createView(SkinParser* parser, NSDictionary* dict)
@@ -167,12 +174,25 @@ UIColor* StringToColor(NSString* string)
     
     if( [string hasPrefix:@"#"] || !(offset++) || [string hasPrefix:@"0x"] )
     {
-        unsigned long value = strtoul([string UTF8String]+offset, NULL, 16);
+        const char* cStr = [string UTF8String]+offset;
+        size_t len = strlen(cStr);
+        unsigned long value = strtoul(cStr, NULL, 16);
         CGFloat a = ((value >> 24) & 0xFF) / 255.0;
+        if( a == 0 && len <= 6)
+        {
+            a = 1;
+        }
         CGFloat r = ((value >> 16) & 0xFF) / 255.0;
         CGFloat g = ((value >> 8 ) & 0xFF) / 255.0;
         CGFloat b = ((value      ) & 0xFF) / 255.0;
         color = [UIColor colorWithRed:r green:g blue:b alpha:a];
+    }
+    else if( [string hasPrefix:@"@"] )
+    {
+        NSString* value = [string substringFromIndex:1];
+        SkinParser* styleParser = [[SkinMgr sharedInstance] getStyleParser];
+        styleParser.isRootParser = YES;
+        color = toColor(styleParser[value]);
     }
     else
     {
@@ -196,6 +216,13 @@ CGSize toSize(NSArray* array)
     return CGSizeMake([array[0] floatValue],
                       [array[1] floatValue]
                       );
+}
+
+NSRange toRange(NSArray* array)
+{
+    return NSMakeRange([array[0] floatValue],
+                        [array[1] floatValue]
+                        );
 }
 
 CGRect toRect(NSArray* array)
@@ -226,7 +253,17 @@ UIFont* toFont(id value)
     UIFont* font = nil;
     if (isNSString(value) || isNSNumber(value) )
     {
-        font = [UIFont systemFontOfSize: [value floatValue]];
+        if(isNSString(value) && [value hasPrefix:@"@"])
+        {
+            value = [value substringFromIndex:1];
+            SkinParser* styleParser = [[SkinMgr sharedInstance] getStyleParser];
+            styleParser.isRootParser = YES;
+            font = toFont(styleParser[value]);
+        }
+        else
+        {
+            font = [UIFont systemFontOfSize: [value floatValue]];
+        }
     }
     else if isNSDictionary(value)
     {
@@ -268,8 +305,7 @@ UIImage* toImage(id value)
     UIImage* image = nil;
     if isNSString(value)
     {
-        NSString* imagefile = [[SkinMgr sharedInstance].skinPath stringByAppendingPathComponent:value];
-        image = [UIImage imageWithContentsOfFile:imagefile];
+        image = [[SkinMgr sharedInstance] image:value];
     }
     else if isNSDictionary(value)
     {
@@ -281,9 +317,7 @@ UIImage* toImage(id value)
         }
         else
         {
-            NSString* imagefile = [[SkinMgr sharedInstance].skinPath stringByAppendingPathComponent:dict[sp_name]];
-            image = [UIImage imageWithContentsOfFile:imagefile];
-            
+            image = [[SkinMgr sharedInstance] image:dict[sp_name]];
             if(dict[sp_resizeCap])
             {
                 CGRect rect = toRect(dict[sp_resizeCap]);
@@ -315,6 +349,59 @@ NSString* toString(id value)
 UIView* toView(id value, SkinParser* parser)
 {
     return [parser parse:nil attr:value];
+}
+
+NSAttributedString *toAttributedString(id value)
+{
+    NSAttributedString* attString = nil;
+    if(isNSDictionary(value))
+    {
+        NSString* htmlString = [value objectForKey:@"html"];
+        if (htmlString)
+        {
+            attString = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding]
+                                                         options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType}
+                                              documentAttributes:nil error:nil
+                        ];
+        }
+        else
+        {
+            NSString* text = [value objectForKey:@"text"]; if(!text) text = @"";
+            NSMutableAttributedString *attString = [[NSMutableAttributedString alloc]initWithString:text];
+            NSArray *attributes = value[@"attributes"];
+            for (NSDictionary *dict in attributes)
+            {
+                NSRange  relRange = NSMakeRange(0, text.length);
+                NSArray  *range = [dict objectForKey:@"range"];
+                if (range)
+                {
+                    relRange = toRange(range);
+                }
+                
+                for(NSString* key in dict)
+                {
+                    if ([key isEqualToString:@"font"])
+                    {
+                        [attString addAttribute:NSFontAttributeName value:toFont(dict[key]) range:relRange];
+                    }
+                    else if ([key isEqualToString:@"textColor"])
+                    {
+                        [attString addAttribute:NSForegroundColorAttributeName value:toColor(dict[key]) range:relRange];
+                    }
+                    else if ([key isEqualToString:@"backgroundColor"])
+                    {
+                        [attString addAttribute:NSBackgroundColorAttributeName value:toColor(dict[key]) range:relRange];
+                    }
+                    else if ([key isEqualToString:@"underLineColor"])
+                    {
+                        [attString addAttributes:@{NSUnderlineStyleAttributeName:@1,NSUnderlineColorAttributeName:toColor(dict[key])} range:relRange];
+                    }
+                }
+            };
+            return attString;
+        }
+    }
+    return attString;
 }
 
 UITextFieldViewMode toViewMode(id value, SkinParser* parser)
@@ -374,6 +461,11 @@ id MakeViewModeValue(id value, SkinParser* parser)
     return @(toViewMode(value, parser));
 }
 
+id MakeAttributeValue(id value, SkinParser* parser)
+{
+    return toAttributedString(value);
+}
+
 + (void)initialize
 {
     AddMatchPattern(@"color",   nil, MakeColorValue);   //UIColor
@@ -385,6 +477,7 @@ id MakeViewModeValue(id value, SkinParser* parser)
     AddMatchPattern(@"Inset",   nil, MakeInsetValue);   //UIEdgeInsets
     AddMatchPattern(@"View",    nil, MakeViewValue);    //UIView
     AddMatchPattern(@"ViewMode",nil, MakeViewModeValue);//UITextFieldViewMode
+    AddMatchPattern(@"attributedText",nil, MakeAttributeValue);//NSAttributedString
 }
 
 @end

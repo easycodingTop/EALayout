@@ -11,21 +11,25 @@
 
 #import <Foundation/Foundation.h>
 
+@class UIImage;
 @class SkinParser;
 
 @interface SkinMgr : NSObject
 
-/* 
- @brief 布局文件所在目录
-    默认值:[NSBundle mainBundle].resourcePath
- */
-@property (nonatomic, strong) NSString* skinPath;
+@property (nonatomic, copy) NSString* __nonnull extensionPath;
+@property (nonatomic, copy) NSString* __nonnull rootPath;
 
-+ (instancetype)sharedInstance;
++ (instancetype __nullable)sharedInstance;
 
-- (SkinParser*)getParserByName:(NSString*)filename;
+- (SkinParser* __nullable)getParserByName:(NSString* __nullable)filename;
 
-- (SkinParser*)getParserByData:(NSData *)data;
+- (SkinParser* __nullable)getParserByData:(NSData* __nullable)data;
+
+- (SkinParser* __nullable)getStyleParser;
+
+- (SkinParser* __nullable)getCommonParser;
+
+- (UIImage* __nullable)image:(NSString* __nullable)filename;
 
 @end
 

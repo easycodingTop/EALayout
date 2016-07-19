@@ -82,7 +82,17 @@ DefineParseFun(linkStyle)
     [parser parse:value view:(UIView*)self];
     SkinParser* styleParser = [[SkinMgr sharedInstance] getParserByName:sp_style];
     styleParser.isRootParser = YES;
-    [styleParser parse:value view:(UIView*)self];
+    if(isNSArray(value))
+    {
+        for(NSString* valueString in (NSArray*)value)
+        {
+            [styleParser parse:valueString view:(UIView*)self];
+        }
+    }
+    else if(isNSString(value))
+    {
+        [styleParser parse:value view:(UIView*)self];
+    }
 }
 
 #define NOUSEDFUN(x) DefineParseFun(x){}

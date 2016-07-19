@@ -125,6 +125,10 @@ do\
 
 - (void)spUpdateLayout:(NSInteger)level
 {
+    if([self isKindOfClass:[UITableView class]])
+    {
+        return;
+    }
     NSMutableArray* subviews = [self.getWillLayoutSubviews mutableCopy];
     NSUInteger count = subviews.count;
     if(!count)
@@ -796,6 +800,13 @@ do\
                                            return pMyselfRect;
                                        }];
                 selfRect.size.height = TheV_height;
+                self.frame = selfRect;
+                break;
+            }
+            else if(selfDes->style[i].heightRef.refView == ERefViewNone
+                    && selfDes->style[i].height < NILV)
+            {
+                selfRect.size.height = selfDes->style[i].height;
                 self.frame = selfRect;
                 break;
             }

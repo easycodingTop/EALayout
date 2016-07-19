@@ -8,17 +8,17 @@
 
 @interface UIView(bindData)
 
--(void)bindData:(id)data;
+- (void)bindData:(id)data;
 
--(void)bindForUILabel:(id)data;
+- (void)bindForUILabel:(id)data;
 
--(void)bindForUIImageView:(id)data;
+- (void)bindForUIImageView:(id)data;
 
--(void)bindForUIButton:(id)data;
+- (void)bindForUIButton:(id)data;
 
--(UIView*)bindByTag:(NSInteger)tag data:(id)data;
+- (UIView*)bindByTag:(NSInteger)tag data:(id)data;
 
--(UIView*)bindByStrTag:(NSString*)tag data:(id)data;
+- (UIView*)bindByStrTag:(NSString*)tag data:(id)data;
 
 @end
 

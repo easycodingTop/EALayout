@@ -15,13 +15,15 @@
 
 @implementation ViewController
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     return 10;
 }
 
--(NSString*)getText:(NSInteger)row {
-    
-    switch (row % 5) {
+- (NSString*)getText:(NSInteger)row
+{
+    switch (row % 5)
+    {
         case 0:
             return @"这是一行文字";
         case 1:
@@ -38,31 +40,36 @@
     return @"";
 }
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (0 == indexPath.row) {
-        UITableViewCell* cell = [self createCell:defaultCell];
+- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (0 == indexPath.row)
+    {
+        UITableViewCell* cell = [self createCell:@"cell"];
         [cell bindByStrTag:@"titleLabel" data:[NSString stringWithFormat:@"我是第%zd行Title", indexPath.row]];
         [cell bindByTag:7002 data:[NSString stringWithFormat:@"我是第%zd行DetailText", indexPath.row]];
         return cell;
         
-    } else {
+    }
+    else
+    {
         UITableViewCell* cell = [self createCell:@"customCell"];
         [cell bindByStrTag:@"multLineText" data:[self getText:indexPath.row]];
         return cell;
     }
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if( 0 == indexPath.row ){
-        NSNumber* number = [self.skinParser valueWithName:defaultCell key:@"height"];
-        if(number){
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if( 0 == indexPath.row )
+    {
+        NSNumber* number = [self.skinParser valueWithName:@"cell" key:@"height"];
+        if(number)
+        {
             return [number floatValue];
         }
-        else {
-            
-            UITableViewCell* cell = [self createCacheCell:defaultCell];
+        else
+        {
+            UITableViewCell* cell = [self createCacheCell:@"cell"];
             [cell bindByStrTag:@"titleLabel" data:[NSString stringWithFormat:@"我是第%zd行Title", indexPath.row]];
             [cell bindByTag:7002 data:[NSString stringWithFormat:@"我是第%zd行DetailText", indexPath.row]];
             CGRect frame = cell.frame;
@@ -72,7 +79,9 @@
             [cell calcHeight];
             return cell.frame.size.height;
         }
-    } else {
+    }
+    else
+    {
         
         UITableViewCell* cell = [self createCacheCell:@"customCell"];
         [cell bindByStrTag:@"multLineText" data:[self getText:indexPath.row]];
@@ -85,9 +94,10 @@
     }
 }
 
--(void)TabButtonAction:(UIButton*)button {
-    
-    for(int i=0;i<4;i++) {
+- (void)TabButtonAction:(UIButton*)button
+{
+    for(int i=0;i<4;i++)
+    {
         UIButton* otherButton = (UIButton*)[button.superview viewWithTag:8001+i];
         otherButton.selected = false;
         [otherButton viewWithTag:1001].hidden = true;
@@ -96,13 +106,16 @@
     [button viewWithTag:1001].hidden = false;
 }
 
--(void)AlterLabelText:(UIButton*)button {
-    
+- (void)AlterLabelText:(UIButton*)button
+{
     button.selected = !button.selected;
     UILabel* label = (UILabel*)[self.tableView.tableHeaderView viewWithStrTag:@"contentText"];
-    if(button.selected) {
+    if(button.selected)
+    {
         label.text = @"这里的文字是自动计算大小";
-    } else {
+    }
+    else
+    {
         label.text = @"这里的文字是自动计算大小, 并且父view也是可以根据文字自动计算大小，无需代码计算";
     }
     [self resetTableHeaderView:self.tableView.tableHeaderView];

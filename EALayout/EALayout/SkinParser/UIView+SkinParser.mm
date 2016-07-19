@@ -9,6 +9,13 @@
 #import <objc/message.h>
 #import "UIView+SkinParser.h"
 #import "ViewLayoutDesImp.h"
+#import "NSObject+SkinParser.h"
+
+@interface NSObject(SkinParser_pri)
+
+- (void)parseValue:(id)value forKey:(NSString*)key parser:(SkinParser*)parser;
+
+@end
 
 @implementation UIView(SkinParser)
 
@@ -304,7 +311,7 @@ DefineParseFun(returnKeyType)
     TypeMatch(self, @selector(setReturnKeyType:), (UIReturnKeyType)(@([self valueOfUIReturnKeyType:value]).integerValue));
 }
 
-static const char KStrTag = '\0';
+static const void* KStrTag = &KStrTag;
 DefineParseFun(strTag)
 {
     [self setStrTag:value];
@@ -312,12 +319,12 @@ DefineParseFun(strTag)
 
 - (void)setStrTag:(id)strTagHashable
 {
-    objc_setAssociatedObject(self, &KStrTag, strTagHashable, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, KStrTag, strTagHashable, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (id)strTag
 {
-    return objc_getAssociatedObject(self,&KStrTag);
+    return objc_getAssociatedObject(self,KStrTag);
 }
 
 /*
@@ -351,6 +358,84 @@ DefineParseFun(strTag)
         }
         return nil;
     }
+}
+
+/**
+ @breif 可以给View以绑定一个数据key.
+ */
+static const void* KAutoDataBindTag = &KAutoDataBindTag;
+DefineParseFun(autoDataBind)
+{
+    if(isNSDictionary(value))
+    {
+        AutoDataBind* autoDataBind = [AutoDataBind new];
+        autoDataBind.keyMap = value;
+        self.autoDataBind = autoDataBind;
+    }
+}
+
+- (void)setAutoDataBind:(AutoDataBind*)autoBindKeys
+{
+    objc_setAssociatedObject(self, KAutoDataBindTag, autoBindKeys, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (AutoDataBind*)autoDataBind
+{
+    return objc_getAssociatedObject(self,KAutoDataBindTag);
+}
+
+- (void)autoDataBind:(id)data checkMust:(BOOL)check parser:(SkinParser*)parser
+{
+    AutoDataBind* autoDataBind = self.autoDataBind;
+    NSDictionary* keyMap = autoDataBind.keyMap;
+    for(NSString* proKey in keyMap)
+    {
+        BOOL must = [proKey characterAtIndex:0] == '@';
+    
+        NSString* realKey = proKey;
+    
+        if(!check || must)
+        {
+            if(must)
+            {
+                realKey = [proKey substringFromIndex:1];
+            }
+        
+            NSArray<NSString*>* keyPathAndSelector = [keyMap[proKey] componentsSeparatedByString:@":"];
+            NSString* keyPath = keyPathAndSelector[0];
+            SEL selector = NULL;
+            if(keyPathAndSelector.count > 1)
+            {
+                selector = NSSelectorFromString( keyPathAndSelector[1] );
+            }
+            id dstValue = [data valueForKey:keyPath];
+            if(selector)
+            {
+                id (*TypeMatch)(id, SEL) = (id (*)(id, SEL)) objc_msgSend;
+                dstValue = TypeMatch(dstValue, selector);
+            }
+            [self parseValue:dstValue forKey:realKey parser:parser];
+        }
+    }
+    NSArray* subViews = self.subviews;
+    for(UIView* view in subViews)
+    {
+        [view autoDataBind:data checkMust:check parser:parser];
+    }
+}
+
+@end
+
+@implementation UIView(ForTag)
+
+- (UIView*)objectForKeyedSubscript:(NSString*)key
+{
+    return [self viewWithStrTag:key];
+}
+
+- (UIView*)objectAtIndexedSubscript:(NSUInteger)idx
+{
+    return [self viewWithTag:idx];
 }
 
 @end

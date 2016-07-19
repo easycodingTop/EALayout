@@ -18,6 +18,10 @@
 #import "FlowLayout.h"
 #import "ViewLayoutDes.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define isNSArray(x) ( [(x) isKindOfClass:[NSArray class]] )
 #define isNSDictionary(x) ( [(x) isKindOfClass:[NSDictionary class]] )
 #define isNSString(x) ( [(x) isKindOfClass:[NSString class]] )
@@ -84,6 +88,8 @@
  */
 - (id)valueWithName:(NSString*)name key:(NSString*)key;
 
+- (id)objectForKeyedSubscript:(NSString*)key;
+
 /**
  @brief 字符串解析为UIColor对象 "#aarrggbb" "0xaarrggbb" "blackColor"(UIColor方法)
  */
@@ -135,6 +141,8 @@ UIFont* toFont(id value);
  */
 UIView* toView(id value, SkinParser* parser);
 
+NSAttributedString *toAttributedString(id value,SkinParser* parser);
+
 /*
  "never"    ==>  UITextFieldViewMode
  */
@@ -157,6 +165,8 @@ id MakeFontValue(id value, SkinParser* parser);
 id MakeViewValue(id value, SkinParser* parser);
 
 id MakeViewModeValue(id value, SkinParser* parser);
+
+id MakeAttributeValue(id value, SkinParser* parser);
 
 /**
  * 框架默认已添加部分通用解析方法,如有需要，可自行添加需要的方法
@@ -182,5 +192,10 @@ id MakeViewModeValue(id value, SkinParser* parser);
 //AddMatchPattern(@"Inset",   nil, MakeInsetValue);   //UIEdgeInsets
 //AddMatchPattern(@"View",    nil, MakeViewValue);    //UIView
 //AddMatchPattern(@"ViewMode",nil, MakeViewModeValue);//UITextFieldViewMode
+//AddMatchPattern(@"attributedText",nil, MakeAttributeValue);//NSAttributedString
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif //__SKNPARSER_H__

@@ -10,24 +10,74 @@
 #import "SkinParser.h"
 
 @implementation SkinMgr
+{
+    SkinParser* _cacheCommonParser;
+    SkinParser* _cacheStyleParser;
+    NSMutableArray<NSString*>* _jsonSearchPaths;
+}
+
+- (SkinParser*)getCommonParser
+{
+#ifdef DEBUG
+    _cacheCommonParser = nil;
+#endif
+    if(!_cacheCommonParser)
+    {
+        _cacheCommonParser = [self getParserByName:@"common"];
+    }
+    return _cacheCommonParser;
+}
+
+- (SkinParser*)getStyleParser
+{
+#ifdef DEBUG
+    _cacheStyleParser = nil;
+#endif
+
+    if(!_cacheStyleParser)
+    {
+        _cacheStyleParser = [self getParserByName:@"style"];
+    }
+    return _cacheStyleParser;
+}
 
 - (SkinParser*)getParserByName:(NSString*)filename
 {
     if(!filename)
     {
-        filename = sp_common;
+        return [self getCommonParser];
     }
     else
     {
         filename = [filename componentsSeparatedByString:@"."].lastObject;
     }
     
-    NSString* filepath = [self.skinPath stringByAppendingFormat:@"/%@.json", filename];
-    if ( ![[NSFileManager defaultManager] fileExistsAtPath:filepath] )
+    filename = [filename stringByAppendingString:@".json"];
+    NSString* filepath = [self searchFiles:filename];
+    if ( filepath )
     {
-        filepath = [self.skinPath stringByAppendingFormat:@"/%@.json", sp_common];
+        return [self getParserByData:[NSData dataWithContentsOfFile:filepath]];
     }
-    return [self getParserByData:[NSData dataWithContentsOfFile:filepath]];
+    else if(![filename isEqualToString:@"common.json"])
+    {
+        return [self getCommonParser];
+    }
+    return nil;
+}
+
+- (NSString*)searchFiles:(NSString*)name
+{
+    NSFileManager* fileMgr = [NSFileManager defaultManager];
+    NSString* filepath = [_extensionPath stringByAppendingPathComponent:name];
+    if(!filepath || ![fileMgr fileExistsAtPath:filepath])
+    {
+        filepath = [_rootPath stringByAppendingPathComponent:name];
+        if(filepath && ![fileMgr fileExistsAtPath:filepath])
+        {
+            filepath = nil;
+        }
+    }
+    return filepath;
 }
 
 - (SkinParser*)getParserByData:(NSData *)data
@@ -41,19 +91,32 @@
         }
         else
         {
-            NSLog(@"json文件格式可能有误,请使用工具检查(附工具:http://www.bejson.com/)");
+            NSLog(@"json文件格式可能有误,请使用工具检查(附工具:http://www.kjson.com)");
         }
     }
     return nil;
 }
 
-- (NSString*)skinPath
+- (UIImage* __nullable)image:(NSString*)filename
 {
-    if(!_skinPath)
+    UIImage* image = nil;
+    if(_extensionPath)
     {
-        _skinPath = [NSBundle mainBundle].resourcePath;
+        NSString* imagePath = [_extensionPath stringByAppendingPathComponent:filename];
+        if(imagePath)
+        {
+            image = [UIImage imageWithContentsOfFile:imagePath];
+        }
     }
-    return _skinPath;
+    if(!image)
+    {
+        NSString* imagePath = [_rootPath stringByAppendingPathComponent:filename];
+        if(imagePath)
+        {
+            image = [UIImage imageWithContentsOfFile:imagePath];
+        }
+    }
+    return image;
 }
 
 extern CGRect S_rect;
