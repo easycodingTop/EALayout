@@ -125,10 +125,6 @@ do\
 
 - (void)spUpdateLayout:(NSInteger)level
 {
-    if([self isKindOfClass:[UITableView class]])
-    {
-        return;
-    }
     NSMutableArray* subviews = [self.getWillLayoutSubviews mutableCopy];
     NSUInteger count = subviews.count;
     if(!count)
@@ -156,6 +152,10 @@ do\
     {
         curView = subviews[i];
         if([curView isKindOfClass:NSClassFromString(@"UIRoundedRectButton")])
+        {
+            continue;
+        }
+        if([curView isKindOfClass:[UITableViewCell class]])
         {
             continue;
         }

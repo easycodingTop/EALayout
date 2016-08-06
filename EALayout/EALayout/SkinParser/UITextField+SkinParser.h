@@ -37,6 +37,12 @@ DefineParseFun(keyboardType);
  */
 DefineParseFun(enablesReturnKeyAutomatically);
 
+/*
+ @key[String]:placeholder
+ @value[String]:placeholder内容
+ @brief 设置输入框placeholder内容
+ @example "placeholder":"请输入姓名"
+ */
 DefineParseFun(placeholder);
 
 @end

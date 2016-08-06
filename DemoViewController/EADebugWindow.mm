@@ -9,6 +9,7 @@
 @implementation EADebugWindow
 {
     NSTimer* timer;
+    BOOL _debugSkin;
 }
 
 + (instancetype)createDebugWindow
@@ -79,11 +80,11 @@
 {
     button.selected = !button.selected;
     if(button.selected) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"debugSkin"];
+        _debugSkin = YES;
         [self autoRefresh];
         [self viewWithTag:81002].hidden = YES;
     } else {
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"debugSkin"];
+        _debugSkin = NO;
         [self autoRefresh];
         [self viewWithTag:81002].hidden = NO;
     }
@@ -92,7 +93,7 @@
 - (void)refresh:(UIButton*)button
 {
     button.selected = !button.selected;
-    [[NSUserDefaults standardUserDefaults] setBool:button.selected forKey:@"debugSkin"];
+    _debugSkin = button.selected;
     [self tick];
     UILabel* label = (UILabel*)[self viewWithTag:7001];
     NSInteger value = label.text.integerValue + 1;
@@ -117,13 +118,13 @@
         ((UIButton*)[button viewWithTag:81001]).selected = NO;
         [self viewWithTag:7001].hidden = YES;
     }
-    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"debugSkin"];
+    _debugSkin = NO;
     [self autoRefresh];
 }
 
 - (void)autoRefresh
 {
-    if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"debugSkin"] )
+    if ( _debugSkin )
     {
         if (nil == timer)
         {
@@ -140,10 +141,11 @@
 
 - (void)tick
 {
-    if ( [[NSUserDefaults standardUserDefaults] boolForKey:@"debugSkin"] )
+    if ( _debugSkin )
     {
         UIViewController* rootVC = [[UIApplication sharedApplication].windows[0] rootViewController];
-        if( [rootVC isKindOfClass:[UINavigationController class]]){
+        if( [rootVC isKindOfClass:[UINavigationController class]])
+        {
             [[((UINavigationController*)rootVC) topViewController] performSelector:@selector(freshSkin)];
         }
         else

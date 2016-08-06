@@ -95,9 +95,16 @@
         
         CGFloat curLength = totalWidth + CGRectGetWidth(rect);
         
-        if(curLength > CGRectGetWidth(frame))
+        NSUInteger countInLine = i - startPos;
+        
+        BOOL nextLine = NO;
+        if(_maxCountPerRow > 0 && countInLine >= _maxCountPerRow)
         {
-            NSUInteger countInLine = i - startPos;
+            nextLine = YES;
+        }
+    
+        if(nextLine || curLength > CGRectGetWidth(frame))
+        {
             startPos = i;
             if(0 == countInLine)
             {

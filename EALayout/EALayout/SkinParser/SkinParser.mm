@@ -149,8 +149,13 @@ static NSString* (^gToLocalString)(NSString* key);
 
 UIView* createView(SkinParser* parser, NSDictionary* dict)
 {
-    Class cls = NSClassFromString( dict[sp_class] );
-    return [[cls alloc] init];
+    NSString* class_name = dict[sp_class];
+    if(class_name)
+    {
+        Class cls = NSClassFromString( dict[sp_class] );
+        return [[cls alloc] init];
+    }
+    return nil;
 }
 
 UIColor* ArrayToColor(NSArray* array)

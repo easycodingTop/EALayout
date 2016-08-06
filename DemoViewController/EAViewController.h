@@ -11,10 +11,6 @@
 
 #import <EALayout/EALayout.h>
 
-extern NSString* EA_selfView;  // 解析为 self.view
-extern NSString* EA_tableView;
-extern NSString* EA_tableHeaderView;
-
 typedef enum UpdateTitleMask {
     EUpdateTitle   = 1,
     EUpdateLeft    = 1<<1,
@@ -27,6 +23,8 @@ typedef enum UpdateTitleMask {
 
 @interface EAViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
+/*
+*/
 @property (nonatomic, copy) NSString* skinFileName;
 @property (nonatomic, strong) SkinParser* skinParser;
 
@@ -41,7 +39,6 @@ typedef enum UpdateTitleMask {
 @property (nonatomic, strong) UIView* bottomLayoutView;
 
 - (void) freshSkin;
-
 
 @property (nonatomic, strong)UITableView* tableView;
 

@@ -22,7 +22,6 @@
 
 @end
 
-
-#endif
+#endif //EALayoutLiteForOC_EADebugWindow_h
 
 #endif //DEBUG

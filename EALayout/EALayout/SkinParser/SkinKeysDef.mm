@@ -1,11 +1,9 @@
 
-
-#import <Foundation/Foundation.h>
+#import "SkinKeysDef.h"
 
 NSString* sp_class      = @"class";
 NSString* sp_extendView = @"extendView";
 NSString* sp_extend     = @"extend";
-NSString* sp_frame      = @"frame";
 NSString* sp_center     = @"center";
 NSString* sp_left       = @"left";
 NSString* sp_right      = @"right";
@@ -29,7 +27,6 @@ NSString* sp_m          = @"m";
 NSString* sp_asstag     = @"asstag";
 NSString* sp_align      = @"align";
 NSString* sp_tag        = @"tag";
-NSString* sp_subtags    = @"subtags";
 NSString* sp_minSize    = @"minSize";
 NSString* sp_maxSize    = @"maxSize";
 NSString* sp_minW       = @"minW";

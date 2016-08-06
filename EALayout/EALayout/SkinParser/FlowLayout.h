@@ -26,4 +26,6 @@
  */
 @property (nonatomic) CGFloat rowHeight;
 
+@property (nonatomic) NSInteger maxCountPerRow;
+
 @end

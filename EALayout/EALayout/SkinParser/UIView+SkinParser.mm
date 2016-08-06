@@ -408,7 +408,7 @@ DefineParseFun(autoDataBind)
             {
                 selector = NSSelectorFromString( keyPathAndSelector[1] );
             }
-            id dstValue = [data valueForKey:keyPath];
+            id dstValue = [data valueForKeyPath:keyPath];
             if(selector)
             {
                 id (*TypeMatch)(id, SEL) = (id (*)(id, SEL)) objc_msgSend;

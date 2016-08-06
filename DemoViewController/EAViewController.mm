@@ -6,6 +6,7 @@
 NSString* EA_selfView               = @"selfView";
 NSString* EA_tableView              = @"tableView";
 NSString* EA_tableHeaderView        = @"tableHeaderView";
+NSString* EA_tableFooterView        = @"tableFooterView";
 NSString* EA_contentView            = @"contentView";
 NSString* EA_contentHeaderView      = @"contentHeaderView";
 NSString* EA_bottomView             = @"bottomView";
@@ -22,6 +23,10 @@ NSString* EA_titleRightView         = @"titleRightView";
 
 
 @implementation EAViewController
+{
+    BOOL _layoutSelfViewIng;
+    CGRect _lastLayoutFrame;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -81,7 +86,7 @@ NSString* EA_titleRightView         = @"titleRightView";
 - (void)viewDidLoad
 {
     [self.view spUpdateLayout];
-    [self layoutSelfView];
+    [self layoutSelfViewSync];
     [self.view spUpdateLayout];
     if (_titleBgView)
     {
@@ -225,6 +230,16 @@ NSString* EA_titleRightView         = @"titleRightView";
     }
 }
 
+- (NSString*)title
+{
+    NSString* theTitle = [self.skinParser valueWithName:@"self" key:@"title"];
+    if(!theTitle.length)
+    {
+        theTitle = super.title;
+    }
+    return theTitle;
+}
+
 - (NSString*)getTitle
 {
     return self.title;
@@ -287,25 +302,49 @@ NSString* EA_titleRightView         = @"titleRightView";
     }
 }
 
-
 - (void)layoutSelfView
 {
+    __weak typeof(self) weakSelf = self;
+    if(!_layoutSelfViewIng)
+    {
+        _layoutSelfViewIng = YES;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf layoutSelfViewSync];
+        });
+    }
+}
+
+- (void)viewDidLayoutSubviews
+{
     CGRect bound = self.view.bounds;
+    if(!CGSizeEqualToSize(bound.size, _lastLayoutFrame.size))
+    {
+        [self layoutSelfViewSync];
+    }
+}
+
+- (void)layoutSelfViewSync
+{
+    CGRect bound = self.view.bounds;
+    _lastLayoutFrame = bound;
+    
     CGRect topFrame = CGRectZero;
-    if(_topLayoutView)
+    if(_topLayoutView && !_topLayoutView.hidden)
     {
         topFrame = _topLayoutView.frame;
         topFrame.origin.y = 0;
+        topFrame.size.width = bound.size.width;
         _topLayoutView.frame = topFrame;
         ViewLayoutDes* layoutDes = [_topLayoutView createViewLayoutDesIfNil];
         [layoutDes setTop:0 forTag:0];
     }
     
     CGRect contentHeaderFrame = CGRectZero;
-    if (_contentHeaderLayoutView)
+    if (_contentHeaderLayoutView && !_contentHeaderLayoutView.hidden)
     {
         contentHeaderFrame = _contentHeaderLayoutView.frame;
         contentHeaderFrame.origin.y = CGRectGetMaxY(topFrame);
+        contentHeaderFrame.size.width = bound.size.width;
         ViewLayoutDes* layoutDes = [_contentHeaderLayoutView createViewLayoutDesIfNil];
         
         if ([layoutDes styleTypeByTag:0 ] & ELayoutTop)
@@ -320,10 +359,11 @@ NSString* EA_titleRightView         = @"titleRightView";
     }
     
     CGRect bottomFrame = CGRectZero;
-    if (_bottomLayoutView)
+    if (_bottomLayoutView && !_bottomLayoutView.hidden)
     {
         [_bottomLayoutView calcHeight];
         bottomFrame = _bottomLayoutView.frame;
+        bottomFrame.size.width = bound.size.width;
         bottomFrame.origin.y = CGRectGetHeight(bound) - CGRectGetHeight(bottomFrame);
         _bottomLayoutView.frame = bottomFrame;
         ViewLayoutDes* layoutDes = [_bottomLayoutView createViewLayoutDesIfNil];
@@ -331,9 +371,10 @@ NSString* EA_titleRightView         = @"titleRightView";
     }
     
     CGRect contentFrame = CGRectZero;
-    if (_contentLayoutView)
+    if (_contentLayoutView && !_contentLayoutView.hidden)
     {
         contentFrame = _contentLayoutView.frame;
+        contentFrame.size.width = bound.size.width;
         contentFrame.origin.y = CGRectGetMaxY(topFrame) + CGRectGetHeight(contentHeaderFrame);
         contentFrame.size.height =
         CGRectGetHeight(bound) - CGRectGetHeight(topFrame) - CGRectGetHeight(bottomFrame) - CGRectGetHeight(contentHeaderFrame);
@@ -342,7 +383,9 @@ NSString* EA_titleRightView         = @"titleRightView";
         
         if ([layoutDes styleTypeByTag:0] & ELayoutTop)
         {
+            CGFloat maxY = CGRectGetMaxY(contentFrame);
             contentFrame.origin.y = [layoutDes topByTag:0];
+            contentFrame.size.height = maxY - contentFrame.origin.y;
         }
         else
         {
@@ -356,13 +399,21 @@ NSString* EA_titleRightView         = @"titleRightView";
         _contentLayoutView.frame = contentFrame;
     }
     
+    [self layoutSelfChildViewControllers:self.childViewControllers];
     
-    for (EAViewController* childViewControler in self.childViewControllers)
+    _layoutSelfViewIng = NO;
+}
+
+- (void)layoutSelfChildViewControllers : (NSArray*)array
+{
+    for (EAViewController* childViewControler in array)
     {
         if ([childViewControler isKindOfClass:[EAViewController class]])
         {
             [childViewControler layoutSelfView];
         }
+        
+        [self layoutSelfChildViewControllers:childViewControler.childViewControllers];
     }
 }
 
@@ -378,17 +429,16 @@ NSString* EA_titleRightView         = @"titleRightView";
 - (UITableView*) createTableView
 {
     _tableView = (UITableView*)[self.skinParser parse:EA_tableView];
-    [self.contentLayoutView removeFromSuperview];
-    self.contentLayoutView = _tableView;
     if(_tableView)
     {
+        [self.contentLayoutView removeFromSuperview];
+        self.contentLayoutView = _tableView;
         [self.view addSubview:_tableView];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        UIView* headerView = [self.skinParser parse:EA_tableHeaderView];
+        [self resetTableHeaderView:headerView];
     }
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    
-    UIView* headerView = [self.skinParser parse:EA_tableHeaderView];
-    [self resetTableHeaderView:headerView];
     return _tableView;
 }
 

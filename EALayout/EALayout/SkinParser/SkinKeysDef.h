@@ -1,11 +1,9 @@
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 
 extern NSString* sp_class;
 extern NSString* sp_extendView;
 extern NSString* sp_extend;
-extern NSString* sp_frame;
 extern NSString* sp_center;
 extern NSString* sp_left;
 extern NSString* sp_right;
@@ -30,7 +28,6 @@ extern NSString* sp_resizeCap;
 extern NSString* sp_mode;
 extern NSString* sp_asstag;
 extern NSString* sp_tag;
-extern NSString* sp_subtags;
 extern NSString* sp_minSize;
 extern NSString* sp_maxSize;
 extern NSString* sp_minW;

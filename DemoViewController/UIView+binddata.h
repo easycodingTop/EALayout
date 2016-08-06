@@ -16,9 +16,9 @@
 
 - (void)bindForUIButton:(id)data;
 
-- (UIView*)bindByTag:(NSInteger)tag data:(id)data;
+- (__kindof UIView *)bindByTag:(NSInteger)tag data:(id)data;
 
-- (UIView*)bindByStrTag:(NSString*)tag data:(id)data;
+- (__kindof UIView *)bindByStrTag:(NSString*)tag data:(id)data;
 
 @end
 

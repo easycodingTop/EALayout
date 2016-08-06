@@ -61,7 +61,7 @@ extern "C" {
 /**
  @brief 当于调用[parser parse:key view:nil]
  */
-- (UIView*)parse:(NSString*)key;
+- (__kindof UIView*)parse:(NSString*)key;
 
 /**
  @brief 通过字典解析view
