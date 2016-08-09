@@ -126,6 +126,7 @@ extern CGRect S_rect;
     static SkinMgr* gSkinMgr = nil;
     dispatch_once(&pred, ^{
         gSkinMgr = [[SkinMgr alloc] init];
+        gSkinMgr.rootPath = [[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:@"skins"];
         S_rect = [UIScreen mainScreen].bounds;
     });
     return gSkinMgr;
