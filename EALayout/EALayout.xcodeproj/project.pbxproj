@@ -63,8 +63,6 @@
 		28D5FA6B1B56748E00F4DE15 /* MatchPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 28D5FA691B56748E00F4DE15 /* MatchPattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28D5FA6C1B56748E00F4DE15 /* MatchPattern.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28D5FA6A1B56748E00F4DE15 /* MatchPattern.mm */; };
 		28FAE0F71B4E61B200A84404 /* EALayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 28FAE0F61B4E61B200A84404 /* EALayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A5F87C61D1F4E7D0008E14A /* UIImageView+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A5F87C41D1F4E7D0008E14A /* UIImageView+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A5F87C71D1F4E7D0008E14A /* UIImageView+SkinParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A5F87C51D1F4E7D0008E14A /* UIImageView+SkinParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,8 +124,6 @@
 		28D5FA6A1B56748E00F4DE15 /* MatchPattern.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MatchPattern.mm; sourceTree = "<group>"; };
 		28FAE0F51B4E61B200A84404 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28FAE0F61B4E61B200A84404 /* EALayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EALayout.h; sourceTree = "<group>"; };
-		9A5F87C41D1F4E7D0008E14A /* UIImageView+SkinParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SkinParser.h"; sourceTree = "<group>"; };
-		9A5F87C51D1F4E7D0008E14A /* UIImageView+SkinParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SkinParser.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,8 +189,6 @@
 				28C41BCC1B7F49F6001782FD /* FlowLayout+SkinParser.mm */,
 				28A41D0A1CA19E420084BE7A /* UISearchBar+SkinParser.h */,
 				28A41D0B1CA19E420084BE7A /* UISearchBar+SkinParser.mm */,
-				9A5F87C41D1F4E7D0008E14A /* UIImageView+SkinParser.h */,
-				9A5F87C51D1F4E7D0008E14A /* UIImageView+SkinParser.m */,
 				28776B8C1D34E9C200FE11B2 /* AutoDataBind.h */,
 				28776B8D1D34E9C200FE11B2 /* AutoDataBind.m */,
 				28CB76631D3CB1B800A33D00 /* CacheLayout.h */,
@@ -264,7 +258,6 @@
 				28A331FC1B581D4F00308122 /* UIView+SkinParser.h in Headers */,
 				28FAE0F71B4E61B200A84404 /* EALayout.h in Headers */,
 				28D5FA6B1B56748E00F4DE15 /* MatchPattern.h in Headers */,
-				9A5F87C61D1F4E7D0008E14A /* UIImageView+SkinParser.h in Headers */,
 				284E23C91B501CFB00D5C65D /* SkinKeysDef.h in Headers */,
 				28A331E41B581B2500308122 /* UIButton+SkinParser.h in Headers */,
 				284E20EB1B4E652300D5C65D /* UIView+Layout.h in Headers */,
@@ -345,7 +338,6 @@
 				28A331ED1B581C6E00308122 /* UITableView+SkinParser.mm in Sources */,
 				28C41BC81B7F48C4001782FD /* FlowLayout.mm in Sources */,
 				284E23CB1B501D4900D5C65D /* SkinKeysDef.mm in Sources */,
-				9A5F87C71D1F4E7D0008E14A /* UIImageView+SkinParser.m in Sources */,
 				28C41BCA1B7F48C4001782FD /* UISegmentedControl+SkinParser.mm in Sources */,
 				28A331F51B581CDD00308122 /* UIControl+SkinParser.mm in Sources */,
 				287D6B5E1B5A391B00ACEEDD /* ViewLayoutDesImp.mm in Sources */,
