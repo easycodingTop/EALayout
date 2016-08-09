@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EAViewController.h"
+#import <EALayout/EALayout.h>
 
 @interface ViewController : EAViewController
 

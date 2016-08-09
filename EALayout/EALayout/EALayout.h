@@ -27,7 +27,10 @@
 #import "CALayer+SkinParser.h"
 #import "MatchPattern.h"
 #import "CacheLayout.h"
-
+#import "EasyDefine.h"
+#import "UILabel+SkinParser.h"
+#import "UISearchBar+SkinParser.h"
+#import "Extension.h"
 
 //! Project version number for EALayout.
 FOUNDATION_EXPORT double EALayoutVersionNumber;

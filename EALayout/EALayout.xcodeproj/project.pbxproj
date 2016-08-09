@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		281C615E1D59B85800C61D81 /* EADebugWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 281C61561D59B85800C61D81 /* EADebugWindow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		281C615F1D59B85800C61D81 /* EADebugWindow.mm in Sources */ = {isa = PBXBuildFile; fileRef = 281C61571D59B85800C61D81 /* EADebugWindow.mm */; };
+		281C61601D59B85800C61D81 /* EATableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 281C61581D59B85800C61D81 /* EATableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		281C61611D59B85800C61D81 /* EATableViewCell.mm in Sources */ = {isa = PBXBuildFile; fileRef = 281C61591D59B85800C61D81 /* EATableViewCell.mm */; };
+		281C61621D59B85800C61D81 /* EAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 281C615A1D59B85800C61D81 /* EAViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		281C61631D59B85800C61D81 /* EAViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 281C615B1D59B85800C61D81 /* EAViewController.mm */; };
+		281C61641D59B85800C61D81 /* UIView+binddata.h in Headers */ = {isa = PBXBuildFile; fileRef = 281C615C1D59B85800C61D81 /* UIView+binddata.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		281C61651D59B85800C61D81 /* UIView+binddata.mm in Sources */ = {isa = PBXBuildFile; fileRef = 281C615D1D59B85800C61D81 /* UIView+binddata.mm */; };
+		281C61671D59B98100C61D81 /* Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 281C61661D59B8BF00C61D81 /* Extension.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		284E20E01B4E652300D5C65D /* BaseLayouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 284E20411B4E652200D5C65D /* BaseLayouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		284E20E11B4E652300D5C65D /* BaseLayouter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 284E20421B4E652200D5C65D /* BaseLayouter.mm */; };
 		284E20E21B4E652300D5C65D /* LayoutTypeDef.h in Headers */ = {isa = PBXBuildFile; fileRef = 284E20431B4E652200D5C65D /* LayoutTypeDef.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,10 +55,10 @@
 		28A331FD1B581D4F00308122 /* UIView+SkinParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28A331FB1B581D4F00308122 /* UIView+SkinParser.mm */; };
 		28A332001B581D8800308122 /* CALayer+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A331FE1B581D8800308122 /* CALayer+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28A332011B581D8800308122 /* CALayer+SkinParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28A331FF1B581D8800308122 /* CALayer+SkinParser.mm */; };
-		28A41D0C1CA19E420084BE7A /* UISearchBar+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A41D0A1CA19E420084BE7A /* UISearchBar+SkinParser.h */; };
+		28A41D0C1CA19E420084BE7A /* UISearchBar+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A41D0A1CA19E420084BE7A /* UISearchBar+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28A41D0D1CA19E420084BE7A /* UISearchBar+SkinParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28A41D0B1CA19E420084BE7A /* UISearchBar+SkinParser.mm */; };
 		28A41D101CA19F330084BE7A /* UILabel+SkinParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A41D0E1CA19F330084BE7A /* UILabel+SkinParser.m */; };
-		28A41D111CA19F330084BE7A /* UILabel+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A41D0F1CA19F330084BE7A /* UILabel+SkinParser.h */; };
+		28A41D111CA19F330084BE7A /* UILabel+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28A41D0F1CA19F330084BE7A /* UILabel+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28C41BC71B7F48C4001782FD /* FlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 28C41BC31B7F48C4001782FD /* FlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28C41BC81B7F48C4001782FD /* FlowLayout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28C41BC41B7F48C4001782FD /* FlowLayout.mm */; };
 		28C41BC91B7F48C4001782FD /* UISegmentedControl+SkinParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 28C41BC51B7F48C4001782FD /* UISegmentedControl+SkinParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,7 +67,7 @@
 		28C41BCE1B7F49F6001782FD /* FlowLayout+SkinParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28C41BCC1B7F49F6001782FD /* FlowLayout+SkinParser.mm */; };
 		28CB76651D3CB1B800A33D00 /* CacheLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 28CB76631D3CB1B800A33D00 /* CacheLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28CB76661D3CB1B800A33D00 /* CacheLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CB76641D3CB1B800A33D00 /* CacheLayout.m */; };
-		28CB76691D3CCB2900A33D00 /* EasyDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 28CB76671D3CCB2900A33D00 /* EasyDefine.h */; };
+		28CB76691D3CCB2900A33D00 /* EasyDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 28CB76671D3CCB2900A33D00 /* EasyDefine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28CB766A1D3CCB2900A33D00 /* EasyDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 28CB76681D3CCB2900A33D00 /* EasyDefine.m */; };
 		28D5FA6B1B56748E00F4DE15 /* MatchPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 28D5FA691B56748E00F4DE15 /* MatchPattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		28D5FA6C1B56748E00F4DE15 /* MatchPattern.mm in Sources */ = {isa = PBXBuildFile; fileRef = 28D5FA6A1B56748E00F4DE15 /* MatchPattern.mm */; };
@@ -66,6 +75,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		281C61561D59B85800C61D81 /* EADebugWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADebugWindow.h; sourceTree = "<group>"; };
+		281C61571D59B85800C61D81 /* EADebugWindow.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EADebugWindow.mm; sourceTree = "<group>"; };
+		281C61581D59B85800C61D81 /* EATableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATableViewCell.h; sourceTree = "<group>"; };
+		281C61591D59B85800C61D81 /* EATableViewCell.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EATableViewCell.mm; sourceTree = "<group>"; };
+		281C615A1D59B85800C61D81 /* EAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAViewController.h; sourceTree = "<group>"; };
+		281C615B1D59B85800C61D81 /* EAViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EAViewController.mm; sourceTree = "<group>"; };
+		281C615C1D59B85800C61D81 /* UIView+binddata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+binddata.h"; sourceTree = "<group>"; };
+		281C615D1D59B85800C61D81 /* UIView+binddata.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIView+binddata.mm"; sourceTree = "<group>"; };
+		281C61661D59B8BF00C61D81 /* Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extension.h; sourceTree = "<group>"; };
 		284E20411B4E652200D5C65D /* BaseLayouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLayouter.h; sourceTree = "<group>"; };
 		284E20421B4E652200D5C65D /* BaseLayouter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = BaseLayouter.mm; sourceTree = "<group>"; };
 		284E20431B4E652200D5C65D /* LayoutTypeDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LayoutTypeDef.h; sourceTree = "<group>"; };
@@ -139,6 +157,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		281C61551D59B85800C61D81 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				281C61561D59B85800C61D81 /* EADebugWindow.h */,
+				281C61571D59B85800C61D81 /* EADebugWindow.mm */,
+				281C61581D59B85800C61D81 /* EATableViewCell.h */,
+				281C61591D59B85800C61D81 /* EATableViewCell.mm */,
+				281C615A1D59B85800C61D81 /* EAViewController.h */,
+				281C615B1D59B85800C61D81 /* EAViewController.mm */,
+				281C615C1D59B85800C61D81 /* UIView+binddata.h */,
+				281C615D1D59B85800C61D81 /* UIView+binddata.mm */,
+				281C61661D59B8BF00C61D81 /* Extension.h */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		284E20401B4E652200D5C65D /* SkinParser */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +236,7 @@
 		28FAE0E71B4E61B200A84404 = {
 			isa = PBXGroup;
 			children = (
+				281C61551D59B85800C61D81 /* Extension */,
 				284E23CE1B50212E00D5C65D /* UIKit.framework */,
 				284E23CC1B50211000D5C65D /* CoreGraphics.framework */,
 				28FAE0F31B4E61B200A84404 /* EALayout */,
@@ -236,32 +271,37 @@
 			files = (
 				28A332001B581D8800308122 /* CALayer+SkinParser.h in Headers */,
 				284E20E21B4E652300D5C65D /* LayoutTypeDef.h in Headers */,
-				28A331E01B58196E00308122 /* NSObject+SkinParser.h in Headers */,
+				281C61641D59B85800C61D81 /* UIView+binddata.h in Headers */,
 				287D6B5D1B5A391B00ACEEDD /* ViewLayoutDesImp.h in Headers */,
 				284E20E91B4E652300D5C65D /* SkinParser.h in Headers */,
 				28776B8E1D34E9C200FE11B2 /* AutoDataBind.h in Headers */,
-				28A41D111CA19F330084BE7A /* UILabel+SkinParser.h in Headers */,
-				28C41BC91B7F48C4001782FD /* UISegmentedControl+SkinParser.h in Headers */,
-				28A331F81B581D0100308122 /* LinerLayout+SkinParser.h in Headers */,
+				281C615E1D59B85800C61D81 /* EADebugWindow.h in Headers */,
 				284E20E71B4E652300D5C65D /* SkinMgr.h in Headers */,
-				28CB76691D3CCB2900A33D00 /* EasyDefine.h in Headers */,
-				28A331EC1B581C6E00308122 /* UITableView+SkinParser.h in Headers */,
-				28A331F01B581CAA00308122 /* UITextField+SkinParser.h in Headers */,
 				28C41BC71B7F48C4001782FD /* FlowLayout.h in Headers */,
-				28A41D0C1CA19E420084BE7A /* UISearchBar+SkinParser.h in Headers */,
 				284E20ED1B4E652300D5C65D /* ViewLayoutDes.h in Headers */,
 				284E20E31B4E652300D5C65D /* LinerLayout.h in Headers */,
-				28A331F41B581CDD00308122 /* UIControl+SkinParser.h in Headers */,
 				28CB76651D3CB1B800A33D00 /* CacheLayout.h in Headers */,
+				281C61621D59B85800C61D81 /* EAViewController.h in Headers */,
 				28C41BCD1B7F49F6001782FD /* FlowLayout+SkinParser.h in Headers */,
+				28A331E01B58196E00308122 /* NSObject+SkinParser.h in Headers */,
+				28C41BC91B7F48C4001782FD /* UISegmentedControl+SkinParser.h in Headers */,
+				28A331F81B581D0100308122 /* LinerLayout+SkinParser.h in Headers */,
+				28A331EC1B581C6E00308122 /* UITableView+SkinParser.h in Headers */,
+				28A331F01B581CAA00308122 /* UITextField+SkinParser.h in Headers */,
+				28A331F41B581CDD00308122 /* UIControl+SkinParser.h in Headers */,
+				28A41D111CA19F330084BE7A /* UILabel+SkinParser.h in Headers */,
+				28A331E41B581B2500308122 /* UIButton+SkinParser.h in Headers */,
+				28A331E81B581C3C00308122 /* UITableViewCell+SkinParser.h in Headers */,
 				284E20E01B4E652300D5C65D /* BaseLayouter.h in Headers */,
 				28A331FC1B581D4F00308122 /* UIView+SkinParser.h in Headers */,
 				28FAE0F71B4E61B200A84404 /* EALayout.h in Headers */,
 				28D5FA6B1B56748E00F4DE15 /* MatchPattern.h in Headers */,
 				284E23C91B501CFB00D5C65D /* SkinKeysDef.h in Headers */,
-				28A331E41B581B2500308122 /* UIButton+SkinParser.h in Headers */,
+				281C61601D59B85800C61D81 /* EATableViewCell.h in Headers */,
+				28CB76691D3CCB2900A33D00 /* EasyDefine.h in Headers */,
+				28A41D0C1CA19E420084BE7A /* UISearchBar+SkinParser.h in Headers */,
+				281C61671D59B98100C61D81 /* Extension.h in Headers */,
 				284E20EB1B4E652300D5C65D /* UIView+Layout.h in Headers */,
-				28A331E81B581C3C00308122 /* UITableViewCell+SkinParser.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,9 +374,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				281C61631D59B85800C61D81 /* EAViewController.mm in Sources */,
 				28A331E11B58196E00308122 /* NSObject+SkinParser.mm in Sources */,
 				28A331ED1B581C6E00308122 /* UITableView+SkinParser.mm in Sources */,
 				28C41BC81B7F48C4001782FD /* FlowLayout.mm in Sources */,
+				281C61611D59B85800C61D81 /* EATableViewCell.mm in Sources */,
 				284E23CB1B501D4900D5C65D /* SkinKeysDef.mm in Sources */,
 				28C41BCA1B7F48C4001782FD /* UISegmentedControl+SkinParser.mm in Sources */,
 				28A331F51B581CDD00308122 /* UIControl+SkinParser.mm in Sources */,
@@ -345,7 +387,9 @@
 				284E20EA1B4E652300D5C65D /* SkinParser.mm in Sources */,
 				28A331F11B581CAA00308122 /* UITextField+SkinParser.mm in Sources */,
 				28A41D0D1CA19E420084BE7A /* UISearchBar+SkinParser.mm in Sources */,
+				281C61651D59B85800C61D81 /* UIView+binddata.mm in Sources */,
 				28CB76661D3CB1B800A33D00 /* CacheLayout.m in Sources */,
+				281C615F1D59B85800C61D81 /* EADebugWindow.mm in Sources */,
 				284E20E41B4E652300D5C65D /* LinerLayout.mm in Sources */,
 				28A332011B581D8800308122 /* CALayer+SkinParser.mm in Sources */,
 				284E20E81B4E652300D5C65D /* SkinMgr.mm in Sources */,

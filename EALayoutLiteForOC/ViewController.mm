@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "UIView+binddata.h"
 
 @interface ViewController ()
 

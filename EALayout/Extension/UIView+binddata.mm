@@ -6,7 +6,7 @@
 //MARK: 绑定view最常用数据 UIView(bindData)
 
 #import "UIView+binddata.h"
-#import <EALayout/EALayout.h>
+#import "EALayout.h"
 
 @implementation UIView(bindData)
 

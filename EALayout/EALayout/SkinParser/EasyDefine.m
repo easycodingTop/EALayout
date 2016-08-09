@@ -8,7 +8,6 @@
 
 #import "EasyDefine.h"
 
-
 @implementation WeakBox
 
 - (id)initWithHost:(id)host

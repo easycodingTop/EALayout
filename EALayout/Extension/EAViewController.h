@@ -9,7 +9,7 @@
 #ifndef EALayoutLiteForOC_EAViewController_h
 #define EALayoutLiteForOC_EAViewController_h
 
-#import <EALayout/EALayout.h>
+#import "EALayout.h"
 
 typedef enum UpdateTitleMask {
     EUpdateTitle   = 1,
