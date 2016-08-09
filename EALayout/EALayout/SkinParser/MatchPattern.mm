@@ -15,9 +15,9 @@ static MatchPatternList DefaultMatchPatterns;
 
 static char MatchPatternsKey;
 
-MatchPatternList* GetMatchPatternList(Class cls)
+static MatchPatternList* GetMatchPatternList(Class cls)
 {
-    MatchPatternList* list = nil;
+    MatchPatternList* list = NULL;
     if(cls)
     {
         NSValue* value = objc_getAssociatedObject(cls, &MatchPatternsKey);
@@ -31,8 +31,7 @@ bool AddMatchPattern(NSString* string, Class cls, ParseFunction fun)
     MatchPatternList* list = &DefaultMatchPatterns;
     if(cls)
     {
-        NSValue* value = objc_getAssociatedObject(cls, &MatchPatternsKey);
-        list = static_cast<MatchPatternList*>(value.pointerValue);
+        list = GetMatchPatternList(cls);
         if(!list)
         {
             list = new MatchPatternList();
@@ -46,16 +45,12 @@ bool AddMatchPattern(NSString* string, Class cls, ParseFunction fun)
 
 bool RemoveMatchPattern(NSString* string, Class cls)
 {
-    MatchPatternList* list = NULL;
+    MatchPatternList* list = &DefaultMatchPatterns;
     if(cls)
     {
-        NSValue* value = objc_getAssociatedObject(cls, &MatchPatternsKey);
-        list = static_cast<MatchPatternList*>(value.pointerValue);
+        list = GetMatchPatternList(cls);
     }
-    else
-    {
-        list = &DefaultMatchPatterns;
-    }
+    
     if(list)
     {
         for(auto iterator = list->begin(); iterator != list->end(); iterator++)
@@ -72,11 +67,10 @@ bool RemoveMatchPattern(NSString* string, Class cls)
 
 ParseFunction GetMatchPatternFunciton(NSString* string, Class cls)
 {
-    MatchPatternList* list = nil;
+    MatchPatternList* list = NULL;
     if(cls)
     {
-        NSValue* value = objc_getAssociatedObject(cls, &MatchPatternsKey);
-        list = static_cast<MatchPatternList*>(value.pointerValue);
+        list = GetMatchPatternList(cls);
     }
     list = list ?: &DefaultMatchPatterns;
     for(auto iterator = list->begin(); iterator != list->end(); iterator++)

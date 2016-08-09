@@ -123,6 +123,11 @@ UIColor* toColor(id value);
 UIImage* toImage(id value);
 
 /*
+ ["imagename0.png","imagename1.png","imagenameN.png"] ==> [UIImage]
+ */
+NSArray<UIImage*>* toImageArray(id value);
+
+/*
  [x, y, width, height] ==> CGRect
  */
 CGRect toRect(NSArray* array);
@@ -156,6 +161,8 @@ id MakeRectValue(id value, SkinParser* parser);
 
 id MakeImageValue(id value, SkinParser* parser);
 
+id MakeImageArrayValue(id value, SkinParser* parser);
+
 id MakeSizeValue(id value, SkinParser* parser);
 
 id MakeInsetValue(id value, SkinParser* parser);
@@ -183,8 +190,9 @@ id MakeAttributeValue(id value, SkinParser* parser);
  *
  * AddMatchPattern(@"image",   nil, MakeImageValue);   //UIImage
  */
-
+ 
 /*  以下 与上 同理 */
+//AddMatchPattern(@"images",  nil, MakeImageArrayValue); //NSArray<UIImage*>
 //AddMatchPattern(@"font",    nil, MakeFontValue);    //UIFont
 //AddMatchPattern(@"frame",   nil, MakeRectValue);    //CGRect
 //AddMatchPattern(@"size",    nil, MakeSizeValue);    //CGSize

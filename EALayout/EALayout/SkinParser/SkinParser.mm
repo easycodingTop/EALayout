@@ -346,6 +346,24 @@ UIImage* toImage(id value)
     return image;
 }
 
+NSArray<UIImage*>* toImageArray(id value)
+{
+    NSMutableArray <UIImage *>* imageArray = nil;
+    if isNSArray(value)
+    {
+        imageArray = [NSMutableArray array];
+        for(id valueItem in (NSArray*)value)
+        {
+            UIImage* image = toImage(valueItem);
+            if(image)
+            {
+                [imageArray addObject:image];
+            }
+        }
+    }
+    return imageArray;
+}
+
 NSString* toString(id value)
 {
     return [NSString stringWithFormat:@"%@", value];
@@ -439,6 +457,11 @@ id MakeImageValue(id value, SkinParser* parser)
     return toImage(value);
 }
 
+id MakeImageArrayValue(id value, SkinParser* parser)
+{
+    return toImageArray(value);
+}
+
 id MakeSizeValue(id value, SkinParser* parser)
 {
     return [NSValue valueWithCGSize:toSize(value)];
@@ -475,6 +498,7 @@ id MakeAttributeValue(id value, SkinParser* parser)
 {
     AddMatchPattern(@"color",   nil, MakeColorValue);   //UIColor
     AddMatchPattern(@"image",   nil, MakeImageValue);   //UIImage
+    AddMatchPattern(@"images",  nil, MakeImageArrayValue); //NSArray<UIImage*>
     AddMatchPattern(@"font",    nil, MakeFontValue);    //UIFont
     AddMatchPattern(@"frame",   nil, MakeRectValue);    //CGRect
     AddMatchPattern(@"size",    nil, MakeSizeValue);    //CGSize
