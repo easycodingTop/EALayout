@@ -15,7 +15,6 @@
 		288E51D41B67920C001AB50F /* ViewController.json in Resources */ = {isa = PBXBuildFile; fileRef = 288E51CE1B67920C001AB50F /* ViewController.json */; };
 		288E51D51B67920C001AB50F /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 288E51CF1B67920C001AB50F /* style.json */; };
 		288E51D81B67920C001AB50F /* common.json in Resources */ = {isa = PBXBuildFile; fileRef = 288E51D31B67920C001AB50F /* common.json */; };
-		28ACB49C1C929B74007BAEE2 /* TestAViewController.json in Resources */ = {isa = PBXBuildFile; fileRef = 28ACB49B1C929B74007BAEE2 /* TestAViewController.json */; };
 		28D5B5441C51F48E00CB9817 /* EALayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28D5B5431C51F48E00CB9817 /* EALayout.framework */; };
 		28DBBB641B67970200CEF1E3 /* testicon@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 28DBBB621B67970200CEF1E3 /* testicon@2x.jpg */; };
 		28DBBB651B67970200CEF1E3 /* 1024x682@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 28DBBB631B67970200CEF1E3 /* 1024x682@2x.jpg */; };
@@ -35,7 +34,6 @@
 		288E51CE1B67920C001AB50F /* ViewController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ViewController.json; path = EALayoutLiteForOC/Resources/ViewController.json; sourceTree = "<group>"; };
 		288E51CF1B67920C001AB50F /* style.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = style.json; path = EALayoutLiteForOC/Resources/style.json; sourceTree = "<group>"; };
 		288E51D31B67920C001AB50F /* common.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = common.json; path = EALayoutLiteForOC/Resources/common.json; sourceTree = "<group>"; };
-		28ACB49B1C929B74007BAEE2 /* TestAViewController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = TestAViewController.json; path = EALayoutLiteForOC/Resources/TestAViewController.json; sourceTree = "<group>"; };
 		28D5B5431C51F48E00CB9817 /* EALayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EALayout.framework; path = "EALayout/build/Debug-iphoneos/EALayout.framework"; sourceTree = "<group>"; };
 		28DBBB621B67970200CEF1E3 /* testicon@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "testicon@2x.jpg"; path = "../EALayoutLite/EALayoutLite/Resources/testicon@2x.jpg"; sourceTree = "<group>"; };
 		28DBBB631B67970200CEF1E3 /* 1024x682@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "1024x682@2x.jpg"; path = "../EALayoutLite/EALayoutLite/Resources/1024x682@2x.jpg"; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 		28019CE11B5DF6ED009DBBB3 /* Resrouces */ = {
 			isa = PBXGroup;
 			children = (
-				28ACB49B1C929B74007BAEE2 /* TestAViewController.json */,
 				2817DAE91C8EE2D0002234F7 /* ip */,
 				28DBBB621B67970200CEF1E3 /* testicon@2x.jpg */,
 				28DBBB631B67970200CEF1E3 /* 1024x682@2x.jpg */,
@@ -167,7 +164,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28ACB49C1C929B74007BAEE2 /* TestAViewController.json in Resources */,
 				288E51D51B67920C001AB50F /* style.json in Resources */,
 				288E51D41B67920C001AB50F /* ViewController.json in Resources */,
 				28019CB31B5DEAD9009DBBB3 /* Images.xcassets in Resources */,
