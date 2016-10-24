@@ -39,58 +39,68 @@
     return @"";
 }
 
+- (NSString*)getDataId:(NSInteger)row
+{
+    return @(row).stringValue;//实际上应该为数据的key, 一个key对应一个一样的数据，对应一个一样的cell布局
+}
+
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (0 == indexPath.row)
     {
-        UITableViewCell* cell = [self createCell:@"cell"];
+        UITableViewCell* cell = [self createCell:@"cell_1"];
         [cell bindByStrTag:@"titleLabel" data:[NSString stringWithFormat:@"我是第%zd行Title", indexPath.row]];
         [cell bindByTag:7002 data:[NSString stringWithFormat:@"我是第%zd行DetailText", indexPath.row]];
+        
+        [cell configCache:[self getDataId:indexPath.row] host:tableView];
         return cell;
         
     }
     else
     {
-        UITableViewCell* cell = [self createCell:@"customCell"];
+        UITableViewCell* cell = [self createCell:@"cell_2"];
         [cell bindByStrTag:@"multLineText" data:[self getText:indexPath.row]];
+        [cell configCache:[self getDataId:indexPath.row] host:tableView];
         return cell;
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if( 0 == indexPath.row )
-    {
-        NSNumber* number = [self.skinParser valueWithName:@"cell" key:@"height"];
-        if(number)
+    return [[self cacheValue:[self getDataId:indexPath.row] noCache:^id{
+        if( 0 == indexPath.row )
         {
-            return [number floatValue];
+            NSNumber* number = [self.skinParser valueWithName:@"cell_1" key:@"height"];
+            if(number)
+            {
+                return number;
+            }
+            else
+            {
+                UITableViewCell* cell = [self createCacheCell:@"cell_1"];
+                [cell bindByStrTag:@"titleLabel" data:[NSString stringWithFormat:@"我是第%zd行Title", indexPath.row]];
+                [cell bindByTag:7002 data:[NSString stringWithFormat:@"我是第%zd行DetailText", indexPath.row]];
+                CGRect frame = cell.frame;
+                frame.size.width = tableView.frame.size.width;
+                cell.frame = frame;
+                [cell spUpdateLayout];
+                [cell calcHeight];
+                return @(cell.frame.size.height);
+            }
         }
         else
         {
-            UITableViewCell* cell = [self createCacheCell:@"cell"];
-            [cell bindByStrTag:@"titleLabel" data:[NSString stringWithFormat:@"我是第%zd行Title", indexPath.row]];
-            [cell bindByTag:7002 data:[NSString stringWithFormat:@"我是第%zd行DetailText", indexPath.row]];
+            
+            UITableViewCell* cell = [self createCacheCell:@"cell_2"];
+            [cell bindByStrTag:@"multLineText" data:[self getText:indexPath.row]];
             CGRect frame = cell.frame;
             frame.size.width = tableView.frame.size.width;
             cell.frame = frame;
             [cell spUpdateLayout];
             [cell calcHeight];
-            return cell.frame.size.height;
+            return @(cell.frame.size.height);
         }
-    }
-    else
-    {
-        
-        UITableViewCell* cell = [self createCacheCell:@"customCell"];
-        [cell bindByStrTag:@"multLineText" data:[self getText:indexPath.row]];
-        CGRect frame = cell.frame;
-        frame.size.width = tableView.frame.size.width;
-        cell.frame = frame;
-        [cell spUpdateLayout];
-        [cell calcHeight];
-        return cell.frame.size.height;
-    }
+    }] floatValue];
 }
 
 - (void)TabButtonAction:(UIButton*)button

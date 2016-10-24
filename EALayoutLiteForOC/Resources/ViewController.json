@@ -268,7 +268,7 @@
         
         ]
     },
-    "defaultCell":
+    "cell_1":
     {
         "layout":{"s":"h"},
         "addSubview":[
@@ -307,7 +307,7 @@
                       }
                       ]
     },
-    "customCell":
+    "cell_2":
     {
         "layout":{"s":"h"},
         "addSubview":[
