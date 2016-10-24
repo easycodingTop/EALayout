@@ -503,4 +503,15 @@ NSString* EA_titleRightView         = @"titleRightView";
     return cacheView;
 }
 
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    NSLog(@"dealloc  %@", [self class]);
+}
+
+- (void)titleBackClick
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

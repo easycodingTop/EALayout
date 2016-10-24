@@ -50,6 +50,20 @@ typedef enum UpdateTitleMask {
 
 - (UITableViewCell*)createCacheCell:(NSString*)identifier;
 
+- (void)layoutSelfView;
+
+- (void)updateTitleView;
+
+- (void)titleBackClick;
+
+- (UIView*)createTitleBgView;
+
+- (UIView*)createTitleLeftView;
+
+- (UIView*)createTitleMiddleView;
+
+- (UIView*)createTitleRightView;
+
 @end 
 
 #endif

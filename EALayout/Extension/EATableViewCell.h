@@ -11,3 +11,8 @@
 @interface EATableViewCell : UITableViewCell
 
 @end
+
+
+@interface UITableViewCell (Layout)
+- (CGFloat)autoCalcHeight:(UITableView*) tableView;
+@end

@@ -25,3 +25,18 @@
 }
 
 @end
+
+@implementation UITableViewCell(Layout)
+
+- (CGFloat)autoCalcHeight:(UITableView*) tableView
+{
+    CGRect frame = self.frame;
+    frame.size.width = tableView.frame.size.width;
+    self.frame = frame;
+    [self spUpdateLayout];
+    [self calcHeight];
+    return self.frame.size.height;
+}
+
+@end
+
