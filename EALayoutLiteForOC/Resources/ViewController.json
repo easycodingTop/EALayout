@@ -5,7 +5,8 @@
         "backgroundColor":"whiteColor",
         
     },
-    "tableHeaderView":{
+    "tableHeaderView":
+    {
         "class":"UIView",
         "layout":{"s":"w=sw,h"},
         "backgroundColor":[240,240,240],
@@ -67,11 +68,13 @@
                       "layout":{"s":[
                                      {"s":"t=10,l,r","asstag":2},
                                      {"s":"b=10"}
-                                     ]}
+                                     ]
+                               }
                       }
                       ]
     },
-    "colorfulText":{
+    "colorfulText":
+    {
         "class":"UIView",
         "layout":{"s":"l,t=10,w=100,h"},
         "addSubview":[
@@ -111,7 +114,8 @@
                       }
                       ]
     },
-    "titleBgView":{
+    "titleBgView":
+    {
         "class":"UIView",
         "backgroundColor":[15,141,230],
         "layout":{"s":"l,r,h=64"}
@@ -126,7 +130,8 @@
         },
         "layout":{"s":"l,t=20,w=44,h=44","tag":12}
     },
-    "titleRightView":{
+    "titleRightView":
+    {
         "class":"UIButton",
         "text":"编辑",
         "font":14,
@@ -141,7 +146,8 @@
         "font":{"size":16,"name":"bold"},
         "textAlignment":"center"
     },
-    "contentHeaderView":{
+    "contentHeaderView":
+    {
         "class":"UIView",
         "backgroundColor":"whiteColor",
         "layout":{"s":"l,r,h=40"},
@@ -245,14 +251,16 @@
                       ]
     },
     
-    "contentView":{
+    "contentView":
+    {
         "class":"UIView",
         "layout":{"s":"l,r"},
         "addSubview":[
         
         ]
     },
-    "bottomView1":{
+    "bottomView1":
+    {
         "class":"UIView",
         "layout":{"s":"l,r,h=40"},
         "backgroundColor":"cyanColor",
@@ -260,7 +268,8 @@
         
         ]
     },
-    "defaultCell":{
+    "defaultCell":
+    {
         "layout":{"s":"h"},
         "addSubview":[
                       {
@@ -298,7 +307,8 @@
                       }
                       ]
     },
-    "customCell":{
+    "customCell":
+    {
         "layout":{"s":"h"},
         "addSubview":[
                       {
