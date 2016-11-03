@@ -9,8 +9,8 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "772D70F4-F176-4483-936E-6DF2655D6F21",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "92C34EA6A5E0B1E80496BF8F35904F1C07DCF73E" : "EALayoutLiteForOC",
-    "EB3D3B4B9575B6717E993164BA29804CF9EDF0BE" : "EALayoutLite"
+    "92C34EA6A5E0B1E80496BF8F35904F1C07DCF73E" : "EALayoutLiteForOC\/",
+    "EB3D3B4B9575B6717E993164BA29804CF9EDF0BE" : "EALayoutLite\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "EALayoutLiteForOC",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
