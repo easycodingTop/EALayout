@@ -52,7 +52,8 @@
         [cell bindByStrTag:@"titleLabel" data:[NSString stringWithFormat:@"我是第%zd行Title", indexPath.row]];
         [cell bindByTag:7002 data:[NSString stringWithFormat:@"我是第%zd行DetailText", indexPath.row]];
         
-        [cell configCache:[self getDataId:indexPath.row] host:tableView];
+        NSString* dataId = [self getDataId:indexPath.row];
+        [cell configCache:dataId host:tableView]; //dataId相同时，cell的所有view布局也将相同。此行目的是为了缓存布局，效率上优化。
         return cell;
         
     }
@@ -67,7 +68,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[self cacheValue:[self getDataId:indexPath.row] noCache:^id{
+    NSString* dataId = [self getDataId:indexPath.row];
+    return [[self cacheValue:dataId noCache:^id{ //dataId相同时，cell的高度将相同。相当于通过dataId缓存了计算的高度。
         if( 0 == indexPath.row )
         {
             NSNumber* number = [self.skinParser valueWithName:@"cell_1" key:@"height"];

@@ -137,7 +137,7 @@
 				TargetAttributes = {
 					28019CA11B5DEAD9009DBBB3 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = ZU7UBYNYGR;
+						DevelopmentTeam = L5MP6EN2EV;
 					};
 				};
 			};
@@ -296,7 +296,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ZU7UBYNYGR;
+				DEVELOPMENT_TEAM = L5MP6EN2EV;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = EALayoutLiteForOC/EALayoutLiteForOC.pch;
 				INFOPLIST_FILE = EALayoutLiteForOC/Info.plist;
@@ -314,7 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				DEVELOPMENT_TEAM = ZU7UBYNYGR;
+				DEVELOPMENT_TEAM = L5MP6EN2EV;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREFIX_HEADER = EALayoutLiteForOC/EALayoutLiteForOC.pch;
 				INFOPLIST_FILE = EALayoutLiteForOC/Info.plist;
