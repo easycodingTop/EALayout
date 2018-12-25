@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache" content="no-cache">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta name="applicable-device" content="mobile">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="full-screen" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+
+    <style>
+
+    * {
+        -webkit-user-select: none;/*禁用手机浏览器的用户选择功能 */
+        -moz-user-select: none;
+    }
+
+    .selected{ background:#FF0;}
+
+    .mypopMenu ul{list-style:none;}
+    .mypopMenu li{float:left;width:60px;color:#fff;background:#22c25c;margin-left:1px;line-height:30px;}
+    .mypopMenu div{display:block;text-align:center;height:30px;}
+    .mypopMenu {
+    	position:fixed;
+    	top:60px;
+        display:none
+    }
+
+    </style>
+
+    <title>H5_批注</title>
+    </head>
+    <body>
+
+<div class="mypopMenu">
+<ul>
+<li><div onclick=removeSelected()>删除</div></li>
+<li><div id="myComment" onclick=commentText()>批注</div></li>
+</ul>
+</div>
+
+    <div id="main">
+        <div><span>快速开发</span></div>
+
+        <p><span>毫秒级的热重载，修改后，您的应用界面会立即更新。</span><span>使用丰富的、完全可定制的widget在几分钟内构建原生界面。</span></p>
+
+        <p><span>富有表现力和灵活的UI</span></p>
+        <p><span>快速发布聚焦于原生体验的功能。</span><span>分层的架构允许您完全自定义，从而实现难以置信的快速渲染和富有表现力、灵活的设计。</span><span>快速发布聚焦于原生体验的功能。</span><span>分层的架构允许您完全自定义，从而实现难以置信的快速渲染和富有表现力、灵活的设计。</span></p>
+
+        <p><span>原生性能</span></p>
+
+        <p><span>Flutter包含了许多核心的widget，如滚动、导航、图标和字体等，这些都可以在iOS和Android上达到原生应用一样的性能。</span></p>
+
+        <!-- <image style="width:100%" src=https://cdn.jsdelivr.net/gh/flutterchina/website@1.0/images/homepage/screenshot-2.png /> -->
+
+        <B><span>统一的应用开发体验</span></B>
+
+        <p><span>Flutter拥有丰富的工具和库，可以帮助您轻松地同时在iOS和Android系统中实现您的想法和创意。</span> <br><span>如果您没有任何移动端开发体验，Flutter是一种轻松快捷的方式来构建漂亮的移动应用程序。</span> <br><span>如果您是一位经验丰富的iOS或Android开发人员，则可以使用Flutter作为视图(View)层， 并可以使用已经用Java / ObjC / Swift完成的部分（Flutter支持混合开发）。</span></p>
+        <div><span>快速开发</span></div>
+
+        <p><span>毫秒级的热重载，修改后，您的应用界面会立即更新。</span><span>使用丰富的、完全可定制的widget在几分钟内构建原生界面。</span></p>
+
+        <p><span>富有表现力和灵活的UI</span></p>
+        <p><span>快速发布聚焦于原生体验的功能。</span><span>分层的架构允许您完全自定义，从而实现难以置信的快速渲染和富有表现力、灵活的设计。</span><span>快速发布聚焦于原生体验的功能。</span><span>分层的架构允许您完全自定义，从而实现难以置信的快速渲染和富有表现力、灵活的设计。</span></p>
+
+        <p><span>原生性能</span></p>
+
+        <p><span>Flutter包含了许多核心的widget，如滚动、导航、图标和字体等，这些都可以在iOS和Android上达到原生应用一样的性能。</span></p>
+
+        <!-- <image style="width:100%" src=https://cdn.jsdelivr.net/gh/flutterchina/website@1.0/images/homepage/screenshot-2.png /> -->
+
+        <B><span>统一的应用开发体验</span></B>
+
+        <p><span>Flutter拥有丰富的工具和库，可以帮助您轻松地同时在iOS和Android系统中实现您的想法和创意。</span> <br><span>如果您没有任何移动端开发体验，Flutter是一种轻松快捷的方式来构建漂亮的移动应用程序。</span> <br><span>如果您是一位经验丰富的iOS或Android开发人员，则可以使用Flutter作为视图(View)层， 并可以使用已经用Java / ObjC / Swift完成的部分（Flutter支持混合开发）。</span></p>
+    </div>
+
+<script type="text/javascript" >
+
+    var curP = null;
+    function removeSelected(){
+        if(curP){
+            curP.classList.remove('selected')
+        }
+        document.querySelector('.mypopMenu').style.display="none";
+    }
+    function commentText() {
+        var name = prompt("请输入您的批注",""); // 弹出input框
+         curP.insertAdjacentHTML("beforeEnd","<div class='commenText' style='color:#aaa;font-size:12px'>我的批注:"+name+"</div>");
+        document.querySelector('.mypopMenu').style.display="none";
+    }
+
+    window.onload = function () {
+
+        var div = document.querySelector("#main");
+        var timer = null
+        var startTime = ''
+        var endTime = ''
+
+
+        div.addEventListener('touchstart', function (event) {
+          startTime = +new Date()
+          var touchEvent = event;
+          curP = event.srcElement;
+
+          if(!curP.nodeName || curP.nodeName.toLowerCase() != "span")
+          {
+              return;
+          }
+          if(curP.classList.contains('selected')){
+              document.querySelector('.mypopMenu').style.display="block"
+              var off = touchEvent.touches[0].clientY;
+              if(off > 80){
+                  off -= 80;
+              }
+              document.querySelector('.mypopMenu').style.top=off+"px"
+              return;
+          }
+
+          if(document.querySelector('.mypopMenu').style.display=="block"){
+              document.querySelector('.mypopMenu').style.display="none";
+          }
+
+          timer = setTimeout(function () {
+              if(curP.classList.contains('selected')){
+                  document.querySelector('.mypopMenu').style.display="block"
+              } else {
+                  curP.classList.add('selected');
+                  document.querySelector('.mypopMenu').style.display="block"
+                  var off = touchEvent.touches[0].clientY;
+                  if(off > 80){
+                      off -= 80;
+                  }
+                  document.querySelector('.mypopMenu').style.top=off+"px"
+              }
+          }, 300)
+        })
+
+        div.addEventListener('touchend', function () {
+          endTime = +new Date()
+          clearTimeout(timer)
+        })
+
+
+        // var currentSecitonText = "";
+        // document.addEventListener("selectionchange", function(event) {
+        //     console.log('Selection changed:'  + event);
+        //     var sec = window.getSelection();
+        //     if(sec.focusNode){
+        //
+        //         var text = sec.focusNode.textContent;
+        //         var leftText = text.substr(0, sec.anchorOffset);
+        //         var leftFlags = ['。','；', '\n', '\t'];
+        //         var leftMaxFlagIndex = 0;
+        //         leftFlags.forEach(function(flagflag){
+        //             var maxIndex = leftText.lastIndexOf(flagflag)+1;
+        //             if(maxIndex > leftMaxFlagIndex){
+        //                 leftMaxFlagIndex = maxIndex;
+        //             }
+        //         });
+        //
+        //         var rightText = text.substr(sec.focusOffset);
+        //         var rightMinFlagIndex = text.length;
+        //         leftFlags.forEach(function(flagflag){
+        //             var minIndex = rightText.indexOf(flagflag);
+        //             if(minIndex >= 0 && minIndex < rightMinFlagIndex){
+        //                 rightMinFlagIndex = minIndex;
+        //             }
+        //         });
+        //         rightMinFlagIndex += sec.focusOffset;
+        //         if(rightMinFlagIndex >= text.length-1){
+        //             rightMinFlagIndex = text.length;
+        //         }
+        //
+        //         var curSecText = text.substr(leftMaxFlagIndex, rightMinFlagIndex-leftMaxFlagIndex);
+        //         if(curSecText == currentSecitonText)
+        //         {
+        //             return;
+        //         }
+        //         currentSecitonText = curSecText;
+        //         var rangeObj = document.createRange();
+        //         rangeObj.setStart(sec.focusNode, leftMaxFlagIndex);
+        //         rangeObj.setEnd(sec.focusNode, rightMinFlagIndex);
+        //         sec.removeAllRanges();
+        //         sec.addRange(rangeObj);
+        //
+        //         console.log(sec.focusNode.textContent.substr(sec.anchorOffset, sec.focusOffset - sec.anchorOffset));
+        //     }
+        //
+        // });
+    }
+</script>
+    </body>
+    </html>
